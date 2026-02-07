@@ -1,0 +1,15 @@
+{
+  "name": "alert",
+  "type": "ui",
+  "description": "Inline alerts with default and destructive styles",
+  "files": [
+    {
+      "path": "components/ui/alert.tsx",
+      "type": "component",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst alertVariants = cva(\n  \"relative w-full rounded-lg border border-border/50 px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-muted/30 text-foreground\",\n        destructive:\n          \"border-red-500/40 text-red-500 bg-red-500/5 *:data-[slot=alert-description]:text-red-400\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nfunction Alert({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof alertVariants>) {\n  return (\n    <div\n      data-slot=\"alert\"\n      role=\"alert\"\n      className={cn(alertVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nfunction AlertTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"alert-title\"\n      className={cn(\"col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction AlertDescription({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"alert-description\"\n      className={cn(\n        \"col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Alert, AlertTitle, AlertDescription }\n"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

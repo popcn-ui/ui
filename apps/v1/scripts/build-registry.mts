@@ -12,7 +12,7 @@ interface RegistryItem {
   name: string
   type: string
   description?: string
-  files?: Array<{ path: string; type: string; content?: string }>
+  files?: Array<string | { path: string; type: string; content?: string }>
   dependencies?: string[]
   devDependencies?: string[]
   registryDependencies?: string[]
@@ -56,10 +56,20 @@ function buildComponentRegistry() {
 
     // Read actual file contents
     if (item.files) {
-      item.files = item.files.map((f) => ({
-        ...f,
-        content: getFileContent(f.path),
-      }))
+      item.files = item.files.map((fileEntry) => {
+        if (typeof fileEntry === "string") {
+          return {
+            path: fileEntry,
+            type: "registry:ui",
+            content: getFileContent(fileEntry),
+          }
+        }
+
+        return {
+          ...fileEntry,
+          content: getFileContent(fileEntry.path),
+        }
+      })
     }
 
     items.push(item)

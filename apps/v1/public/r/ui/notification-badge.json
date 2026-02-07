@@ -1,0 +1,15 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "notification-badge",
+  "type": "ui",
+  "description": "Notification badge component for displaying counts and dots",
+  "files": [
+    {
+      "path": "components/ui/notification-badge.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nconst notificationBadgeVariants = cva(\n  [\n    \"inline-flex items-center justify-center\",\n    \"rounded-full font-semibold text-xs\",\n    \"min-w-[1.25rem] h-5 px-1.5\",\n    \"bg-primary text-primary-foreground\",\n    \"shadow-sm\",\n  ],\n  {\n    variants: {\n      variant: {\n        default: \"bg-primary text-primary-foreground\",\n        aurora: \"bg-aurora text-primary-foreground shadow-[0_0_8px_rgba(var(--ap-primary),0.4)]\",\n        destructive: \"bg-destructive text-destructive-foreground\",\n        outline: \"border border-primary bg-transparent text-primary\",\n      },\n      size: {\n        sm: \"h-4 min-w-[1rem] px-1 text-[0.625rem]\",\n        md: \"h-5 min-w-[1.25rem] px-1.5 text-xs\",\n        lg: \"h-6 min-w-[1.5rem] px-2 text-sm\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"md\",\n    },\n  }\n)\n\ninterface NotificationBadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof notificationBadgeVariants> {\n  count?: number\n  maxCount?: number\n  showZero?: boolean\n  dot?: boolean\n}\n\nfunction NotificationBadge({\n  className,\n  variant,\n  size,\n  count,\n  maxCount = 99,\n  showZero = false,\n  dot = false,\n  ...props\n}: NotificationBadgeProps) {\n  const displayCount = React.useMemo(() => {\n    if (dot) return null\n    if (count === undefined || count === null) return null\n    if (!showZero && count === 0) return null\n    return count > maxCount ? `${maxCount}+` : String(count)\n  }, [count, maxCount, showZero, dot])\n\n  if (!dot && displayCount === null) {\n    return null\n  }\n\n  return (\n    <span\n      className={cn(notificationBadgeVariants({ variant, size }), className)}\n      {...props}\n    >\n      {dot ? (\n        <span className=\"h-2 w-2 rounded-full bg-current\" />\n      ) : (\n        displayCount\n      )}\n    </span>\n  )\n}\n\nexport {\n  NotificationBadge,\n  notificationBadgeVariants,\n  type NotificationBadgeProps,\n}\n"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}

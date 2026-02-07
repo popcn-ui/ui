@@ -1,0 +1,15 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "split-button",
+  "type": "ui",
+  "description": "Split button component with dropdown menu",
+  "files": [
+    {
+      "path": "components/ui/split-button.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { ChevronDownIcon } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button, ButtonProps } from \"@/components/ui/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from \"@/components/ui/dropdown-menu\"\n\ninterface SplitButtonProps extends Omit<ButtonProps, \"onClick\"> {\n  onClick?: () => void\n  dropdownItems?: Array<{\n    label: string\n    onClick: () => void\n    disabled?: boolean\n    separator?: boolean\n  }>\n  dropdownLabel?: string\n}\n\nfunction SplitButton({\n  onClick,\n  dropdownItems = [],\n  dropdownLabel,\n  children,\n  className,\n  ...props\n}: SplitButtonProps) {\n  return (\n    <div className=\"inline-flex\">\n      <Button\n        onClick={onClick}\n        className={cn(\"rounded-r-none border-r-0\", className)}\n        {...props}\n      >\n        {children}\n      </Button>\n      {dropdownItems.length > 0 && (\n        <DropdownMenu>\n          <DropdownMenuTrigger asChild>\n            <Button\n              variant={props.variant}\n              size={props.size}\n              className={cn(\n                \"rounded-l-none border-l border-l-border/60 px-2\",\n                className\n              )}\n              {...props}\n            >\n              <ChevronDownIcon className=\"h-4 w-4\" />\n              <span className=\"sr-only\">{dropdownLabel || \"More options\"}</span>\n            </Button>\n          </DropdownMenuTrigger>\n          <DropdownMenuContent align=\"end\">\n            {dropdownItems.map((item, index) => (\n              <React.Fragment key={index}>\n                {item.separator && index > 0 && <DropdownMenuSeparator />}\n                <DropdownMenuItem\n                  onClick={item.onClick}\n                  disabled={item.disabled}\n                >\n                  {item.label}\n                </DropdownMenuItem>\n              </React.Fragment>\n            ))}\n          </DropdownMenuContent>\n        </DropdownMenu>\n      )}\n    </div>\n  )\n}\n\nexport { SplitButton, type SplitButtonProps }\n"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button", "dropdown-menu"]
+}

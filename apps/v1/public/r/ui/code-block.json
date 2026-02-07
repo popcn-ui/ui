@@ -1,0 +1,15 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "code-block",
+  "type": "ui",
+  "description": "Code block component with syntax highlighting and copy functionality",
+  "files": [
+    {
+      "path": "components/ui/code-block.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { CopyIcon, CheckIcon } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\ninterface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {\n  code: string\n  language?: string\n  showLineNumbers?: boolean\n  showCopyButton?: boolean\n  filename?: string\n}\n\nfunction CodeBlock({\n  code,\n  language,\n  showLineNumbers = false,\n  showCopyButton = true,\n  filename,\n  className,\n  ...props\n}: CodeBlockProps) {\n  const [copied, setCopied] = React.useState(false)\n\n  const handleCopy = async () => {\n    try {\n      await navigator.clipboard.writeText(code)\n      setCopied(true)\n      setTimeout(() => setCopied(false), 2000)\n    } catch (err) {\n      console.error(\"Failed to copy:\", err)\n    }\n  }\n\n  const lines = code.split(\"\\n\")\n\n  return (\n    <div className=\"relative group\">\n      {filename && (\n        <div className=\"flex items-center justify-between px-4 py-2 text-xs font-medium border-b border-border/60 bg-muted/30 rounded-t-lg\">\n          <span className=\"text-muted-foreground\">{filename}</span>\n          {language && (\n            <span className=\"text-muted-foreground uppercase\">{language}</span>\n          )}\n        </div>\n      )}\n      <div className=\"relative\">\n        <pre\n          className={cn(\n            \"overflow-x-auto rounded-lg bg-muted/50 p-4 text-sm font-mono\",\n            filename && \"rounded-t-none\",\n            className\n          )}\n          {...props}\n        >\n          <code>\n            {showLineNumbers ? (\n              <div className=\"flex gap-4\">\n                <div className=\"select-none text-muted-foreground/50 text-right\">\n                  {lines.map((_, i) => (\n                    <div key={i}>{i + 1}</div>\n                  ))}\n                </div>\n                <div className=\"flex-1\">\n                  {lines.map((line, i) => (\n                    <div key={i}>{line || \"\\u00A0\"}</div>\n                  ))}\n                </div>\n              </div>\n            ) : (\n              code\n            )}\n          </code>\n        </pre>\n        {showCopyButton && (\n          <Button\n            variant=\"ghost\"\n            size=\"sm\"\n            className=\"absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity\"\n            onClick={handleCopy}\n          >\n            {copied ? (\n              <CheckIcon className=\"h-4 w-4\" />\n            ) : (\n              <CopyIcon className=\"h-4 w-4\" />\n            )}\n          </Button>\n        )}\n      </div>\n    </div>\n  )\n}\n\nexport { CodeBlock, type CodeBlockProps }\n"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

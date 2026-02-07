@@ -1,0 +1,15 @@
+{
+  "$schema": "../../registry-schema.json",
+  "name": "typography",
+  "type": "ui",
+  "description": "Typography component for consistent text styling",
+  "files": [
+    {
+      "path": "components/ui/typography.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst typographyVariants = cva(\"\", {\n  variants: {\n    variant: {\n      h1: \"scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl\",\n      h2: \"scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0\",\n      h3: \"scroll-m-20 text-2xl font-semibold tracking-tight\",\n      h4: \"scroll-m-20 text-xl font-semibold tracking-tight\",\n      p: \"leading-7 [&:not(:first-child)]:mt-6\",\n      blockquote: \"mt-6 border-l-2 pl-6 italic\",\n      list: \"my-6 ml-6 list-disc [&>li]:mt-2\",\n      \"inline-code\": \"bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold\",\n      lead: \"text-xl text-muted-foreground\",\n      large: \"text-lg font-semibold\",\n      small: \"text-sm font-medium leading-none\",\n      muted: \"text-sm text-muted-foreground\",\n      table: \"w-full\",\n    },\n  },\n  defaultVariants: {\n    variant: \"p\",\n  },\n})\n\nexport interface TypographyProps\n  extends React.HTMLAttributes<HTMLElement>,\n    VariantProps<typeof typographyVariants> {\n  as?: keyof React.JSX.IntrinsicElements\n}\n\nconst Typography = React.forwardRef<HTMLElement, TypographyProps>(\n  ({ className, variant, as, children, ...props }, ref) => {\n    const Component = (as || getDefaultElement(variant || \"p\")) as React.ElementType\n    return (\n      <Component\n        ref={ref as any}\n        className={cn(typographyVariants({ variant }), className)}\n        {...props}\n      >\n        {children}\n      </Component>\n    )\n  }\n)\nTypography.displayName = \"Typography\"\n\nfunction getDefaultElement(\n  variant: string\n): keyof React.JSX.IntrinsicElements {\n  switch (variant) {\n    case \"h1\":\n      return \"h1\"\n    case \"h2\":\n      return \"h2\"\n    case \"h3\":\n      return \"h3\"\n    case \"h4\":\n      return \"h4\"\n    case \"blockquote\":\n      return \"blockquote\"\n    case \"list\":\n      return \"ul\"\n    case \"inline-code\":\n      return \"code\"\n    case \"table\":\n      return \"table\"\n    default:\n      return \"p\"\n  }\n}\n\nexport { Typography, typographyVariants }\n",
+      "type": "ui"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}

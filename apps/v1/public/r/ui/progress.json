@@ -1,0 +1,15 @@
+{
+  "name": "progress",
+  "type": "ui",
+  "description": "Progress bar component",
+  "files": [
+    {
+      "path": "components/ui/progress.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as ProgressPrimitive from \"@radix-ui/react-progress\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Progress({\n  className,\n  value,\n  variant = \"default\",\n  ...props\n}: React.ComponentProps<typeof ProgressPrimitive.Root> & {\n  variant?: \"default\" | \"aurora\"\n}) {\n  const isAurora = variant === \"aurora\"\n\n  return (\n    <ProgressPrimitive.Root\n      data-slot=\"progress\"\n      className={cn(\n        \"relative h-2 w-full overflow-hidden rounded-full\",\n        isAurora ? \"bg-muted/30\" : \"bg-primary/20\",\n        className\n      )}\n      {...props}\n    >\n      <ProgressPrimitive.Indicator\n        data-slot=\"progress-indicator\"\n        className={cn(\n          \"h-full w-full flex-1 transition-all\",\n          isAurora ? \"bg-aurora\" : \"bg-primary\"\n        )}\n        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}\n      />\n    </ProgressPrimitive.Root>\n  )\n}\n\nexport { Progress }\n"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-progress", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "pnpm build:registry && next build",
     "build:registry": "tsx scripts/build-registry.mts",
+    "cf:build": "pnpm build:registry && opennextjs-cloudflare build",
+    "cf:preview": "pnpm cf:build && opennextjs-cloudflare preview",
+    "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
@@ -60,6 +63,7 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.16.3",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.0",
@@ -73,6 +77,7 @@
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "wrangler": "^4.63.0"
   }
 }

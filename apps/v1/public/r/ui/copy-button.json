@@ -1,0 +1,15 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "copy-button",
+  "type": "ui",
+  "description": "Copy button component with clipboard functionality",
+  "files": [
+    {
+      "path": "components/ui/copy-button.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { CopyIcon, CheckIcon } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button, ButtonProps } from \"@/components/ui/button\"\n\ninterface CopyButtonProps extends Omit<ButtonProps, \"onClick\" | \"onCopy\"> {\n  value: string\n  onCopy?: (value: string) => void\n  copiedLabel?: string\n  copyLabel?: string\n  duration?: number\n}\n\nfunction CopyButton({\n  value,\n  onCopy,\n  copiedLabel = \"Copied!\",\n  copyLabel = \"Copy\",\n  duration = 2000,\n  className,\n  children,\n  ...props\n}: CopyButtonProps) {\n  const [copied, setCopied] = React.useState(false)\n\n  const handleCopy = async () => {\n    try {\n      await navigator.clipboard.writeText(value)\n      setCopied(true)\n      onCopy?.(value)\n      setTimeout(() => setCopied(false), duration)\n    } catch (err) {\n      console.error(\"Failed to copy:\", err)\n    }\n  }\n\n  return (\n    <Button\n      variant=\"ghost\"\n      size=\"sm\"\n      onClick={handleCopy}\n      className={cn(\"gap-2\", className)}\n      {...props}\n    >\n      {copied ? (\n        <>\n          <CheckIcon className=\"h-4 w-4\" />\n          {copiedLabel}\n        </>\n      ) : (\n        <>\n          <CopyIcon className=\"h-4 w-4\" />\n          {children || copyLabel}\n        </>\n      )}\n    </Button>\n  )\n}\n\nexport { CopyButton, type CopyButtonProps }\n"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

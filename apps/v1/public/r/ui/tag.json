@@ -1,0 +1,15 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "tag",
+  "type": "ui",
+  "description": "Tag component with removable option",
+  "files": [
+    {
+      "path": "components/ui/tag.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { XIcon } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nconst tagVariants = cva(\n  [\n    \"inline-flex items-center gap-1.5\",\n    \"rounded-md px-2.5 py-0.5 text-sm font-medium\",\n    \"transition-colors\",\n  ],\n  {\n    variants: {\n      variant: {\n        default: [\n          \"bg-muted text-muted-foreground\",\n          \"hover:bg-muted/80\",\n        ],\n        aurora: [\n          \"bg-aurora/20 text-primary\",\n          \"border border-primary/30\",\n          \"hover:bg-aurora/30\",\n        ],\n        outline: [\n          \"border border-border/60 bg-transparent\",\n          \"hover:bg-muted/50\",\n        ],\n        secondary: [\n          \"bg-secondary text-secondary-foreground\",\n          \"hover:bg-secondary/80\",\n        ],\n      },\n      size: {\n        sm: \"px-2 py-0.5 text-xs\",\n        md: \"px-2.5 py-0.5 text-sm\",\n        lg: \"px-3 py-1 text-base\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"md\",\n    },\n  }\n)\n\ninterface TagProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof tagVariants> {\n  onRemove?: () => void\n  removable?: boolean\n}\n\nconst Tag = React.forwardRef<HTMLSpanElement, TagProps>(\n  (\n    {\n      className,\n      variant,\n      size,\n      onRemove,\n      removable = false,\n      children,\n      ...props\n    },\n    ref\n  ) => {\n    return (\n      <span\n        ref={ref}\n        className={cn(tagVariants({ variant, size }), className)}\n        {...props}\n      >\n        {children}\n        {removable && onRemove && (\n          <button\n            type=\"button\"\n            onClick={(e) => {\n              e.stopPropagation()\n              onRemove()\n            }}\n            className=\"ml-1 rounded-full hover:bg-muted/80 p-0.5 transition-colors\"\n            aria-label=\"Remove tag\"\n          >\n            <XIcon className=\"h-3 w-3\" />\n          </button>\n        )}\n      </span>\n    )\n  }\n)\n\nTag.displayName = \"Tag\"\n\nexport { Tag, tagVariants, type TagProps }\n"
+    }
+  ],
+  "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}

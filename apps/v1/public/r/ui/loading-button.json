@@ -1,0 +1,15 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "loading-button",
+  "type": "ui",
+  "description": "Button component with loading state",
+  "files": [
+    {
+      "path": "components/ui/loading-button.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { LoaderIcon } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button, ButtonProps, buttonVariants } from \"@/components/ui/button\"\n\ninterface LoadingButtonProps extends ButtonProps {\n  loading?: boolean\n  loadingText?: string\n  loadingIcon?: React.ReactNode\n}\n\nconst LoadingButton = React.forwardRef<HTMLButtonElement, LoadingButtonProps>(\n  (\n    {\n      className,\n      variant,\n      size,\n      loading = false,\n      loadingText,\n      loadingIcon,\n      children,\n      disabled,\n      ...props\n    },\n    ref\n  ) => {\n    return (\n      <Button\n        className={cn(className)}\n        variant={variant}\n        size={size}\n        ref={ref}\n        disabled={disabled || loading}\n        {...props}\n      >\n        {loading && (\n          <span className=\"mr-2\">\n            {loadingIcon || (\n              <LoaderIcon className=\"h-4 w-4 animate-spin\" />\n            )}\n          </span>\n        )}\n        {loading && loadingText ? loadingText : children}\n      </Button>\n    )\n  }\n)\n\nLoadingButton.displayName = \"LoadingButton\"\n\nexport { LoadingButton, type LoadingButtonProps }\n"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

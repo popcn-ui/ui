@@ -2,6 +2,34 @@
   "version": "0.0.1",
   "components": [
     {
+      "name": "accordion",
+      "type": "ui",
+      "description": "Collapsible content panels with smooth animations",
+      "dependencies": ["@radix-ui/react-accordion", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "alert-dialog",
+      "type": "ui",
+      "description": "Confirmation dialog with aurora-styled actions",
+      "dependencies": ["@radix-ui/react-alert-dialog", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "alert",
+      "type": "ui",
+      "description": "Inline alerts with default and destructive styles",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "ui",
+      "description": "Maintain consistent aspect ratios for media",
+      "dependencies": ["@radix-ui/react-aspect-ratio"],
+      "registryDependencies": []
+    },
+    {
       "name": "avatar",
       "type": "ui",
       "description": "Avatar with size options and glow ring variants",
@@ -17,33 +45,61 @@
       "name": "badge",
       "type": "ui",
       "description": "Status badge with aurora, glass, and outline variants",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "breadcrumb",
+      "type": "ui",
+      "description": "Breadcrumb navigation with separators and overflow",
+      "dependencies": ["@radix-ui/react-slot", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "button-group",
+      "type": "ui",
+      "description": "Grouped buttons with shared borders and separators",
       "dependencies": [
+        "@radix-ui/react-slot",
         "class-variance-authority",
         "clsx",
         "tailwind-merge"
       ],
-      "registryDependencies": []
+      "registryDependencies": ["separator"]
     },
     {
       "name": "button",
       "type": "ui",
       "description": "Aurora-styled button with gradient variants and motion presets",
-      "dependencies": [
-        "class-variance-authority",
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
       "registryDependencies": []
+    },
+    {
+      "name": "calendar",
+      "type": "ui",
+      "description": "Calendar component with custom day styles",
+      "dependencies": ["react-day-picker", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
     },
     {
       "name": "card",
       "type": "ui",
       "description": "Card container with glass, aurora-border, and solid variants",
-      "dependencies": [
-        "class-variance-authority",
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "carousel",
+      "type": "ui",
+      "description": "Carousel with embla controls and navigation",
+      "dependencies": ["embla-carousel-react", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "chart",
+      "type": "ui",
+      "description": "Chart container and tooltip helpers for Recharts",
+      "dependencies": ["recharts", "clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
@@ -60,38 +116,168 @@
       "registryDependencies": []
     },
     {
+      "name": "code-block",
+      "type": "ui",
+      "description": "Code block component with syntax highlighting and copy functionality",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "collapsible",
+      "type": "ui",
+      "description": "Show and hide content with a trigger",
+      "dependencies": ["@radix-ui/react-collapsible"],
+      "registryDependencies": []
+    },
+    {
+      "name": "color-picker",
+      "type": "ui",
+      "description": "Color picker component with RGB and HSL sliders",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["popover", "button", "input", "slider"]
+    },
+    {
+      "name": "combobox",
+      "type": "ui",
+      "description": "Combobox with searchable list and chips",
+      "dependencies": ["@base-ui/react", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["input-group", "button"]
+    },
+    {
+      "name": "command",
+      "type": "ui",
+      "description": "Command palette with search and groups",
+      "dependencies": ["cmdk", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["dialog"]
+    },
+    {
+      "name": "context-menu",
+      "type": "ui",
+      "description": "Context menu with submenus and radio items",
+      "dependencies": ["@radix-ui/react-context-menu", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "copy-button",
+      "type": "ui",
+      "description": "Copy button component with clipboard functionality",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "data-table",
+      "type": "ui",
+      "description": "Data table component with sorting, filtering, and pagination",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["table", "button"]
+    },
+    {
+      "name": "date-picker",
+      "type": "ui",
+      "description": "Date picker component with calendar popover",
+      "dependencies": ["date-fns", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["calendar", "popover", "button"]
+    },
+    {
       "name": "dialog",
       "type": "ui",
       "description": "Modal dialog with glass backdrop and aurora glow",
-      "dependencies": [
-        "@radix-ui/react-dialog",
-        "lucide-react",
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["@radix-ui/react-dialog", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "drawer",
+      "type": "ui",
+      "description": "Slide-in drawer with multiple directions",
+      "dependencies": ["vaul", "clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
       "name": "dropdown-menu",
       "type": "ui",
       "description": "Dropdown menu with glass panel styling",
+      "dependencies": ["@radix-ui/react-dropdown-menu", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "empty",
+      "type": "ui",
+      "description": "Empty state layout with header and actions",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "field",
+      "type": "ui",
+      "description": "Form field layout helpers",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["label", "separator"]
+    },
+    {
+      "name": "file-upload",
+      "type": "ui",
+      "description": "File upload component with drag and drop support",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "form",
+      "type": "ui",
+      "description": "React Hook Form helpers and slots",
       "dependencies": [
-        "@radix-ui/react-dropdown-menu",
-        "lucide-react",
+        "react-hook-form",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-label",
         "clsx",
         "tailwind-merge"
       ],
+      "registryDependencies": ["label"]
+    },
+    {
+      "name": "hover-card",
+      "type": "ui",
+      "description": "Hover card with popover content",
+      "dependencies": ["@radix-ui/react-hover-card", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "input-group",
+      "type": "ui",
+      "description": "Input group with addons and buttons",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["input", "button"]
+    },
+    {
+      "name": "input-otp",
+      "type": "ui",
+      "description": "One-time password input with slots",
+      "dependencies": ["input-otp", "lucide-react", "clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
       "name": "input",
       "type": "ui",
       "description": "Form input with aurora, glass, and ghost variants",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "item",
+      "type": "ui",
+      "description": "List item component with media, content, and actions",
       "dependencies": [
+        "@radix-ui/react-slot",
         "class-variance-authority",
         "clsx",
         "tailwind-merge"
       ],
+      "registryDependencies": ["separator"]
+    },
+    {
+      "name": "kbd",
+      "type": "ui",
+      "description": "Keyboard key indicator component",
+      "dependencies": ["clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
@@ -107,15 +293,107 @@
       "registryDependencies": []
     },
     {
-      "name": "select",
+      "name": "loading-button",
       "type": "ui",
-      "description": "Dropdown select with glass styling",
+      "description": "Button component with loading state",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "menubar",
+      "type": "ui",
+      "description": "Menubar component with submenus and radio items",
+      "dependencies": ["@radix-ui/react-menubar", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "multi-select",
+      "type": "ui",
+      "description": "Multi-select component with checkboxes and badges",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["popover", "button", "badge"]
+    },
+    {
+      "name": "native-select",
+      "type": "ui",
+      "description": "Native select dropdown with custom styling",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "navigation-menu",
+      "type": "ui",
+      "description": "Navigation menu with dropdowns and links",
       "dependencies": [
-        "@radix-ui/react-select",
+        "@radix-ui/react-navigation-menu",
         "lucide-react",
+        "class-variance-authority",
         "clsx",
         "tailwind-merge"
       ],
+      "registryDependencies": []
+    },
+    {
+      "name": "notification-badge",
+      "type": "ui",
+      "description": "Notification badge component for displaying counts and dots",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "pagination",
+      "type": "ui",
+      "description": "Pagination component with page navigation",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "popover",
+      "type": "ui",
+      "description": "Popover component with positioning",
+      "dependencies": ["@radix-ui/react-popover", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "progress",
+      "type": "ui",
+      "description": "Progress bar component",
+      "dependencies": ["@radix-ui/react-progress", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "radio-group",
+      "type": "ui",
+      "description": "Radio group component for single selection",
+      "dependencies": ["@radix-ui/react-radio-group", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "rating",
+      "type": "ui",
+      "description": "Rating component with star display",
+      "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "resizable",
+      "type": "ui",
+      "description": "Resizable panel component",
+      "dependencies": ["react-resizable-panels", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "scroll-area",
+      "type": "ui",
+      "description": "Scrollable area component",
+      "dependencies": ["@radix-ui/react-scroll-area", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "select",
+      "type": "ui",
+      "description": "Dropdown select with glass styling",
+      "dependencies": ["@radix-ui/react-select", "lucide-react", "clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
@@ -131,25 +409,60 @@
       "registryDependencies": []
     },
     {
+      "name": "sheet",
+      "type": "ui",
+      "description": "Sheet component (side panel)",
+      "dependencies": ["@radix-ui/react-dialog", "lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "sidebar",
+      "type": "ui",
+      "description": "Sidebar component with collapsible options",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["sheet", "button"]
+    },
+    {
       "name": "skeleton",
       "type": "ui",
       "description": "Loading skeleton with aurora shimmer animation",
-      "dependencies": [
-        "class-variance-authority",
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "slider",
+      "type": "ui",
+      "description": "Slider component for range selection",
+      "dependencies": ["@radix-ui/react-slider", "clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
       "name": "sonner",
       "type": "ui",
       "description": "Toast notifications with aurora glow effects",
-      "dependencies": [
-        "sonner",
-        "next-themes"
-      ],
+      "dependencies": ["sonner", "next-themes"],
       "registryDependencies": []
+    },
+    {
+      "name": "spinner",
+      "type": "ui",
+      "description": "Loading spinner component",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "split-button",
+      "type": "ui",
+      "description": "Split button component with dropdown menu",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button", "dropdown-menu"]
+    },
+    {
+      "name": "stepper",
+      "type": "ui",
+      "description": "Stepper component for multi-step processes",
+      "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["button"]
     },
     {
       "name": "switch",
@@ -161,6 +474,13 @@
         "clsx",
         "tailwind-merge"
       ],
+      "registryDependencies": []
+    },
+    {
+      "name": "table",
+      "type": "ui",
+      "description": "Table component with rows and cells",
+      "dependencies": ["clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
@@ -176,14 +496,71 @@
       "registryDependencies": []
     },
     {
-      "name": "tooltip",
+      "name": "tag",
       "type": "ui",
-      "description": "Tooltip with glass styling",
+      "description": "Tag component with removable option",
+      "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "textarea",
+      "type": "ui",
+      "description": "Textarea component for multi-line input",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "timeline",
+      "type": "ui",
+      "description": "Timeline component for displaying chronological events",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "toast",
+      "type": "ui",
+      "description": "Toast notification API (re-exported from sonner)",
+      "dependencies": ["sonner"],
+      "registryDependencies": []
+    },
+    {
+      "name": "toggle-group",
+      "type": "ui",
+      "description": "Group of toggle buttons with shared styling",
+      "dependencies": ["@radix-ui/react-toggle-group", "clsx", "tailwind-merge"],
+      "registryDependencies": ["toggle"]
+    },
+    {
+      "name": "toggle",
+      "type": "ui",
+      "description": "Toggle button with aurora styling variants",
       "dependencies": [
-        "@radix-ui/react-tooltip",
+        "@radix-ui/react-toggle",
+        "class-variance-authority",
         "clsx",
         "tailwind-merge"
       ],
+      "registryDependencies": []
+    },
+    {
+      "name": "tooltip",
+      "type": "ui",
+      "description": "Tooltip with glass styling",
+      "dependencies": ["@radix-ui/react-tooltip", "clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "tree-view",
+      "type": "ui",
+      "description": "Tree view component for displaying hierarchical data",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["collapsible"]
+    },
+    {
+      "name": "typography",
+      "type": "ui",
+      "description": "Typography component for consistent text styling",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
       "registryDependencies": []
     }
   ],
