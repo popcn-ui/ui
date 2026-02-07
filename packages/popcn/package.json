@@ -1,7 +1,7 @@
 {
   "name": "popcn",
   "version": "0.0.2",
-  "description": "CLI for popcn/ui - AuroraPop design system",
+  "description": "Add components to your project - PopCN design system",
   "publishConfig": {
     "access": "public"
   },

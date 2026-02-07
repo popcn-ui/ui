@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest"
-import { AURORAPOP_CSS, UTILS_TS, TAILWIND_CONFIG_EXTENSION } from "../utils/templates.js"
+import {
+  AURORAPOP_CSS,
+  UTILS_TS,
+  TAILWIND_CONFIG_EXTENSION,
+  getTailwindConfigContent,
+} from "../utils/templates.js"
 
 describe("utils/templates", () => {
   describe("AURORAPOP_CSS", () => {
@@ -103,40 +108,94 @@ describe("utils/templates", () => {
 
   describe("TAILWIND_CONFIG_EXTENSION", () => {
     it("should contain color definitions using CSS variables", () => {
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("--ap-primary")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("--ap-secondary")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("--ap-background")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("--ap-foreground")
+      const colors = TAILWIND_CONFIG_EXTENSION.theme.extend.colors
+      expect(colors.primary.DEFAULT).toContain("--ap-primary")
+      expect(colors.secondary.DEFAULT).toContain("--ap-secondary")
+      expect(colors.background).toContain("--ap-background")
+      expect(colors.foreground).toContain("--ap-foreground")
+    })
+
+    it("should contain all required color aliases", () => {
+      const colors = TAILWIND_CONFIG_EXTENSION.theme.extend.colors
+      expect(colors).toHaveProperty("card")
+      expect(colors).toHaveProperty("popover")
+      expect(colors).toHaveProperty("accent")
+      expect(colors).toHaveProperty("destructive")
+      expect(colors).toHaveProperty("input")
     })
 
     it("should contain keyframes definitions", () => {
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("ap-float")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("ap-bounce")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("ap-wiggle")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("ap-jelly")
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("ap-pulse-ring")
+      const keyframes = TAILWIND_CONFIG_EXTENSION.theme.extend.keyframes
+      expect(keyframes).toHaveProperty("ap-float")
+      expect(keyframes).toHaveProperty("ap-bounce")
+      expect(keyframes).toHaveProperty("ap-wiggle")
+      expect(keyframes).toHaveProperty("ap-jelly")
+      expect(keyframes).toHaveProperty("ap-pulse-ring")
+      expect(keyframes).toHaveProperty("accordion-down")
+      expect(keyframes).toHaveProperty("accordion-up")
+      expect(keyframes).toHaveProperty("caret-blink")
     })
 
     it("should contain animation definitions", () => {
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-float"')
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-bounce"')
+      const animation = TAILWIND_CONFIG_EXTENSION.theme.extend.animation
+      expect(animation).toHaveProperty("ap-float")
+      expect(animation).toHaveProperty("ap-bounce")
+      expect(animation).toHaveProperty("accordion-down")
+      expect(animation).toHaveProperty("accordion-up")
+      expect(animation).toHaveProperty("caret-blink")
     })
 
     it("should contain transition duration tokens", () => {
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-1"')
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-2"')
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-3"')
+      const duration = TAILWIND_CONFIG_EXTENSION.theme.extend.transitionDuration
+      expect(duration).toHaveProperty("ap-1")
+      expect(duration).toHaveProperty("ap-2")
+      expect(duration).toHaveProperty("ap-3")
     })
 
     it("should contain transition timing functions", () => {
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-pop"')
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-soft"')
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-snap"')
-      expect(TAILWIND_CONFIG_EXTENSION).toContain('"ap-spring"')
+      const timing = TAILWIND_CONFIG_EXTENSION.theme.extend.transitionTimingFunction
+      expect(timing).toHaveProperty("ap-pop")
+      expect(timing).toHaveProperty("ap-soft")
+      expect(timing).toHaveProperty("ap-snap")
+      expect(timing).toHaveProperty("ap-spring")
     })
 
     it("should contain darkMode configuration", () => {
-      expect(TAILWIND_CONFIG_EXTENSION).toContain("darkMode")
+      expect(TAILWIND_CONFIG_EXTENSION).toHaveProperty("darkMode")
+    })
+  })
+
+  describe("getTailwindConfigContent", () => {
+    it("should generate TypeScript config for .ts files", () => {
+      const content = getTailwindConfigContent("next", "tailwind.config.ts")
+      expect(content).toContain('import type { Config } from "tailwindcss"')
+      expect(content).toContain("satisfies Config")
+      expect(content).toContain("--ap-primary")
+      expect(content).toContain("accordion-down")
+      expect(content).toContain("caret-blink")
+    })
+
+    it("should generate JavaScript config for .js files", () => {
+      const content = getTailwindConfigContent("next", "tailwind.config.js")
+      expect(content).toContain("@type {import('tailwindcss').Config}")
+      expect(content).not.toContain("satisfies Config")
+    })
+
+    it("should include correct content paths for Next.js", () => {
+      const content = getTailwindConfigContent("next", "tailwind.config.ts")
+      expect(content).toContain("./app/**/*.{js,ts,jsx,tsx,mdx}")
+      expect(content).toContain("./components/**/*.{js,ts,jsx,tsx,mdx}")
+    })
+
+    it("should include correct content paths for Vite", () => {
+      const content = getTailwindConfigContent("vite", "tailwind.config.ts")
+      expect(content).toContain("./index.html")
+      expect(content).toContain("./src/**/*.{js,ts,jsx,tsx}")
+    })
+
+    it("should include correct content paths for Astro", () => {
+      const content = getTailwindConfigContent("astro", "tailwind.config.ts")
+      expect(content).toContain("./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}")
     })
   })
 })

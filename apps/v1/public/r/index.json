@@ -578,6 +578,11 @@
       "description": "Indigo/Purple/Sky - Default aurora theme"
     },
     {
+      "name": "mono",
+      "type": "theme",
+      "description": "Grayscale - Minimal monochrome theme"
+    },
+    {
       "name": "neon",
       "type": "theme",
       "description": "Cyan/Magenta/Lime - Vibrant aurora theme"

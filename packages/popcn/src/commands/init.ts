@@ -5,7 +5,13 @@ import prompts from "prompts"
 import ora from "ora"
 import { writeConfig, configExists, type ComponentsConfig } from "../utils/get-config.js"
 import { getPackageManager, getInstallCommand } from "../utils/get-package-manager.js"
-import { AURORAPOP_CSS, NEUMOPOP_CSS, GLASSPOP_CSS, UTILS_TS } from "../utils/templates.js"
+import {
+  AURORAPOP_CSS,
+  NEUMOPOP_CSS,
+  GLASSPOP_CSS,
+  UTILS_TS,
+  getTailwindConfigContent,
+} from "../utils/templates.js"
 
 interface InitOptions {
   yes?: boolean
@@ -90,9 +96,7 @@ export async function initCommand(options: InitOptions) {
 
   // Check if already initialized
   if (configExists(cwd) && !options.force) {
-    console.log(
-      chalk.yellow("  Project already initialized. Use --force to reinitialize.")
-    )
+    console.log(chalk.yellow("  Project already initialized. Use --force to reinitialize."))
     return
   }
 
@@ -166,6 +170,7 @@ export async function initCommand(options: InitOptions) {
           { title: "Cosmic (Indigo/Purple/Sky)", value: "cosmic" },
           { title: "Sunset (Pink/Orange/Yellow)", value: "sunset" },
           { title: "Neon (Cyan/Magenta/Lime)", value: "neon" },
+          { title: "Mono (Grayscale)", value: "mono" },
         ],
         initial: 0,
       },
@@ -229,6 +234,24 @@ export async function initCommand(options: InitOptions) {
       spinner.text = "Created lib/utils.ts"
     }
 
+    // Write or update Tailwind config
+    const tailwindConfigPath = path.join(cwd, tailwindConfig)
+    if (!fs.existsSync(tailwindConfigPath) || options.force) {
+      const tailwindContent = getTailwindConfigContent(framework, tailwindConfig)
+      fs.writeFileSync(tailwindConfigPath, tailwindContent)
+      spinner.text = `Created ${tailwindConfig}`
+    } else {
+      const existingConfig = fs.readFileSync(tailwindConfigPath, "utf-8")
+      if (!existingConfig.includes("--ap-primary")) {
+        // Back up existing config and write new one
+        const backupPath = tailwindConfigPath + ".backup"
+        fs.copyFileSync(tailwindConfigPath, backupPath)
+        const tailwindContent = getTailwindConfigContent(framework, tailwindConfig)
+        fs.writeFileSync(tailwindConfigPath, tailwindContent)
+        spinner.text = `Updated ${tailwindConfig} (backup: ${tailwindConfig}.backup)`
+      }
+    }
+
     // Write or update CSS file
     const cssFilePath = path.join(cwd, cssFile)
     const cssDir = path.dirname(cssFilePath)
@@ -248,11 +271,7 @@ export async function initCommand(options: InitOptions) {
       // Check if already has AuroraPop tokens
       const existingCss = fs.readFileSync(cssFilePath, "utf-8")
       if (!existingCss.includes("--ap-primary")) {
-        // Prepend AuroraPop CSS after @tailwind directives
-        const tailwindDirectives = `@tailwind base;
-@tailwind components;
-@tailwind utilities;
-`
+        // Prepend AuroraPop CSS after removing existing @tailwind directives
         const cssWithoutDirectives = existingCss
           .replace(/@tailwind base;?\n?/g, "")
           .replace(/@tailwind components;?\n?/g, "")

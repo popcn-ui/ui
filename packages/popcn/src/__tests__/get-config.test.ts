@@ -28,6 +28,7 @@ describe("get-config", () => {
     const testConfig = {
       $schema: "https://popcnui.com/schema.json",
       style: "aurorapop",
+      skin: "aurora" as const,
       theme: "cosmic",
       tailwind: {
         config: "tailwind.config.ts",

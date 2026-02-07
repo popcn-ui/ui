@@ -1,0 +1,17 @@
+{
+  "name": "mono",
+  "type": "theme",
+  "label": "Mono",
+  "description": "Grayscale - Minimal monochrome theme",
+  "cssVars": {
+    "--ap-primary": "161 161 170",
+    "--ap-primary-foreground": "10 10 20",
+    "--ap-secondary": "113 113 122",
+    "--ap-secondary-foreground": "255 255 255",
+    "--ap-aurora-1": "161 161 170",
+    "--ap-aurora-2": "113 113 122",
+    "--ap-aurora-3": "82 82 91",
+    "--ap-ring": "161 161 170",
+    "--ap-glow-strength": "0.5"
+  }
+}
