@@ -1,0 +1,178 @@
+/* =====================================================
+   NeumoPop Skin - Neumorphism + Pop Design
+   ===================================================== */
+
+/* =====================================================
+   Tokens
+   ===================================================== */
+
+[data-skin="neumopop"] {
+  /* Shadow pair for 3D effect */
+  --ap-shadow-light: rgba(255, 255, 255, 0.05);
+  --ap-shadow-dark: rgba(0, 0, 0, 0.4);
+
+  /* Elevation presets (raised surface) */
+  --ap-elev-1: 4px 4px 8px var(--ap-shadow-dark),
+               -4px -4px 8px var(--ap-shadow-light);
+  --ap-elev-2: 6px 6px 12px var(--ap-shadow-dark),
+               -6px -6px 12px var(--ap-shadow-light);
+  --ap-elev-3: 10px 10px 20px var(--ap-shadow-dark),
+               -10px -10px 20px var(--ap-shadow-light);
+
+  /* Inset presets (pressed surface) */
+  --ap-inset-1: inset 2px 2px 5px var(--ap-shadow-dark),
+                inset -2px -2px 5px var(--ap-shadow-light);
+  --ap-inset-2: inset 4px 4px 8px var(--ap-shadow-dark),
+                inset -4px -4px 8px var(--ap-shadow-light);
+
+  /* Toned-down glow for neumo */
+  --ap-glow-strength: 0.3;
+}
+
+/* =====================================================
+   Light Mode Adjustments
+   ===================================================== */
+
+[data-skin="neumopop"].light,
+.light[data-skin="neumopop"],
+.light [data-skin="neumopop"] {
+  --ap-shadow-light: rgba(255, 255, 255, 0.7);
+  --ap-shadow-dark: rgba(0, 0, 0, 0.12);
+}
+
+/* Also handle data-theme="light" */
+[data-skin="neumopop"][data-theme="light"],
+[data-theme="light"][data-skin="neumopop"],
+[data-theme="light"] [data-skin="neumopop"] {
+  --ap-shadow-light: rgba(255, 255, 255, 0.7);
+  --ap-shadow-dark: rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   Existing Class Overrides
+   ===================================================== */
+
+/* .bg-aurora → solid primary + elevation shadow */
+[data-skin="neumopop"] .bg-aurora {
+  background: rgb(var(--ap-primary));
+  box-shadow: var(--ap-elev-2);
+}
+
+/* .text-aurora → solid primary color text (no gradient) */
+[data-skin="neumopop"] .text-aurora {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: rgb(var(--ap-primary));
+}
+
+/* .glass → solid surface + elevation shadow */
+[data-skin="neumopop"] .glass {
+  background: rgb(var(--ap-muted));
+  backdrop-filter: none;
+  border: 1px solid rgba(var(--ap-border), 0.2);
+  box-shadow: var(--ap-elev-1);
+}
+
+/* .shine-effect::before → top-left highlight */
+[data-skin="neumopop"] .shine-effect::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+}
+
+/* .glow-hover → elevate on hover */
+[data-skin="neumopop"] .glow-hover {
+  transition: box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
+}
+
+[data-skin="neumopop"] .glow-hover:hover {
+  box-shadow: var(--ap-elev-3);
+}
+
+/* .switch-aurora[checked] → primary bg + inset shadow */
+[data-skin="neumopop"] .switch-aurora[data-state="checked"] {
+  background: rgb(var(--ap-primary));
+  box-shadow: var(--ap-inset-2);
+}
+
+/* .tab-trigger-aurora[active] → elevated surface */
+[data-skin="neumopop"] .tab-trigger-aurora[data-state="active"] {
+  background: rgb(var(--ap-muted));
+  color: rgb(var(--ap-primary));
+  box-shadow: var(--ap-elev-1);
+  border-bottom: 2px solid rgb(var(--ap-primary));
+}
+
+/* .calendar-aurora selected → primary bg + shadow */
+[data-skin="neumopop"] .calendar-aurora button[data-selected-single="true"],
+[data-skin="neumopop"] .calendar-aurora button[data-range-start="true"],
+[data-skin="neumopop"] .calendar-aurora button[data-range-end="true"] {
+  background: rgb(var(--ap-primary));
+  box-shadow: var(--ap-inset-1);
+  color: rgb(var(--ap-primary-foreground));
+}
+
+/* .aurora-bg → flat bg, no animated gradients */
+[data-skin="neumopop"] .aurora-bg {
+  background: rgb(var(--ap-background));
+}
+
+[data-skin="neumopop"] .aurora-bg::before {
+  background: none;
+  animation: none;
+}
+
+/* =====================================================
+   NeumoPop-Specific Behaviors
+   ===================================================== */
+
+/* Button active: elev-2 → inset-1 (press-in effect) */
+[data-skin="neumopop"] button.bg-aurora,
+[data-skin="neumopop"] [role="button"].bg-aurora {
+  transition: box-shadow var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease);
+}
+
+[data-skin="neumopop"] button.bg-aurora:active,
+[data-skin="neumopop"] [role="button"].bg-aurora:active {
+  box-shadow: var(--ap-inset-1);
+}
+
+/* Input: inset for carved-in look, focus border */
+[data-skin="neumopop"] input,
+[data-skin="neumopop"] textarea,
+[data-skin="neumopop"] select {
+  box-shadow: var(--ap-inset-1);
+}
+
+[data-skin="neumopop"] input:focus,
+[data-skin="neumopop"] textarea:focus,
+[data-skin="neumopop"] select:focus {
+  border-color: rgb(var(--ap-primary));
+  box-shadow: var(--ap-inset-1), 0 0 0 2px rgba(var(--ap-primary), 0.2);
+}
+
+/* Card: raised surface, hover elevates further */
+[data-skin="neumopop"] .rounded-lg[class*="border"] {
+  box-shadow: var(--ap-elev-1);
+  transition: box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
+}
+
+[data-skin="neumopop"] .rounded-lg[class*="border"]:hover {
+  box-shadow: var(--ap-elev-2);
+}
+
+/* =====================================================
+   Reduced Motion Support
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-skin="neumopop"] button.bg-aurora,
+  [data-skin="neumopop"] [role="button"].bg-aurora,
+  [data-skin="neumopop"] .glow-hover,
+  [data-skin="neumopop"] .rounded-lg[class*="border"] {
+    transition-duration: 0.01ms;
+  }
+}

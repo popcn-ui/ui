@@ -1,0 +1,214 @@
+{
+  "version": "0.0.1",
+  "components": [
+    {
+      "name": "avatar",
+      "type": "ui",
+      "description": "Avatar with size options and glow ring variants",
+      "dependencies": [
+        "@radix-ui/react-avatar",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "badge",
+      "type": "ui",
+      "description": "Status badge with aurora, glass, and outline variants",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "button",
+      "type": "ui",
+      "description": "Aurora-styled button with gradient variants and motion presets",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "card",
+      "type": "ui",
+      "description": "Card container with glass, aurora-border, and solid variants",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "checkbox",
+      "type": "ui",
+      "description": "Checkbox with aurora gradient and glass variants",
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "dialog",
+      "type": "ui",
+      "description": "Modal dialog with glass backdrop and aurora glow",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "ui",
+      "description": "Dropdown menu with glass panel styling",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "input",
+      "type": "ui",
+      "description": "Form input with aurora, glass, and ghost variants",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "label",
+      "type": "ui",
+      "description": "Form label component with aurora gradient text option",
+      "dependencies": [
+        "@radix-ui/react-label",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "select",
+      "type": "ui",
+      "description": "Dropdown select with glass styling",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "separator",
+      "type": "ui",
+      "description": "Visual separator with aurora gradient option",
+      "dependencies": [
+        "@radix-ui/react-separator",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "skeleton",
+      "type": "ui",
+      "description": "Loading skeleton with aurora shimmer animation",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "sonner",
+      "type": "ui",
+      "description": "Toast notifications with aurora glow effects",
+      "dependencies": [
+        "sonner",
+        "next-themes"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "switch",
+      "type": "ui",
+      "description": "Toggle switch with aurora gradient when active",
+      "dependencies": [
+        "@radix-ui/react-switch",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "tabs",
+      "type": "ui",
+      "description": "Tab navigation with aurora, default, and underline variants",
+      "dependencies": [
+        "@radix-ui/react-tabs",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "tooltip",
+      "type": "ui",
+      "description": "Tooltip with glass styling",
+      "dependencies": [
+        "@radix-ui/react-tooltip",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    }
+  ],
+  "styles": [
+    {
+      "name": "aurorapop",
+      "type": "style",
+      "description": "AuroraPop design system tokens and base styles with GenZ animation system"
+    }
+  ],
+  "themes": [
+    {
+      "name": "cosmic",
+      "type": "theme",
+      "description": "Indigo/Purple/Sky - Default aurora theme"
+    },
+    {
+      "name": "neon",
+      "type": "theme",
+      "description": "Cyan/Magenta/Lime - Vibrant aurora theme"
+    },
+    {
+      "name": "sunset",
+      "type": "theme",
+      "description": "Pink/Orange/Yellow - Warm aurora theme"
+    }
+  ]
+}

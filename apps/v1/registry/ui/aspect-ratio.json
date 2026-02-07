@@ -1,0 +1,14 @@
+{
+  "name": "aspect-ratio",
+  "type": "ui",
+  "description": "Maintain consistent aspect ratios for media",
+  "files": [
+    {
+      "path": "components/ui/aspect-ratio.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-aspect-ratio"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

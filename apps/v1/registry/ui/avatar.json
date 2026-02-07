@@ -1,0 +1,14 @@
+{
+  "name": "avatar",
+  "type": "ui",
+  "description": "Avatar with size options and glow ring variants",
+  "files": [
+    {
+      "path": "components/ui/avatar.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-avatar", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

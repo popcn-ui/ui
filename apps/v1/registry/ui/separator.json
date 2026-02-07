@@ -1,0 +1,14 @@
+{
+  "name": "separator",
+  "type": "ui",
+  "description": "Visual separator with aurora gradient option",
+  "files": [
+    {
+      "path": "components/ui/separator.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-separator", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

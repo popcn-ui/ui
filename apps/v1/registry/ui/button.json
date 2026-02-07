@@ -1,0 +1,14 @@
+{
+  "name": "button",
+  "type": "ui",
+  "description": "Aurora-styled button with gradient variants and motion presets",
+  "files": [
+    {
+      "path": "components/ui/button.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

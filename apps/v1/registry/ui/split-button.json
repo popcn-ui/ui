@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "split-button",
+  "type": "ui",
+  "description": "Split button component with dropdown menu",
+  "files": ["components/ui/split-button.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button", "dropdown-menu"]
+}

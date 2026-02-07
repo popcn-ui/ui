@@ -1,0 +1,19 @@
+{
+  "name": "carousel",
+  "type": "ui",
+  "description": "Carousel with embla controls and navigation",
+  "files": [
+    {
+      "path": "components/ui/carousel.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "embla-carousel-react",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["button"]
+}

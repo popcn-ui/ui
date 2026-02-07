@@ -1,0 +1,19 @@
+{
+  "name": "context-menu",
+  "type": "ui",
+  "description": "Context menu with submenus and radio items",
+  "files": [
+    {
+      "path": "components/ui/context-menu.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-context-menu",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

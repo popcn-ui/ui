@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "notification-badge",
+  "type": "ui",
+  "description": "Notification badge component for displaying counts and dots",
+  "files": ["components/ui/notification-badge.tsx"],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}

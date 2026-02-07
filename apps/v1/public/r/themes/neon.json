@@ -1,0 +1,14 @@
+{
+  "name": "neon",
+  "type": "theme",
+  "label": "Neon",
+  "description": "Cyan/Magenta/Lime - Vibrant aurora theme",
+  "cssVars": {
+    "--ap-primary": "6 182 212",
+    "--ap-secondary": "217 70 239",
+    "--ap-aurora-1": "6 182 212",
+    "--ap-aurora-2": "217 70 239",
+    "--ap-aurora-3": "163 230 53",
+    "--ap-ring": "6 182 212"
+  }
+}

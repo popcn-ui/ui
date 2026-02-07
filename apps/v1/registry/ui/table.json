@@ -1,0 +1,14 @@
+{
+  "name": "table",
+  "type": "ui",
+  "description": "Table component with rows and cells",
+  "files": [
+    {
+      "path": "components/ui/table.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

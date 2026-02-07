@@ -1,0 +1,14 @@
+{
+  "name": "toggle-group",
+  "type": "ui",
+  "description": "Group of toggle buttons with shared styling",
+  "files": [
+    {
+      "path": "components/ui/toggle-group.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-toggle-group", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": ["toggle"]
+}

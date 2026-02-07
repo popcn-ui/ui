@@ -1,0 +1,6 @@
+node_modules
+dist
+.next
+public/r
+pnpm-lock.yaml
+*.md

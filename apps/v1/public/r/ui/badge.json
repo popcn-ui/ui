@@ -1,0 +1,19 @@
+{
+  "name": "badge",
+  "type": "ui",
+  "description": "Status badge with aurora, glass, and outline variants",
+  "files": [
+    {
+      "path": "components/ui/badge.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  [\n    \"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold\",\n    \"transition-colors duration-200\",\n  ],\n  {\n    variants: {\n      variant: {\n        aurora: [\n          \"bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] via-[rgb(var(--ap-aurora-2))] to-[rgb(var(--ap-aurora-3))]\",\n          \"text-primary-foreground\",\n          \"shadow-sm\",\n        ],\n        glass: [\n          \"bg-background/60 backdrop-blur-md\",\n          \"border border-border/50\",\n          \"text-foreground\",\n        ],\n        outline: [\n          \"border border-primary/50\",\n          \"text-primary\",\n          \"bg-transparent\",\n        ],\n        secondary: [\n          \"bg-secondary\",\n          \"text-secondary-foreground\",\n        ],\n        destructive: [\n          \"bg-red-500/90\",\n          \"text-white\",\n        ],\n        success: [\n          \"bg-green-500/90\",\n          \"text-white\",\n        ],\n      },\n      glow: {\n        true: \"shadow-[0_0_8px_rgba(var(--ap-primary),0.4)]\",\n        false: \"\",\n      },\n    },\n    defaultVariants: {\n      variant: \"aurora\",\n      glow: false,\n    },\n  }\n)\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof badgeVariants> {}\n\nconst Badge = React.forwardRef<HTMLDivElement, BadgeProps>(\n  ({ className, variant, glow, ...props }, ref) => {\n    return (\n      <div\n        ref={ref}\n        className={cn(badgeVariants({ variant, glow }), className)}\n        {...props}\n      />\n    )\n  }\n)\n\nBadge.displayName = \"Badge\"\n\nexport { Badge, badgeVariants }\n"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

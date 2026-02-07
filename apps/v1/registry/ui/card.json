@@ -1,0 +1,14 @@
+{
+  "name": "card",
+  "type": "ui",
+  "description": "Card container with glass, aurora-border, and solid variants",
+  "files": [
+    {
+      "path": "components/ui/card.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

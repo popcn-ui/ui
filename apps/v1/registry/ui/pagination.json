@@ -1,0 +1,14 @@
+{
+  "name": "pagination",
+  "type": "ui",
+  "description": "Pagination component with page navigation",
+  "files": [
+    {
+      "path": "components/ui/pagination.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": ["button"]
+}

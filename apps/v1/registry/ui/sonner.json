@@ -1,0 +1,14 @@
+{
+  "name": "sonner",
+  "type": "ui",
+  "description": "Toast notifications with aurora glow effects",
+  "files": [
+    {
+      "path": "components/ui/sonner.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["sonner", "next-themes"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "loading-button",
+  "type": "ui",
+  "description": "Button component with loading state",
+  "files": ["components/ui/loading-button.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

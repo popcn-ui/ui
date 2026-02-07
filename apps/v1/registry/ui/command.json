@@ -1,0 +1,19 @@
+{
+  "name": "command",
+  "type": "ui",
+  "description": "Command palette with search and groups",
+  "files": [
+    {
+      "path": "components/ui/command.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "cmdk",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["dialog"]
+}

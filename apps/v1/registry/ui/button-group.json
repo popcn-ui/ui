@@ -1,0 +1,19 @@
+{
+  "name": "button-group",
+  "type": "ui",
+  "description": "Grouped buttons with shared borders and separators",
+  "files": [
+    {
+      "path": "components/ui/button-group.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["separator"]
+}

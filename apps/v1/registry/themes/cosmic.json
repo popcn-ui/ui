@@ -1,0 +1,14 @@
+{
+  "name": "cosmic",
+  "type": "theme",
+  "label": "Cosmic",
+  "description": "Indigo/Purple/Sky - Default aurora theme",
+  "cssVars": {
+    "--ap-primary": "99 102 241",
+    "--ap-secondary": "168 85 247",
+    "--ap-aurora-1": "99 102 241",
+    "--ap-aurora-2": "139 92 246",
+    "--ap-aurora-3": "56 189 248",
+    "--ap-ring": "99 102 241"
+  }
+}

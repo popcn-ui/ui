@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "data-table",
+  "type": "ui",
+  "description": "Data table component with sorting, filtering, and pagination",
+  "files": ["components/ui/data-table.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["table", "button"]
+}

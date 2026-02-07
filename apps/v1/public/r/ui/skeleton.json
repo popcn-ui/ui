@@ -1,0 +1,19 @@
+{
+  "name": "skeleton",
+  "type": "ui",
+  "description": "Loading skeleton with aurora shimmer animation",
+  "files": [
+    {
+      "path": "components/ui/skeleton.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst skeletonVariants = cva(\"rounded-lg\", {\n  variants: {\n    variant: {\n      default: \"animate-pulse bg-muted\",\n      aurora: [\n        \"relative overflow-hidden bg-muted\",\n        \"after:absolute after:inset-0\",\n        \"after:bg-gradient-to-r after:from-transparent after:via-[rgba(var(--ap-aurora-1),0.1)] after:to-transparent\",\n        \"after:animate-ap-shine after:bg-[length:200%_100%]\",\n      ],\n      shimmer: [\n        \"relative overflow-hidden bg-muted/50\",\n        \"before:absolute before:inset-0\",\n        \"before:-translate-x-full\",\n        \"before:animate-[shimmer_2s_infinite]\",\n        \"before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent\",\n      ],\n    },\n  },\n  defaultVariants: {\n    variant: \"aurora\",\n  },\n})\n\nexport interface SkeletonProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof skeletonVariants> {}\n\nfunction Skeleton({ className, variant, ...props }: SkeletonProps) {\n  return (\n    <div\n      className={cn(skeletonVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nexport { Skeleton, skeletonVariants }\n"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

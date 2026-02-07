@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "code-block",
+  "type": "ui",
+  "description": "Code block component with syntax highlighting and copy functionality",
+  "files": ["components/ui/code-block.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

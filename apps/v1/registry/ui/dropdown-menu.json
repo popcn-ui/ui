@@ -1,0 +1,14 @@
+{
+  "name": "dropdown-menu",
+  "type": "ui",
+  "description": "Dropdown menu with glass panel styling",
+  "files": [
+    {
+      "path": "components/ui/dropdown-menu.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-dropdown-menu", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

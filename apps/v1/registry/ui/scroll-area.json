@@ -1,0 +1,14 @@
+{
+  "name": "scroll-area",
+  "type": "ui",
+  "description": "Scrollable area component",
+  "files": [
+    {
+      "path": "components/ui/scroll-area.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-scroll-area", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

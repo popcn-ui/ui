@@ -1,0 +1,14 @@
+{
+  "name": "toggle",
+  "type": "ui",
+  "description": "Toggle button with aurora styling variants",
+  "files": [
+    {
+      "path": "components/ui/toggle.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-toggle", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

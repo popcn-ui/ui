@@ -1,0 +1,14 @@
+{
+  "name": "skeleton",
+  "type": "ui",
+  "description": "Loading skeleton with aurora shimmer animation",
+  "files": [
+    {
+      "path": "components/ui/skeleton.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

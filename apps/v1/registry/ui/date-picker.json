@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "date-picker",
+  "type": "ui",
+  "description": "Date picker component with calendar popover",
+  "files": ["components/ui/date-picker.tsx"],
+  "dependencies": ["date-fns", "lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["calendar", "popover", "button"]
+}

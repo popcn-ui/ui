@@ -1,0 +1,14 @@
+{
+  "name": "radio-group",
+  "type": "ui",
+  "description": "Radio group component for single selection",
+  "files": [
+    {
+      "path": "components/ui/radio-group.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-radio-group", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

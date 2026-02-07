@@ -1,0 +1,19 @@
+{
+  "name": "calendar",
+  "type": "ui",
+  "description": "Calendar component with custom day styles",
+  "files": [
+    {
+      "path": "components/ui/calendar.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "react-day-picker",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["button"]
+}

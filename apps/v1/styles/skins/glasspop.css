@@ -1,0 +1,537 @@
+/* =====================================================
+   GlassPop Skin - Apple Liquid Glass Design
+   =====================================================
+   Presets: glasspop-frosted (default), glasspop-liquid, glasspop-lite
+   ===================================================== */
+
+/* =====================================================
+   Base Tokens (Dark mode defaults)
+   ===================================================== */
+
+[data-skin="glasspop"] {
+  /* Glass surface */
+  --ap-glass-bg: var(--ap-background);
+  --ap-glass-alpha: 0.22;
+  --ap-glass-blur: 32px;
+  --ap-glass-saturation: 1.7;
+  --ap-glass-brightness: 1.08;
+  --ap-glass-contrast: 1.05;
+  --ap-glass-border-alpha: 0.22;
+  --ap-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.18),
+                   inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  --ap-glass-highlight-alpha: 0.18;
+  --ap-glass-shadow-alpha: 0.22;
+
+  /* Liquid tokens */
+  --ap-liquid-shine-alpha: 0.22;
+  --ap-liquid-shine-speed: 4s;
+  --ap-liquid-noise-alpha: 0.015;
+  --ap-liquid-refract-alpha: 0.12;
+
+  /* Compatibility switches */
+  --ap-glass: 1;
+  --ap-liquid: 1;
+
+  /* Toned-down glow for glass */
+  --ap-glow-strength: 0.5;
+
+  /* Composed surfaces */
+  --ap-surface: rgba(var(--ap-glass-bg), var(--ap-glass-alpha));
+  --ap-surface-border: rgba(var(--ap-border), var(--ap-glass-border-alpha));
+  --ap-surface-shadow: 0 10px 40px rgba(0, 0, 0, var(--ap-glass-shadow-alpha)),
+                        0 2px 8px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.6));
+}
+
+/* =====================================================
+   Light Mode
+   ===================================================== */
+
+[data-skin="glasspop"].light,
+.light[data-skin="glasspop"],
+.light [data-skin="glasspop"],
+[data-skin="glasspop"][data-theme="light"],
+[data-theme="light"][data-skin="glasspop"],
+[data-theme="light"] [data-skin="glasspop"] {
+  --ap-glass-alpha: 0.38;
+  --ap-glass-blur: 34px;
+  --ap-glass-saturation: 1.5;
+  --ap-glass-brightness: 1.02;
+  --ap-glass-contrast: 1.02;
+  --ap-glass-border-alpha: 0.35;
+  --ap-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.65),
+                   inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+  --ap-glass-highlight-alpha: 0.22;
+  --ap-glass-shadow-alpha: 0.08;
+  --ap-liquid-shine-alpha: 0.24;
+  --ap-liquid-refract-alpha: 0.14;
+}
+
+/* =====================================================
+   Preset: Frosted (default)
+   ===================================================== */
+
+[data-skin="glasspop"].glasspop-frosted,
+[data-skin="glasspop"]:not(.glasspop-liquid):not(.glasspop-lite) {
+  --ap-liquid: 0;
+}
+
+/* =====================================================
+   Preset: Liquid
+   ===================================================== */
+
+[data-skin="glasspop"].glasspop-liquid {
+  --ap-liquid: 1;
+  --ap-liquid-shine-alpha: 0.26;
+  --ap-liquid-shine-speed: 3.2s;
+  --ap-liquid-noise-alpha: 0.03;
+  --ap-liquid-refract-alpha: 0.16;
+  --ap-glass-highlight-alpha: 0.2;
+}
+
+/* =====================================================
+   Preset: Lite (low-spec)
+   ===================================================== */
+
+[data-skin="glasspop"].glasspop-lite {
+  --ap-glass-blur: 8px;
+  --ap-glass-saturation: 1.2;
+  --ap-glass-brightness: 1;
+  --ap-glass-contrast: 1;
+  --ap-liquid: 0;
+  --ap-glass-shadow-alpha: 0.1;
+}
+
+/* =====================================================
+   Compatibility Switches
+   ===================================================== */
+
+[data-skin="glasspop"] .ap-no-glass {
+  --ap-glass: 0;
+}
+
+[data-skin="glasspop"] .ap-no-liquid {
+  --ap-liquid: 0;
+}
+
+/* =====================================================
+   Existing Class Overrides
+   ===================================================== */
+
+/* .glass → frosted glass surface */
+[data-skin="glasspop"] .glass {
+  position: relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, var(--ap-glass-highlight-alpha)) 0%,
+      rgba(255, 255, 255, 0) 45%
+    ),
+    linear-gradient(
+      315deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0) 50%
+    ),
+    var(--ap-surface);
+  backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  border: 1px solid var(--ap-surface-border);
+  box-shadow: var(--ap-glass-edge),
+              var(--ap-surface-shadow);
+}
+
+[data-skin="glasspop"] .glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      120% 140% at 0% 0%,
+      rgba(255, 255, 255, var(--ap-glass-highlight-alpha)) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      120% 120% at 100% 0%,
+      rgba(255, 255, 255, calc(var(--ap-glass-highlight-alpha) * 0.7)) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      160% 120% at 50% 120%,
+      rgba(0, 0, 0, calc(var(--ap-liquid-refract-alpha) * 0.7)) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+/* .bg-aurora → translucent primary + glass treatment */
+[data-skin="glasspop"] .bg-aurora {
+  position: relative;
+  background: rgba(var(--ap-primary), 0.7);
+  backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  border: 1px solid rgba(255, 255, 255, calc(var(--ap-glass-border-alpha) + 0.08));
+  box-shadow: var(--ap-glass-edge),
+              var(--ap-surface-shadow);
+}
+
+[data-skin="glasspop"] .bg-aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, calc(var(--ap-glass-highlight-alpha) * 0.8)) 0%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  pointer-events: none;
+}
+
+/* .text-aurora → keep gradient text (glass lets gradients through) */
+[data-skin="glasspop"] .text-aurora {
+  background: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* .shine-effect::before → liquid shine sweep */
+[data-skin="glasspop"] .shine-effect::before {
+  background: linear-gradient(
+    var(--ap-shine-angle, 105deg),
+    transparent 30%,
+    rgba(255, 255, 255, var(--ap-liquid-shine-alpha)) 50%,
+    transparent 70%
+  );
+}
+
+/* .glow-hover → diffused glass glow */
+[data-skin="glasspop"] .glow-hover {
+  transition: box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease),
+              background var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
+}
+
+[data-skin="glasspop"] .glow-hover:hover {
+  box-shadow: var(--ap-glass-edge),
+              0 8px 32px rgba(var(--ap-primary), calc(0.15 * var(--ap-glow-strength))),
+              0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+}
+
+/* .switch-aurora[checked] → glass primary */
+[data-skin="glasspop"] .switch-aurora[data-state="checked"] {
+  background: rgba(var(--ap-primary), 0.75);
+  backdrop-filter: blur(10px) saturate(1.4) brightness(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4) brightness(1.05);
+  box-shadow: var(--ap-glass-edge);
+}
+
+/* .tab-trigger-aurora[active] → glass indicator */
+[data-skin="glasspop"] .tab-trigger-aurora[data-state="active"] {
+  background: var(--ap-surface);
+  backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  color: rgb(var(--ap-foreground));
+  box-shadow: var(--ap-glass-edge),
+              0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  border-bottom: 2px solid rgba(var(--ap-primary), 0.6);
+}
+
+/* .calendar-aurora selected → glass primary */
+[data-skin="glasspop"] .calendar-aurora button[data-selected-single="true"],
+[data-skin="glasspop"] .calendar-aurora button[data-range-start="true"],
+[data-skin="glasspop"] .calendar-aurora button[data-range-end="true"] {
+  background: rgba(var(--ap-primary), 0.65);
+  backdrop-filter: blur(10px) saturate(1.4) brightness(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4) brightness(1.05);
+  box-shadow: var(--ap-glass-edge);
+  color: rgb(var(--ap-primary-foreground));
+}
+
+/* .aurora-bg → vivid gradient backdrop so glass transparency is visible */
+[data-skin="glasspop"] .aurora-bg {
+  background-color: rgb(var(--ap-background));
+  background-image: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+}
+
+[data-skin="glasspop"] .aurora-bg::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+      ellipse 80% 60% at 20% 30%,
+      rgba(var(--ap-aurora-1), 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 80% 50%,
+      rgba(var(--ap-aurora-2), 0.3),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 70% at 40% 80%,
+      rgba(var(--ap-aurora-3), 0.25),
+      transparent 55%
+    );
+  animation: aurora-shift 20s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Light mode: slightly reduce intensity */
+.light[data-skin="glasspop"] .aurora-bg::before,
+[data-theme="light"][data-skin="glasspop"] .aurora-bg::before,
+[data-theme="light"] [data-skin="glasspop"] .aurora-bg::before {
+  background: radial-gradient(
+      ellipse 80% 60% at 20% 30%,
+      rgba(var(--ap-aurora-1), 0.25),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 80% 50%,
+      rgba(var(--ap-aurora-2), 0.2),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 70% at 40% 80%,
+      rgba(var(--ap-aurora-3), 0.18),
+      transparent 55%
+    );
+  background-size: 200% 200%;
+}
+
+/* =====================================================
+   Component-Specific Behaviors
+   ===================================================== */
+
+/* --- Dialog: boost visibility on bright glass backgrounds --- */
+[data-skin="glasspop"] .ap-dialog-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+[data-skin="glasspop"].light .ap-dialog-overlay,
+.light [data-skin="glasspop"] .ap-dialog-overlay,
+[data-theme="light"][data-skin="glasspop"] .ap-dialog-overlay,
+[data-theme="light"] [data-skin="glasspop"] .ap-dialog-overlay {
+  background: rgba(15, 23, 42, 0.18);
+}
+
+[data-skin="glasspop"] .ap-dialog-content {
+  position: fixed;
+  z-index: 60;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, calc(var(--ap-glass-highlight-alpha) * 0.8)) 0%,
+      rgba(255, 255, 255, 0) 45%
+    ),
+    var(--ap-surface);
+  backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.9))
+    saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness))
+    contrast(var(--ap-glass-contrast));
+  -webkit-backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.9))
+    saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness))
+    contrast(var(--ap-glass-contrast));
+  border-color: rgba(255, 255, 255, calc(var(--ap-glass-border-alpha) + 0.08));
+  box-shadow: var(--ap-glass-edge),
+              0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Card: glass panel --- */
+[data-skin="glasspop"] .rounded-lg[class*="border"]:not(.ap-dialog-content),
+[data-skin="glasspop"] .rounded-xl[class*="border"]:not(.ap-dialog-content) {
+  position: relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, var(--ap-glass-highlight-alpha)) 0%,
+      rgba(255, 255, 255, 0) 45%
+    ),
+    linear-gradient(
+      315deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0) 55%
+    ),
+    var(--ap-surface);
+  backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
+  border-color: var(--ap-surface-border);
+  box-shadow: var(--ap-glass-edge),
+              var(--ap-surface-shadow);
+  transition: box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease),
+              transform var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
+}
+
+[data-skin="glasspop"] .rounded-lg[class*="border"]:not(.ap-dialog-content)::before,
+[data-skin="glasspop"] .rounded-xl[class*="border"]:not(.ap-dialog-content)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      120% 140% at 0% 0%,
+      rgba(255, 255, 255, var(--ap-glass-highlight-alpha)) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      160% 120% at 50% 120%,
+      rgba(0, 0, 0, calc(var(--ap-liquid-refract-alpha) * 0.6)) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+[data-skin="glasspop"] .rounded-lg[class*="border"]:not(.ap-dialog-content):hover,
+[data-skin="glasspop"] .rounded-xl[class*="border"]:not(.ap-dialog-content):hover {
+  box-shadow: var(--ap-glass-edge),
+              0 8px 32px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 1.5)),
+              0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+}
+
+/* --- Button: glass control + press behavior --- */
+[data-skin="glasspop"] button.bg-aurora,
+[data-skin="glasspop"] [role="button"].bg-aurora {
+  transition: box-shadow var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease),
+              background var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease),
+              transform var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease);
+}
+
+[data-skin="glasspop"] button.bg-aurora:hover,
+[data-skin="glasspop"] [role="button"].bg-aurora:hover {
+  background: rgba(var(--ap-primary), 0.8);
+  box-shadow: var(--ap-glass-edge),
+              0 4px 16px rgba(var(--ap-primary), 0.2),
+              0 1px 4px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+}
+
+[data-skin="glasspop"] button.bg-aurora:active,
+[data-skin="glasspop"] [role="button"].bg-aurora:active {
+  background: rgba(var(--ap-primary), 0.85);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15),
+              0 1px 2px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  transform: scale(0.98);
+}
+
+/* --- Input: inset glass + focus glow --- */
+[data-skin="glasspop"] input,
+[data-skin="glasspop"] textarea,
+[data-skin="glasspop"] select {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, calc(var(--ap-glass-highlight-alpha) * 0.6)) 0%,
+      rgba(255, 255, 255, 0) 45%
+    ),
+    rgba(var(--ap-glass-bg), calc(var(--ap-glass-alpha) * 0.55));
+  backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.55)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness));
+  -webkit-backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.55)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness));
+  border-color: var(--ap-surface-border);
+  box-shadow: var(--ap-glass-edge),
+              inset 0 1px 3px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.4));
+}
+
+[data-skin="glasspop"] input:focus,
+[data-skin="glasspop"] textarea:focus,
+[data-skin="glasspop"] select:focus {
+  border-color: rgba(var(--ap-primary), 0.6);
+  box-shadow: var(--ap-glass-edge),
+              0 0 0 3px rgba(var(--ap-primary), 0.15),
+              inset 0 1px 3px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.3));
+}
+
+/* =====================================================
+   Liquid Shine Keyframes
+   ===================================================== */
+
+@keyframes glasspop-liquid-shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Liquid shine on glass surfaces (only when --ap-liquid: 1) */
+[data-skin="glasspop"].glasspop-liquid .glass::after,
+[data-skin="glasspop"].glasspop-liquid .rounded-lg[class*="border"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, var(--ap-liquid-shine-alpha)) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: glasspop-liquid-shine var(--ap-liquid-shine-speed) var(--ap-ease-soft, ease) infinite;
+  pointer-events: none;
+}
+
+/* Liquid shine on buttons */
+[data-skin="glasspop"].glasspop-liquid button.bg-aurora::after,
+[data-skin="glasspop"].glasspop-liquid [role="button"].bg-aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, calc(var(--ap-liquid-shine-alpha) * 0.7)) 50%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  animation: glasspop-liquid-shine var(--ap-liquid-shine-speed) var(--ap-ease-soft, ease) infinite;
+  pointer-events: none;
+}
+
+/* =====================================================
+   Reduced Motion Support
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-skin="glasspop"] button.bg-aurora,
+  [data-skin="glasspop"] [role="button"].bg-aurora,
+  [data-skin="glasspop"] .glow-hover,
+  [data-skin="glasspop"] .rounded-lg[class*="border"] {
+    transition-duration: 0.01ms;
+  }
+
+  [data-skin="glasspop"].glasspop-liquid .glass::after,
+  [data-skin="glasspop"].glasspop-liquid .rounded-lg[class*="border"]::after,
+  [data-skin="glasspop"].glasspop-liquid button.bg-aurora::after,
+  [data-skin="glasspop"].glasspop-liquid [role="button"].bg-aurora::after {
+    animation: none;
+  }
+
+  [data-skin="glasspop"] .aurora-bg::before {
+    animation: none;
+  }
+}

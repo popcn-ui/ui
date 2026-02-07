@@ -1,0 +1,14 @@
+{
+  "name": "switch",
+  "type": "ui",
+  "description": "Toggle switch with aurora gradient when active",
+  "files": [
+    {
+      "path": "components/ui/switch.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-switch", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,18 @@
+{
+  "name": "alert",
+  "type": "ui",
+  "description": "Inline alerts with default and destructive styles",
+  "files": [
+    {
+      "path": "components/ui/alert.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

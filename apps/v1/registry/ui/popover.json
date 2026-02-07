@@ -1,0 +1,14 @@
+{
+  "name": "popover",
+  "type": "ui",
+  "description": "Popover component with positioning",
+  "files": [
+    {
+      "path": "components/ui/popover.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-popover", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

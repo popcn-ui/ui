@@ -1,0 +1,222 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://popcnui.com/registry-schema.json",
+  "title": "popcn/ui Registry Schema",
+  "description": "JSON Schema for popcn/ui component registry",
+  "definitions": {
+    "registryFile": {
+      "type": "object",
+      "description": "A file within a registry component",
+      "required": ["path", "type", "content"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Relative path where the file should be installed",
+          "examples": ["components/ui/button.tsx", "lib/utils.ts"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of file",
+          "enum": ["component", "util", "style", "config"]
+        },
+        "content": {
+          "type": "string",
+          "description": "The file content"
+        }
+      },
+      "additionalProperties": false
+    },
+    "registryComponent": {
+      "type": "object",
+      "description": "A component in the registry",
+      "required": ["name", "type", "files"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique identifier for the component",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "examples": ["button", "card", "dropdown-menu"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Category of the registry item",
+          "enum": ["ui", "component", "util", "style", "theme"]
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the component"
+        },
+        "version": {
+          "type": "string",
+          "description": "Semantic version of the component",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "examples": ["1.0.0", "0.1.0"]
+        },
+        "files": {
+          "type": "array",
+          "description": "Files that make up this component",
+          "items": {
+            "$ref": "#/definitions/registryFile"
+          },
+          "minItems": 1
+        },
+        "dependencies": {
+          "type": "array",
+          "description": "NPM packages required by this component",
+          "items": {
+            "type": "string"
+          },
+          "examples": [["class-variance-authority", "clsx"]]
+        },
+        "devDependencies": {
+          "type": "array",
+          "description": "NPM dev packages required by this component",
+          "items": {
+            "type": "string"
+          }
+        },
+        "registryDependencies": {
+          "type": "array",
+          "description": "Other registry components this depends on",
+          "items": {
+            "type": "string"
+          },
+          "examples": [["button", "dialog"]]
+        }
+      },
+      "additionalProperties": false
+    },
+    "registryStyle": {
+      "type": "object",
+      "description": "A style preset in the registry",
+      "required": ["name", "type", "cssVars"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Style preset name",
+          "examples": ["aurorapop"]
+        },
+        "type": {
+          "type": "string",
+          "const": "style"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the style"
+        },
+        "cssVars": {
+          "type": "object",
+          "description": "CSS variables for light and dark modes",
+          "properties": {
+            "light": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "dark": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "registryTheme": {
+      "type": "object",
+      "description": "A theme preset in the registry",
+      "required": ["name", "type", "cssVars"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Theme name",
+          "examples": ["cosmic", "sunset", "neon"]
+        },
+        "type": {
+          "type": "string",
+          "const": "theme"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the theme"
+        },
+        "cssVars": {
+          "type": "object",
+          "description": "CSS variables that define this theme",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "registryIndex": {
+      "type": "object",
+      "description": "The registry index containing all available items",
+      "required": ["components"],
+      "properties": {
+        "components": {
+          "type": "array",
+          "description": "Available UI components",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "styles": {
+          "type": "array",
+          "description": "Available style presets",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "themes": {
+          "type": "array",
+          "description": "Available theme presets",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/definitions/registryComponent" },
+    { "$ref": "#/definitions/registryStyle" },
+    { "$ref": "#/definitions/registryTheme" },
+    { "$ref": "#/definitions/registryIndex" }
+  ]
+}

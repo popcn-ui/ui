@@ -1,0 +1,14 @@
+{
+  "name": "empty",
+  "type": "ui",
+  "description": "Empty state layout with header and actions",
+  "files": [
+    {
+      "path": "components/ui/empty.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "color-picker",
+  "type": "ui",
+  "description": "Color picker component with RGB and HSL sliders",
+  "files": ["components/ui/color-picker.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["popover", "button", "input", "slider"]
+}

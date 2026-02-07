@@ -1,0 +1,14 @@
+{
+  "name": "progress",
+  "type": "ui",
+  "description": "Progress bar component",
+  "files": [
+    {
+      "path": "components/ui/progress.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-progress", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

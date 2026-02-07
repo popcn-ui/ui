@@ -1,0 +1,20 @@
+{
+  "name": "avatar",
+  "type": "ui",
+  "description": "Avatar with size options and glow ring variants",
+  "files": [
+    {
+      "path": "components/ui/avatar.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as AvatarPrimitive from \"@radix-ui/react-avatar\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst avatarVariants = cva(\n  [\n    \"relative flex shrink-0 overflow-hidden rounded-full\",\n    \"transition-all duration-200\",\n  ],\n  {\n    variants: {\n      size: {\n        sm: \"h-8 w-8\",\n        md: \"h-10 w-10\",\n        lg: \"h-12 w-12\",\n        xl: \"h-16 w-16\",\n      },\n      ring: {\n        none: \"\",\n        default: \"ring-2 ring-border\",\n        aurora: [\n          \"ring-2\",\n          \"ring-offset-2 ring-offset-background\",\n          \"ring-primary\",\n        ],\n        glow: [\n          \"ring-2 ring-primary\",\n          \"shadow-[0_0_12px_rgba(var(--ap-primary),0.4)]\",\n        ],\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n      ring: \"none\",\n    },\n  }\n)\n\nexport interface AvatarProps\n  extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,\n    VariantProps<typeof avatarVariants> {}\n\nconst Avatar = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Root>,\n  AvatarProps\n>(({ className, size, ring, ...props }, ref) => (\n  <AvatarPrimitive.Root\n    ref={ref}\n    className={cn(avatarVariants({ size, ring }), className)}\n    {...props}\n  />\n))\n\nAvatar.displayName = AvatarPrimitive.Root.displayName\n\nconst AvatarImage = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Image>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Image\n    ref={ref}\n    className={cn(\"aspect-square h-full w-full object-cover\", className)}\n    {...props}\n  />\n))\n\nAvatarImage.displayName = AvatarPrimitive.Image.displayName\n\nconst AvatarFallback = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Fallback>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Fallback\n    ref={ref}\n    className={cn(\n      \"flex h-full w-full items-center justify-center rounded-full\",\n      \"bg-gradient-to-br from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]\",\n      \"text-primary-foreground font-medium\",\n      className\n    )}\n    {...props}\n  />\n))\n\nAvatarFallback.displayName = AvatarPrimitive.Fallback.displayName\n\nexport { Avatar, AvatarImage, AvatarFallback, avatarVariants }\n"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-avatar",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

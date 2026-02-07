@@ -1,0 +1,18 @@
+{
+  "name": "field",
+  "type": "ui",
+  "description": "Form field layout helpers",
+  "files": [
+    {
+      "path": "components/ui/field.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["label", "separator"]
+}

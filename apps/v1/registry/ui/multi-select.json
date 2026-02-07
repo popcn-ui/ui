@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "multi-select",
+  "type": "ui",
+  "description": "Multi-select component with checkboxes and badges",
+  "files": ["components/ui/multi-select.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["popover", "button", "badge"]
+}

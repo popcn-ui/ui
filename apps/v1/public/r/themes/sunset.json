@@ -1,0 +1,14 @@
+{
+  "name": "sunset",
+  "type": "theme",
+  "label": "Sunset",
+  "description": "Pink/Orange/Yellow - Warm aurora theme",
+  "cssVars": {
+    "--ap-primary": "236 72 153",
+    "--ap-secondary": "251 146 60",
+    "--ap-aurora-1": "236 72 153",
+    "--ap-aurora-2": "251 146 60",
+    "--ap-aurora-3": "250 204 21",
+    "--ap-ring": "236 72 153"
+  }
+}

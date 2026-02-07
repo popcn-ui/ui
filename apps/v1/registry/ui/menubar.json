@@ -1,0 +1,14 @@
+{
+  "name": "menubar",
+  "type": "ui",
+  "description": "Menubar component with submenus and radio items",
+  "files": [
+    {
+      "path": "components/ui/menubar.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-menubar", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

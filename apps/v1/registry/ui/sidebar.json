@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "sidebar",
+  "type": "ui",
+  "description": "Sidebar component with collapsible options",
+  "files": ["components/ui/sidebar.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["sheet", "button"]
+}

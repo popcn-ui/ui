@@ -1,0 +1,14 @@
+{
+  "name": "textarea",
+  "type": "ui",
+  "description": "Textarea component for multi-line input",
+  "files": [
+    {
+      "path": "components/ui/textarea.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

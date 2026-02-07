@@ -1,0 +1,14 @@
+{
+  "name": "tooltip",
+  "type": "ui",
+  "description": "Tooltip with glass styling",
+  "files": [
+    {
+      "path": "components/ui/tooltip.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-tooltip", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

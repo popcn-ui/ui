@@ -1,0 +1,19 @@
+{
+  "name": "accordion",
+  "type": "ui",
+  "description": "Collapsible content panels with smooth animations",
+  "files": [
+    {
+      "path": "components/ui/accordion.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-accordion",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

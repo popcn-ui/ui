@@ -1,0 +1,14 @@
+{
+  "name": "navigation-menu",
+  "type": "ui",
+  "description": "Navigation menu with dropdowns and links",
+  "files": [
+    {
+      "path": "components/ui/navigation-menu.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-navigation-menu", "lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

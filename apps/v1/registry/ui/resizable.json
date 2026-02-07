@@ -1,0 +1,14 @@
+{
+  "name": "resizable",
+  "type": "ui",
+  "description": "Resizable panel component",
+  "files": [
+    {
+      "path": "components/ui/resizable.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["react-resizable-panels", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "checkbox",
+  "type": "ui",
+  "description": "Checkbox with aurora gradient and glass variants",
+  "files": [
+    {
+      "path": "components/ui/checkbox.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-checkbox", "lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

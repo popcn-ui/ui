@@ -1,0 +1,14 @@
+{
+  "name": "sheet",
+  "type": "ui",
+  "description": "Sheet component (side panel)",
+  "files": [
+    {
+      "path": "components/ui/sheet.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-dialog", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

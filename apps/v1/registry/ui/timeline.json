@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "timeline",
+  "type": "ui",
+  "description": "Timeline component for displaying chronological events",
+  "files": ["components/ui/timeline.tsx"],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}

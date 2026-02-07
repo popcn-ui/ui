@@ -1,0 +1,14 @@
+{
+  "name": "item",
+  "type": "ui",
+  "description": "List item component with media, content, and actions",
+  "files": [
+    {
+      "path": "components/ui/item.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-slot", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": ["separator"]
+}

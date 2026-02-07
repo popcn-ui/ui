@@ -1,0 +1,180 @@
+/* =====================================================
+   Aurora Skin - Gradient & Glass Visuals
+   ===================================================== */
+
+:root {
+  /* Gradient direction tokens */
+  --ap-grad-angle: 135deg;      /* Default: top-left to bottom-right */
+  --ap-shine-angle: 105deg;     /* Shimmer sweep angle */
+  --ap-shine-width: 10%;        /* Width of the shine band */
+
+  /* Gradient control */
+  --ap-grad: 1;
+
+  /* Glow */
+  --ap-glow-strength: 1;
+}
+
+/* =====================================================
+   Aurora Background Component
+   ===================================================== */
+
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: rgb(var(--ap-background));
+}
+
+.aurora-bg::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+      ellipse 80% 50% at 20% 40%,
+      rgba(var(--ap-aurora-1), 0.15),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 80% 60%,
+      rgba(var(--ap-aurora-2), 0.12),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 50% 60% at 40% 80%,
+      rgba(var(--ap-aurora-3), 0.1),
+      transparent 50%
+    );
+  animation: aurora-shift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes aurora-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =====================================================
+   Utility Classes
+   ===================================================== */
+
+/* Aurora gradient text */
+.text-aurora {
+  background: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Aurora gradient background */
+.bg-aurora {
+  background: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+}
+
+/* Shine effect overlay */
+.shine-effect::before {
+  background: linear-gradient(
+    var(--ap-shine-angle, 105deg),
+    transparent calc(50% - var(--ap-shine-width, 10%)),
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent calc(50% + var(--ap-shine-width, 10%))
+  );
+}
+
+/* Switch aurora variant */
+.switch-aurora[data-state="checked"] {
+  background: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+}
+
+/* Tabs trigger aurora variant */
+.tab-trigger-aurora[data-state="active"] {
+  background: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+}
+
+/* Calendar aurora variant - selected day */
+.calendar-aurora button[data-selected-single="true"],
+.calendar-aurora button[data-range-start="true"],
+.calendar-aurora button[data-range-end="true"] {
+  background: linear-gradient(
+    var(--ap-grad-angle, 135deg),
+    rgb(var(--ap-aurora-1)),
+    rgb(var(--ap-aurora-2)),
+    rgb(var(--ap-aurora-3))
+  );
+  color: rgb(var(--ap-primary-foreground));
+}
+
+/* ===== Gradient Direction Utilities ===== */
+.ap-grad-t { --ap-grad-angle: 0deg; }
+.ap-grad-tr { --ap-grad-angle: 45deg; }
+.ap-grad-r { --ap-grad-angle: 90deg; }
+.ap-grad-br { --ap-grad-angle: 135deg; }
+.ap-grad-b { --ap-grad-angle: 180deg; }
+.ap-grad-bl { --ap-grad-angle: 225deg; }
+.ap-grad-l { --ap-grad-angle: 270deg; }
+.ap-grad-tl { --ap-grad-angle: 315deg; }
+
+/* Shine direction utilities */
+.ap-shine-t { --ap-shine-angle: 0deg; }
+.ap-shine-tr { --ap-shine-angle: 45deg; }
+.ap-shine-r { --ap-shine-angle: 90deg; }
+.ap-shine-br { --ap-shine-angle: 135deg; }
+.ap-shine-b { --ap-shine-angle: 180deg; }
+.ap-shine-bl { --ap-shine-angle: 225deg; }
+.ap-shine-l { --ap-shine-angle: 270deg; }
+.ap-shine-tl { --ap-shine-angle: 315deg; }
+
+/* Shine width utilities */
+.ap-shine-thin { --ap-shine-width: 5%; }
+.ap-shine-normal { --ap-shine-width: 10%; }
+.ap-shine-wide { --ap-shine-width: 20%; }
+.ap-shine-ultra { --ap-shine-width: 30%; }
+
+/* Glass effect */
+.glass {
+  background: rgba(var(--ap-background), 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(var(--ap-border), 0.3);
+}
+
+/* Glow effect on hover */
+.glow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-hover:hover {
+  box-shadow:
+    0 0 20px rgba(var(--ap-primary), calc(0.3 * var(--ap-glow-strength))),
+    0 0 40px rgba(var(--ap-secondary), calc(0.2 * var(--ap-glow-strength)));
+}

@@ -1,0 +1,14 @@
+{
+  "name": "toast",
+  "type": "ui",
+  "description": "Toast notification API (re-exported from sonner)",
+  "files": [
+    {
+      "path": "components/ui/toast.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["sonner"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

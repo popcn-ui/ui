@@ -1,0 +1,14 @@
+{
+  "name": "select",
+  "type": "ui",
+  "description": "Dropdown select with glass styling",
+  "files": [
+    {
+      "path": "components/ui/select.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-select", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

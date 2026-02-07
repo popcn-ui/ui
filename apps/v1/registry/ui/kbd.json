@@ -1,0 +1,14 @@
+{
+  "name": "kbd",
+  "type": "ui",
+  "description": "Keyboard key indicator component",
+  "files": [
+    {
+      "path": "components/ui/kbd.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

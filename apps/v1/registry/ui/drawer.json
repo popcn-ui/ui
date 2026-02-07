@@ -1,0 +1,14 @@
+{
+  "name": "drawer",
+  "type": "ui",
+  "description": "Slide-in drawer with multiple directions",
+  "files": [
+    {
+      "path": "components/ui/drawer.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["vaul", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

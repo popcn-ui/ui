@@ -1,0 +1,20 @@
+{
+  "name": "form",
+  "type": "ui",
+  "description": "React Hook Form helpers and slots",
+  "files": [
+    {
+      "path": "components/ui/form.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "react-hook-form",
+    "@radix-ui/react-slot",
+    "@radix-ui/react-label",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["label"]
+}

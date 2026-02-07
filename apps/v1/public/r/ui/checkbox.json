@@ -1,0 +1,21 @@
+{
+  "name": "checkbox",
+  "type": "ui",
+  "description": "Checkbox with aurora gradient and glass variants",
+  "files": [
+    {
+      "path": "components/ui/checkbox.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\"\nimport { Check } from \"lucide-react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst checkboxVariants = cva(\n  [\n    \"peer shrink-0 rounded-md border\",\n    \"ring-offset-background\",\n    \"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2\",\n    \"disabled:cursor-not-allowed disabled:opacity-50\",\n    \"transition-all duration-200\",\n  ],\n  {\n    variants: {\n      variant: {\n        default: [\n          \"border-border\",\n          \"data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground\",\n          \"data-[state=checked]:border-primary\",\n        ],\n        aurora: [\n          \"border-border\",\n          \"data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-[rgb(var(--ap-aurora-1))] data-[state=checked]:via-[rgb(var(--ap-aurora-2))] data-[state=checked]:to-[rgb(var(--ap-aurora-3))]\",\n          \"data-[state=checked]:border-transparent data-[state=checked]:text-primary-foreground\",\n          \"data-[state=checked]:shadow-[0_0_8px_rgba(var(--ap-primary),0.4)]\",\n        ],\n        glass: [\n          \"border-border/50 bg-background/60 backdrop-blur-md\",\n          \"data-[state=checked]:bg-primary/80 data-[state=checked]:text-primary-foreground\",\n          \"data-[state=checked]:border-primary/50\",\n        ],\n      },\n      size: {\n        sm: \"h-4 w-4\",\n        md: \"h-5 w-5\",\n        lg: \"h-6 w-6\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"md\",\n    },\n  }\n)\n\nexport interface CheckboxProps\n  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,\n    VariantProps<typeof checkboxVariants> {}\n\nconst Checkbox = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Root>,\n  CheckboxProps\n>(({ className, variant, size, ...props }, ref) => (\n  <CheckboxPrimitive.Root\n    ref={ref}\n    className={cn(\n      checkboxVariants({ variant, size }),\n      // Add subtle scale animation on state change\n      \"data-[state=checked]:animate-ap-bounce\",\n      className\n    )}\n    {...props}\n  >\n    <CheckboxPrimitive.Indicator className={cn(\n      \"flex items-center justify-center text-current\",\n      // Pop in animation for the checkmark\n      \"animate-ap-scale-in\"\n    )}>\n      <Check className={cn(size === \"sm\" ? \"h-3 w-3\" : size === \"lg\" ? \"h-5 w-5\" : \"h-4 w-4\")} />\n    </CheckboxPrimitive.Indicator>\n  </CheckboxPrimitive.Root>\n))\n\nCheckbox.displayName = CheckboxPrimitive.Root.displayName\n\nexport { Checkbox, checkboxVariants }\n"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-checkbox",
+    "lucide-react",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

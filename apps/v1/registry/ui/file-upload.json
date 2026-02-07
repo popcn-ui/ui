@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "file-upload",
+  "type": "ui",
+  "description": "File upload component with drag and drop support",
+  "files": ["components/ui/file-upload.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

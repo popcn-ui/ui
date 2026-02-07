@@ -1,0 +1,14 @@
+{
+  "name": "tabs",
+  "type": "ui",
+  "description": "Tab navigation with aurora, default, and underline variants",
+  "files": [
+    {
+      "path": "components/ui/tabs.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-tabs", "class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

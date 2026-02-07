@@ -1,0 +1,14 @@
+{
+  "name": "native-select",
+  "type": "ui",
+  "description": "Native select dropdown with custom styling",
+  "files": [
+    {
+      "path": "components/ui/native-select.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

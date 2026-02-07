@@ -1,0 +1,14 @@
+{
+  "name": "spinner",
+  "type": "ui",
+  "description": "Loading spinner component",
+  "files": [
+    {
+      "path": "components/ui/spinner.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

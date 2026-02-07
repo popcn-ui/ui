@@ -1,0 +1,19 @@
+{
+  "name": "input",
+  "type": "ui",
+  "description": "Form input with aurora, glass, and ghost variants",
+  "files": [
+    {
+      "path": "components/ui/input.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst inputVariants = cva(\n  [\n    \"flex w-full rounded-lg px-3 py-2 text-sm\",\n    \"transition-all duration-200\",\n    \"file:border-0 file:bg-transparent file:text-sm file:font-medium\",\n    \"placeholder:text-muted-foreground\",\n    \"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n    \"disabled:cursor-not-allowed disabled:opacity-50\",\n  ],\n  {\n    variants: {\n      variant: {\n        aurora: [\n          \"border-2 border-transparent\",\n          \"bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] via-[rgb(var(--ap-aurora-2))] to-[rgb(var(--ap-aurora-3))]\",\n          \"bg-clip-padding\",\n          \"[background-origin:border-box]\",\n          \"bg-background\",\n          \"focus:border-primary\",\n          \"focus:shadow-[0_0_16px_rgba(var(--ap-primary),0.3)]\",\n        ],\n        glass: [\n          \"bg-background/60 backdrop-blur-md\",\n          \"border border-border/50\",\n          \"focus:bg-background/80\",\n          \"focus:border-primary/50\",\n          \"focus:shadow-[0_0_12px_rgba(var(--ap-primary),0.2)]\",\n        ],\n        ghost: [\n          \"border-b border-border\",\n          \"rounded-none\",\n          \"bg-transparent\",\n          \"focus:border-primary\",\n          \"px-0\",\n        ],\n      },\n    },\n    defaultVariants: {\n      variant: \"glass\",\n    },\n  }\n)\n\nexport interface InputProps\n  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, \"size\">,\n    VariantProps<typeof inputVariants> {}\n\nconst Input = React.forwardRef<HTMLInputElement, InputProps>(\n  ({ className, variant, type, ...props }, ref) => {\n    return (\n      <input\n        type={type}\n        className={cn(inputVariants({ variant }), className)}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\n\nInput.displayName = \"Input\"\n\nexport { Input, inputVariants }\n"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

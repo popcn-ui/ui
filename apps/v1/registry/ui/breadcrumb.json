@@ -1,0 +1,19 @@
+{
+  "name": "breadcrumb",
+  "type": "ui",
+  "description": "Breadcrumb navigation with separators and overflow",
+  "files": [
+    {
+      "path": "components/ui/breadcrumb.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

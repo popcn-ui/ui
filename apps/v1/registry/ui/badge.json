@@ -1,0 +1,14 @@
+{
+  "name": "badge",
+  "type": "ui",
+  "description": "Status badge with aurora, glass, and outline variants",
+  "files": [
+    {
+      "path": "components/ui/badge.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

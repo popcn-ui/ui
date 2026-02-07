@@ -1,0 +1,14 @@
+{
+  "name": "input",
+  "type": "ui",
+  "description": "Form input with aurora, glass, and ghost variants",
+  "files": [
+    {
+      "path": "components/ui/input.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

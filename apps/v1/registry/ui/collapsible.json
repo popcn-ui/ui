@@ -1,0 +1,16 @@
+{
+  "name": "collapsible",
+  "type": "ui",
+  "description": "Show and hide content with a trigger",
+  "files": [
+    {
+      "path": "components/ui/collapsible.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-collapsible"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

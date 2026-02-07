@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "rating",
+  "type": "ui",
+  "description": "Rating component with star display",
+  "files": ["components/ui/rating.tsx"],
+  "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}

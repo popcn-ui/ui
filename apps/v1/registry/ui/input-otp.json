@@ -1,0 +1,14 @@
+{
+  "name": "input-otp",
+  "type": "ui",
+  "description": "One-time password input with slots",
+  "files": [
+    {
+      "path": "components/ui/input-otp.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["input-otp", "lucide-react", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

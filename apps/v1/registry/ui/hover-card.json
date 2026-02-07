@@ -1,0 +1,14 @@
+{
+  "name": "hover-card",
+  "type": "ui",
+  "description": "Hover card with popover content",
+  "files": [
+    {
+      "path": "components/ui/hover-card.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-hover-card", "clsx", "tailwind-merge"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

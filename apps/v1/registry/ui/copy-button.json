@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "copy-button",
+  "type": "ui",
+  "description": "Copy button component with clipboard functionality",
+  "files": ["components/ui/copy-button.tsx"],
+  "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "stepper",
+  "type": "ui",
+  "description": "Stepper component for multi-step processes",
+  "files": ["components/ui/stepper.tsx"],
+  "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": ["button"]
+}

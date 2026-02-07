@@ -1,0 +1,18 @@
+{
+  "name": "sonner",
+  "type": "ui",
+  "description": "Toast notifications with aurora glow effects",
+  "files": [
+    {
+      "path": "components/ui/sonner.tsx",
+      "type": "component",
+      "content": "\"use client\"\n\nimport { useTheme } from \"next-themes\"\nimport { Toaster as Sonner } from \"sonner\"\n\ntype ToasterProps = React.ComponentProps<typeof Sonner>\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n  const { theme = \"system\" } = useTheme()\n\n  return (\n    <Sonner\n      theme={theme as ToasterProps[\"theme\"]}\n      className=\"toaster group\"\n      toastOptions={{\n        classNames: {\n          toast: [\n            \"group toast\",\n            \"group-[.toaster]:bg-background/90 group-[.toaster]:backdrop-blur-xl\",\n            \"group-[.toaster]:text-foreground group-[.toaster]:border-border/50\",\n            \"group-[.toaster]:shadow-xl group-[.toaster]:shadow-[0_0_24px_rgba(var(--ap-primary),0.1)]\",\n            // Enter animation: slide up with spring\n            \"group-[.toaster]:animate-ap-slide-up\",\n            // Smooth transitions\n            \"group-[.toaster]:transition-all group-[.toaster]:duration-ap-3 group-[.toaster]:ease-ap-spring\",\n          ].join(\" \"),\n          description: \"group-[.toast]:text-muted-foreground\",\n          actionButton:\n            \"group-[.toast]:bg-primary group-[.toast]:text-primary-foreground group-[.toast]:ap-hover-scale group-[.toast]:ap-active-press\",\n          cancelButton:\n            \"group-[.toast]:bg-muted group-[.toast]:text-muted-foreground group-[.toast]:ap-hover-scale group-[.toast]:ap-active-press\",\n          success:\n            \"group-[.toaster]:border-green-500/50 group-[.toaster]:shadow-[0_0_16px_rgba(34,197,94,0.2)]\",\n          error:\n            \"group-[.toaster]:border-red-500/50 group-[.toaster]:shadow-[0_0_16px_rgba(239,68,68,0.2)]\",\n          warning:\n            \"group-[.toaster]:border-yellow-500/50 group-[.toaster]:shadow-[0_0_16px_rgba(234,179,8,0.2)]\",\n          info:\n            \"group-[.toaster]:border-primary/50 group-[.toaster]:shadow-[0_0_16px_rgba(var(--ap-primary),0.2)]\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n"
+    }
+  ],
+  "dependencies": [
+    "sonner",
+    "next-themes"
+  ],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,19 @@
+{
+  "name": "combobox",
+  "type": "ui",
+  "description": "Combobox with searchable list and chips",
+  "files": [
+    {
+      "path": "components/ui/combobox.tsx",
+      "type": "component"
+    }
+  ],
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": ["input-group", "button"]
+}

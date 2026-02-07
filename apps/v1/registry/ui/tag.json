@@ -1,0 +1,9 @@
+{
+  "$schema": "../registry-schema.json",
+  "name": "tag",
+  "type": "ui",
+  "description": "Tag component with removable option",
+  "files": ["components/ui/tag.tsx"],
+  "dependencies": ["lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": []
+}
