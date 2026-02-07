@@ -1,15 +1,15 @@
 import { Command } from "commander"
-import chalk from "chalk"
 import { initCommand } from "./commands/init.js"
 import { addCommand } from "./commands/add.js"
 import { listCommand } from "./commands/list.js"
+import packageJson from "../package.json"
 
 const program = new Command()
 
 program
   .name("popcn")
   .description("CLI for popcn/ui - AuroraPop design system")
-  .version("0.0.1")
+  .version(packageJson.version)
 
 program
   .command("init")
