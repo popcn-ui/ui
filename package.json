@@ -3,6 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "description": "AuroraPop design system - A gradient-driven, motion-rich component library",
+  "license": "MIT",
+  "author": "popcn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/popcn-ui/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/popcn-ui/ui/issues"
+  },
+  "homepage": "https://github.com/popcn-ui/ui#readme",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
