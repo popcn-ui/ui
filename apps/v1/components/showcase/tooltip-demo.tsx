@@ -2,12 +2,7 @@
 
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Plus, Settings, Info } from "lucide-react"
 
 function TooltipDemo() {

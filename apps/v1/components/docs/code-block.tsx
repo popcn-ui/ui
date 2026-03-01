@@ -64,9 +64,9 @@ export function CodeBlock({
   }
 
   return (
-    <div className={cn("relative group", className)}>
+    <div className={cn("group relative", className)}>
       {canSwitchPackageManager ? (
-        <div className="mb-2 inline-flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 p-1">
+        <div className="border-border/50 bg-muted/30 mb-2 inline-flex items-center gap-1 rounded-lg border p-1">
           {packageManagers.map((pm) => (
             <button
               key={pm}
@@ -84,18 +84,18 @@ export function CodeBlock({
           ))}
         </div>
       ) : null}
-      <pre className="bg-muted/30 border border-border/50 rounded-lg p-4 overflow-x-auto">
-        <code className="text-sm font-mono text-foreground">{displayedCode}</code>
+      <pre className="bg-muted/30 border-border/50 overflow-x-auto rounded-lg border p-4">
+        <code className="text-foreground font-mono text-sm">{displayedCode}</code>
       </pre>
       <button
         onClick={copy}
-        className="absolute top-3 right-3 p-2 rounded-md bg-muted/50 hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity"
+        className="bg-muted/50 hover:bg-muted absolute right-3 top-3 rounded-md p-2 opacity-0 transition-opacity group-hover:opacity-100"
         aria-label="Copy code"
       >
         {copied ? (
           <Check className="h-4 w-4 text-green-500" />
         ) : (
-          <Copy className="h-4 w-4 text-muted-foreground" />
+          <Copy className="text-muted-foreground h-4 w-4" />
         )}
       </button>
     </div>

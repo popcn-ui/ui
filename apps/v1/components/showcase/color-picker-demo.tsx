@@ -20,9 +20,7 @@ export function ColorPickerDemo() {
         <label className="text-sm font-medium">Color Picker (HSL)</label>
         <ColorPicker value={color} onChange={setColor} format="hsl" />
       </div>
-      <div className="text-sm text-muted-foreground">
-        Selected: {color}
-      </div>
+      <div className="text-muted-foreground text-sm">Selected: {color}</div>
     </div>
   )
 }

@@ -20,19 +20,19 @@ export default function ItemPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Item</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Item</h1>
+        <p className="text-muted-foreground text-lg">
           List item component with media, content, and actions.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add item" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Simple Item"
@@ -92,7 +92,9 @@ export default function ItemPage() {
                 <ItemDescription>Item description</ItemDescription>
               </ItemContent>
               <ItemActions>
-                <Button size="sm" variant="glass">Action</Button>
+                <Button size="sm" variant="glass">
+                  Action
+                </Button>
               </ItemActions>
             </Item>
           </ComponentPreview>
@@ -100,7 +102,7 @@ export default function ItemPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Components</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Components</h2>
         <PropsTable
           props={[
             {

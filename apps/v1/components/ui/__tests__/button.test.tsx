@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest"
-import { render, screen, fireEvent } from "@testing-library/react"
+import { render, screen, fireEvent, act } from "@testing-library/react"
 import { Button, buttonVariants } from "../button"
 import { Star, ArrowRight } from "lucide-react"
 
@@ -27,7 +27,7 @@ describe("Button", () => {
     it("applies aurora variant classes by default", () => {
       render(<Button>Aurora</Button>)
       const button = screen.getByRole("button")
-      expect(button.className).toContain("bg-gradient-to-r")
+      expect(button.className).toContain("bg-aurora")
     })
 
     it("applies glass variant classes", () => {
@@ -90,10 +90,14 @@ describe("Button", () => {
       render(<Button motion="pop">Pop</Button>)
       const button = screen.getByRole("button")
 
-      fireEvent.click(button)
+      act(() => {
+        fireEvent.click(button)
+      })
       expect(button.className).toContain("animate-ap-pop")
 
-      vi.advanceTimersByTime(200)
+      act(() => {
+        vi.advanceTimersByTime(200)
+      })
       expect(button.className).not.toContain("animate-ap-pop")
 
       vi.useRealTimers()
@@ -180,7 +184,11 @@ describe("Button", () => {
 
     it("does not trigger click when disabled", () => {
       const handleClick = vi.fn()
-      render(<Button disabled onClick={handleClick}>Disabled</Button>)
+      render(
+        <Button disabled onClick={handleClick}>
+          Disabled
+        </Button>
+      )
 
       fireEvent.click(screen.getByRole("button"))
       expect(handleClick).not.toHaveBeenCalled()
@@ -211,7 +219,11 @@ describe("Button", () => {
 
   describe("HTML attributes", () => {
     it("passes through HTML attributes", () => {
-      render(<Button type="submit" data-testid="submit-btn">Submit</Button>)
+      render(
+        <Button type="submit" data-testid="submit-btn">
+          Submit
+        </Button>
+      )
       const button = screen.getByTestId("submit-btn")
       expect(button).toHaveAttribute("type", "submit")
     })

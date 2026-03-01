@@ -1,11 +1,6 @@
 "use client"
 
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button"
 import { CodeBlock } from "@/components/docs/code-block"
 import { ComponentPreview } from "@/components/docs/component-preview"
@@ -15,19 +10,19 @@ export default function TooltipPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Tooltip</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Tooltip</h1>
+        <p className="text-muted-foreground text-lg">
           Popup hint with glass panel effect. Built on Radix UI Tooltip.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add tooltip" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <ComponentPreview
           title="Simple Tooltip"
           code={`<TooltipProvider>
@@ -55,7 +50,7 @@ export default function TooltipPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Positions</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Positions</h2>
         <ComponentPreview
           title="Different Sides"
           code={`<div className="flex gap-4">
@@ -123,7 +118,7 @@ export default function TooltipPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Delay</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Delay</h2>
         <ComponentPreview
           title="Custom Delay"
           code={`<TooltipProvider delayDuration={500}>
@@ -151,7 +146,7 @@ export default function TooltipPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

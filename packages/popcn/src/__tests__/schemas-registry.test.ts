@@ -47,9 +47,7 @@ describe("schemas/registry", () => {
     const validComponent = {
       name: "button",
       type: "ui" as const,
-      files: [
-        { path: "components/ui/button.tsx", type: "ui", content: "export {}" },
-      ],
+      files: [{ path: "components/ui/button.tsx", type: "ui", content: "export {}" }],
     }
 
     it("should parse valid component", () => {
@@ -144,15 +142,9 @@ describe("schemas/registry", () => {
   describe("registryIndexSchema", () => {
     const validIndex = {
       version: "1.0.0",
-      components: [
-        { name: "button", type: "ui", description: "A button" },
-      ],
-      styles: [
-        { name: "aurorapop", type: "style" },
-      ],
-      themes: [
-        { name: "cosmic", type: "theme" },
-      ],
+      components: [{ name: "button", type: "ui", description: "A button" }],
+      styles: [{ name: "aurorapop", type: "style" }],
+      themes: [{ name: "cosmic", type: "theme" }],
     }
 
     it("should parse valid index", () => {

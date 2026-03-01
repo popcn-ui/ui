@@ -29,16 +29,10 @@ const skeletonVariants = cva("rounded-lg", {
 })
 
 export interface SkeletonProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof skeletonVariants> {}
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof skeletonVariants> {}
 
 function Skeleton({ className, variant, ...props }: SkeletonProps) {
-  return (
-    <div
-      className={cn(skeletonVariants({ variant }), className)}
-      {...props}
-    />
-  )
+  return <div className={cn(skeletonVariants({ variant }), className)} {...props} />
 }
 
 export { Skeleton, skeletonVariants }

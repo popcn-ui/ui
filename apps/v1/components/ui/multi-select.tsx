@@ -4,11 +4,7 @@ import * as React from "react"
 import { XIcon, CheckIcon, ChevronDownIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Badge } from "@/components/ui/badge"
 
 interface MultiSelectOption {
@@ -68,25 +64,21 @@ function MultiSelect({
         <Button
           variant="ghost"
           className={cn(
-            "w-full justify-between text-left font-normal min-h-10 h-auto",
+            "h-auto min-h-10 w-full justify-between text-left font-normal",
             !value.length && "text-muted-foreground",
             className
           )}
           disabled={disabled}
         >
-          <div className="flex flex-wrap gap-1 flex-1">
+          <div className="flex flex-1 flex-wrap gap-1">
             {selectedOptions.length === 0 ? (
               <span>{placeholder}</span>
             ) : (
               selectedOptions.map((option) => (
-                <Badge
-                  key={option.value}
-                  variant="secondary"
-                  className="mr-1 mb-1"
-                >
+                <Badge key={option.value} variant="secondary" className="mb-1 mr-1">
                   {option.label}
                   <button
-                    className="ml-1 ring-offset-background rounded-full outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                    className="ring-offset-background focus:ring-ring ml-1 rounded-full outline-none focus:ring-2 focus:ring-offset-2"
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
                         handleRemove(option.value, e as any)
@@ -98,13 +90,13 @@ function MultiSelect({
                     }}
                     onClick={(e) => handleRemove(option.value, e)}
                   >
-                    <XIcon className="h-3 w-3 text-muted-foreground hover:text-foreground" />
+                    <XIcon className="text-muted-foreground hover:text-foreground h-3 w-3" />
                   </button>
                 </Badge>
               ))
             )}
           </div>
-          <ChevronDownIcon className="h-4 w-4 opacity-50 shrink-0" />
+          <ChevronDownIcon className="h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
@@ -122,10 +114,10 @@ function MultiSelect({
                 )}
                 onClick={() => !option.disabled && handleSelect(option.value)}
               >
-                <div className="flex items-center gap-2 flex-1">
+                <div className="flex flex-1 items-center gap-2">
                   <div
                     className={cn(
-                      "flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                      "border-primary flex h-4 w-4 items-center justify-center rounded-sm border",
                       isSelected && "bg-primary text-primary-foreground"
                     )}
                   >
@@ -138,7 +130,7 @@ function MultiSelect({
           })}
         </div>
         {maxCount && (
-          <div className="border-t border-border/60 px-2 py-1.5 text-xs text-muted-foreground">
+          <div className="border-border/60 text-muted-foreground border-t px-2 py-1.5 text-xs">
             {value.length} / {maxCount} selected
           </div>
         )}

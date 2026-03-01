@@ -12,24 +12,19 @@ export default function ProgressPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Progress</h1>
-        <p className="text-lg text-muted-foreground">
-          Progress bar component.
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Progress</h1>
+        <p className="text-muted-foreground text-lg">Progress bar component.</p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add progress" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
-          <ComponentPreview
-            title="Default"
-            code={`<Progress value={33} />`}
-          >
+          <ComponentPreview title="Default" code={`<Progress value={33} />`}>
             <Progress value={33} />
           </ComponentPreview>
 
@@ -55,7 +50,7 @@ export default function ProgressPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Controlled</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Controlled</h2>
         <ComponentPreview
           title="Animated Progress"
           code={`const [progress, setProgress] = useState(33)
@@ -67,13 +62,13 @@ export default function ProgressPage() {
             <div className="flex gap-2">
               <button
                 onClick={() => setProgress(Math.max(0, progress - 10))}
-                className="px-3 py-1 text-sm border rounded"
+                className="rounded border px-3 py-1 text-sm"
               >
                 Decrease
               </button>
               <button
                 onClick={() => setProgress(Math.min(100, progress + 10))}
-                className="px-3 py-1 text-sm border rounded"
+                className="rounded border px-3 py-1 text-sm"
               >
                 Increase
               </button>
@@ -83,7 +78,7 @@ export default function ProgressPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

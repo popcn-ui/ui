@@ -1,9 +1,5 @@
 import { describe, it, expect } from "vitest"
-import {
-  componentsConfigSchema,
-  validateConfig,
-  getConfigErrors,
-} from "../schemas/config.js"
+import { componentsConfigSchema, validateConfig, getConfigErrors } from "../schemas/config.js"
 
 describe("schemas/config", () => {
   const validConfig = {
@@ -125,9 +121,7 @@ describe("schemas/config", () => {
 
     it("should include path in error messages", () => {
       const errors = getConfigErrors({ style: "aurorapop" })
-      const hasPath = errors.some(
-        (e) => e.includes("tailwind") || e.includes("aliases")
-      )
+      const hasPath = errors.some((e) => e.includes("tailwind") || e.includes("aliases"))
       expect(hasPath).toBe(true)
     })
 

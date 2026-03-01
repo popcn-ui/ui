@@ -8,7 +8,12 @@
       "type": "component"
     }
   ],
-  "dependencies": ["@radix-ui/react-separator", "class-variance-authority", "clsx", "tailwind-merge"],
+  "dependencies": [
+    "@radix-ui/react-separator",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
   "devDependencies": [],
   "registryDependencies": []
 }

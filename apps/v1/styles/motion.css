@@ -4,21 +4,21 @@
 
 :root {
   /* Duration tokens */
-  --ap-dur-1: 100ms;   /* Micro: button press */
-  --ap-dur-2: 200ms;   /* Quick: pop, snap */
-  --ap-dur-3: 300ms;   /* Standard: most transitions */
-  --ap-dur-4: 500ms;   /* Emphasis: entrance animations, morph */
-  --ap-dur-5: 800ms;   /* Dramatic: confetti, complex sequences */
+  --ap-dur-1: 100ms; /* Micro: button press */
+  --ap-dur-2: 200ms; /* Quick: pop, snap */
+  --ap-dur-3: 300ms; /* Standard: most transitions */
+  --ap-dur-4: 500ms; /* Emphasis: entrance animations, morph */
+  --ap-dur-5: 800ms; /* Dramatic: confetti, complex sequences */
 
   /* Easing tokens */
-  --ap-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);       /* Bouncy */
-  --ap-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);           /* Soft */
-  --ap-ease-snap: cubic-bezier(0.2, 0, 0, 1);             /* Sharp */
+  --ap-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy */
+  --ap-ease-soft: cubic-bezier(0.4, 0, 0.2, 1); /* Soft */
+  --ap-ease-snap: cubic-bezier(0.2, 0, 0, 1); /* Sharp */
   --ap-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Elastic */
 
   /* Motion control tokens */
-  --ap-motion: 1;        /* 1=enabled, 0=disabled */
-  --ap-motion-scale: 1;  /* Intensity scale (0.5=subtle, 1=normal, 1.5=dramatic) */
+  --ap-motion: 1; /* 1=enabled, 0=disabled */
+  --ap-motion-scale: 1; /* Intensity scale (0.5=subtle, 1=normal, 1.5=dramatic) */
 }
 
 /* =====================================================

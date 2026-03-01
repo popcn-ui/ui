@@ -10,22 +10,20 @@ export default function ToastPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Toast</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Toast</h1>
+        <p className="text-muted-foreground text-lg">
           Toast notifications using Sonner with glass styling.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add sonner" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Setup</h2>
-        <p className="text-muted-foreground mb-4">
-          Add the Toaster component to your root layout.
-        </p>
+        <h2 className="mb-4 text-2xl font-semibold">Setup</h2>
+        <p className="text-muted-foreground mb-4">Add the Toaster component to your root layout.</p>
         <CodeBlock
           code={`import { Toaster } from "@/components/ui/sonner"
 
@@ -43,7 +41,7 @@ export default function RootLayout({ children }) {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Default Toast"
@@ -53,10 +51,7 @@ export default function RootLayout({ children }) {
   Show Toast
 </Button>`}
           >
-            <Button
-              variant="glass"
-              onClick={() => toast("Event has been created")}
-            >
+            <Button variant="glass" onClick={() => toast("Event has been created")}>
               Show Toast
             </Button>
           </ComponentPreview>
@@ -82,52 +77,28 @@ export default function RootLayout({ children }) {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Variants</h2>
         <div className="space-y-6">
-          <ComponentPreview
-            title="Success"
-            code={`toast.success("Successfully saved!")`}
-          >
-            <Button
-              variant="glass"
-              onClick={() => toast.success("Successfully saved!")}
-            >
+          <ComponentPreview title="Success" code={`toast.success("Successfully saved!")`}>
+            <Button variant="glass" onClick={() => toast.success("Successfully saved!")}>
               Success Toast
             </Button>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Error"
-            code={`toast.error("Something went wrong")`}
-          >
-            <Button
-              variant="glass"
-              onClick={() => toast.error("Something went wrong")}
-            >
+          <ComponentPreview title="Error" code={`toast.error("Something went wrong")`}>
+            <Button variant="glass" onClick={() => toast.error("Something went wrong")}>
               Error Toast
             </Button>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Warning"
-            code={`toast.warning("Please check your input")`}
-          >
-            <Button
-              variant="glass"
-              onClick={() => toast.warning("Please check your input")}
-            >
+          <ComponentPreview title="Warning" code={`toast.warning("Please check your input")`}>
+            <Button variant="glass" onClick={() => toast.warning("Please check your input")}>
               Warning Toast
             </Button>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Info"
-            code={`toast.info("New update available")`}
-          >
-            <Button
-              variant="glass"
-              onClick={() => toast.info("New update available")}
-            >
+          <ComponentPreview title="Info" code={`toast.info("New update available")`}>
+            <Button variant="glass" onClick={() => toast.info("New update available")}>
               Info Toast
             </Button>
           </ComponentPreview>
@@ -135,7 +106,7 @@ export default function RootLayout({ children }) {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Action</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Action</h2>
         <ComponentPreview
           title="Action Button"
           code={`toast("File deleted", {
@@ -162,7 +133,7 @@ export default function RootLayout({ children }) {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Promise</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Promise</h2>
         <ComponentPreview
           title="Loading State"
           code={`toast.promise(
@@ -177,14 +148,11 @@ export default function RootLayout({ children }) {
           <Button
             variant="aurora"
             onClick={() =>
-              toast.promise(
-                new Promise((resolve) => setTimeout(resolve, 2000)),
-                {
-                  loading: "Loading...",
-                  success: "Data loaded",
-                  error: "Error loading data",
-                }
-              )
+              toast.promise(new Promise((resolve) => setTimeout(resolve, 2000)), {
+                loading: "Loading...",
+                success: "Data loaded",
+                error: "Error loading data",
+              })
             }
           >
             Promise Toast
@@ -193,7 +161,7 @@ export default function RootLayout({ children }) {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">API</h2>
+        <h2 className="mb-4 text-2xl font-semibold">API</h2>
         <PropsTable
           props={[
             {

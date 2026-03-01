@@ -21,12 +21,12 @@ function PreviewCard({
   const [showCode, setShowCode] = useState(false)
 
   return (
-    <div className="border border-border/50 rounded-xl overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-muted/20">
+    <div className="border-border/50 overflow-hidden rounded-xl border">
+      <div className="border-border/50 bg-muted/20 flex items-center justify-between border-b px-4 py-3">
         <h3 className="text-sm font-medium">{title}</h3>
         <button
           onClick={() => setShowCode(!showCode)}
-          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground hover:text-foreground text-xs transition-colors"
         >
           {showCode ? "Preview" : "Code"}
         </button>
@@ -36,7 +36,7 @@ function PreviewCard({
           <CodeBlock code={code} />
         </div>
       ) : (
-        <div className="p-8 flex items-center justify-center gap-4 bg-background/50">
+        <div className="bg-background/50 flex items-center justify-center gap-4 p-8">
           {children}
         </div>
       )}
@@ -52,31 +52,31 @@ export default function ButtonPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Button</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Button</h1>
+        <p className="text-muted-foreground text-lg">
           Aurora-styled button with gradient variants and motion presets.
         </p>
       </div>
 
       {/* Installation */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add button" />
       </section>
 
       {/* Interactive Playground */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Playground</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Playground</h2>
         <div className="glass rounded-xl p-6">
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="mb-8 grid gap-6 md:grid-cols-3">
             <div>
-              <label className="block text-sm font-medium mb-2">Variant</label>
+              <label className="mb-2 block text-sm font-medium">Variant</label>
               <div className="flex flex-wrap gap-2">
                 {(["aurora", "glass", "ghost"] as Variant[]).map((v) => (
                   <button
                     key={v}
                     onClick={() => setVariant(v)}
-                    className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
+                    className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
                       variant === v
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted/50 text-muted-foreground hover:bg-muted"
@@ -88,33 +88,31 @@ export default function ButtonPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Motion</label>
+              <label className="mb-2 block text-sm font-medium">Motion</label>
               <div className="flex flex-wrap gap-2">
-                {(["pop", "float", "shine", "snap", "none"] as Motion[]).map(
-                  (m) => (
-                    <button
-                      key={m}
-                      onClick={() => setMotion(m)}
-                      className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
-                        motion === m
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted/50 text-muted-foreground hover:bg-muted"
-                      }`}
-                    >
-                      {m}
-                    </button>
-                  )
-                )}
+                {(["pop", "float", "shine", "snap", "none"] as Motion[]).map((m) => (
+                  <button
+                    key={m}
+                    onClick={() => setMotion(m)}
+                    className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+                      motion === m
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted/50 text-muted-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {m}
+                  </button>
+                ))}
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Size</label>
+              <label className="mb-2 block text-sm font-medium">Size</label>
               <div className="flex flex-wrap gap-2">
                 {(["sm", "md", "lg"] as Size[]).map((s) => (
                   <button
                     key={s}
                     onClick={() => setSize(s)}
-                    className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
+                    className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
                       size === s
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted/50 text-muted-foreground hover:bg-muted"
@@ -127,7 +125,7 @@ export default function ButtonPage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center p-12 rounded-lg bg-background/50 border border-border/50 mb-4">
+          <div className="bg-background/50 border-border/50 mb-4 flex items-center justify-center rounded-lg border p-12">
             <Button variant={variant} motion={motion} size={size}>
               Button
             </Button>
@@ -143,7 +141,7 @@ export default function ButtonPage() {
 
       {/* Variants */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Variants</h2>
         <div className="space-y-6">
           <PreviewCard
             title="Aurora (default)"
@@ -152,17 +150,11 @@ export default function ButtonPage() {
             <Button variant="aurora">Aurora Button</Button>
           </PreviewCard>
 
-          <PreviewCard
-            title="Glass"
-            code={`<Button variant="glass">Glass Button</Button>`}
-          >
+          <PreviewCard title="Glass" code={`<Button variant="glass">Glass Button</Button>`}>
             <Button variant="glass">Glass Button</Button>
           </PreviewCard>
 
-          <PreviewCard
-            title="Ghost"
-            code={`<Button variant="ghost">Ghost Button</Button>`}
-          >
+          <PreviewCard title="Ghost" code={`<Button variant="ghost">Ghost Button</Button>`}>
             <Button variant="ghost">Ghost Button</Button>
           </PreviewCard>
         </div>
@@ -170,33 +162,21 @@ export default function ButtonPage() {
 
       {/* Motions */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Motion Presets</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Motion Presets</h2>
         <div className="space-y-6">
-          <PreviewCard
-            title="Pop (default)"
-            code={`<Button motion="pop">Pop</Button>`}
-          >
+          <PreviewCard title="Pop (default)" code={`<Button motion="pop">Pop</Button>`}>
             <Button motion="pop">Click for Pop</Button>
           </PreviewCard>
 
-          <PreviewCard
-            title="Float"
-            code={`<Button motion="float">Float</Button>`}
-          >
+          <PreviewCard title="Float" code={`<Button motion="float">Float</Button>`}>
             <Button motion="float">Floating</Button>
           </PreviewCard>
 
-          <PreviewCard
-            title="Shine"
-            code={`<Button motion="shine">Shine</Button>`}
-          >
+          <PreviewCard title="Shine" code={`<Button motion="shine">Shine</Button>`}>
             <Button motion="shine">Shine</Button>
           </PreviewCard>
 
-          <PreviewCard
-            title="Snap"
-            code={`<Button motion="snap">Snap</Button>`}
-          >
+          <PreviewCard title="Snap" code={`<Button motion="snap">Snap</Button>`}>
             <Button motion="snap">Press & Hold</Button>
           </PreviewCard>
         </div>
@@ -204,7 +184,7 @@ export default function ButtonPage() {
 
       {/* Sizes */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Sizes</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Sizes</h2>
         <PreviewCard
           title="All Sizes"
           code={`<Button size="sm">Small</Button>
@@ -219,7 +199,7 @@ export default function ButtonPage() {
 
       {/* With Icons */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Icons</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Icons</h2>
         <PreviewCard
           title="Icon Buttons"
           code={`<Button leftIcon={<Download />}>Download</Button>
@@ -227,13 +207,8 @@ export default function ButtonPage() {
 <Button leftIcon={<Send />} rightIcon={<ChevronRight />}>Send</Button>`}
         >
           <Button leftIcon={<Download className="h-4 w-4" />}>Download</Button>
-          <Button rightIcon={<ChevronRight className="h-4 w-4" />}>
-            Continue
-          </Button>
-          <Button
-            leftIcon={<Heart className="h-4 w-4" />}
-            variant="glass"
-          >
+          <Button rightIcon={<ChevronRight className="h-4 w-4" />}>Continue</Button>
+          <Button leftIcon={<Heart className="h-4 w-4" />} variant="glass">
             Like
           </Button>
         </PreviewCard>
@@ -241,85 +216,60 @@ export default function ButtonPage() {
 
       {/* Props */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-border/50">
-                <th className="text-left py-3 px-4 font-semibold">Prop</th>
-                <th className="text-left py-3 px-4 font-semibold">Type</th>
-                <th className="text-left py-3 px-4 font-semibold">Default</th>
-                <th className="text-left py-3 px-4 font-semibold">
-                  Description
-                </th>
+              <tr className="border-border/50 border-b">
+                <th className="px-4 py-3 text-left font-semibold">Prop</th>
+                <th className="px-4 py-3 text-left font-semibold">Type</th>
+                <th className="px-4 py-3 text-left font-semibold">Default</th>
+                <th className="px-4 py-3 text-left font-semibold">Description</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border/50">
+            <tbody className="divide-border/50 divide-y">
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">variant</td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
+                <td className="text-primary px-4 py-3 font-mono">variant</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">
                   &quot;aurora&quot; | &quot;glass&quot; | &quot;ghost&quot;
                 </td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  &quot;aurora&quot;
-                </td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Visual style variant
-                </td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">&quot;aurora&quot;</td>
+                <td className="text-muted-foreground px-4 py-3">Visual style variant</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">size</td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
+                <td className="text-primary px-4 py-3 font-mono">size</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">
                   &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;
                 </td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  &quot;md&quot;
-                </td>
-                <td className="py-3 px-4 text-muted-foreground">Button size</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">&quot;md&quot;</td>
+                <td className="text-muted-foreground px-4 py-3">Button size</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">motion</td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  &quot;pop&quot; | &quot;float&quot; | &quot;shine&quot; | &quot;snap&quot; | &quot;none&quot;
+                <td className="text-primary px-4 py-3 font-mono">motion</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">
+                  &quot;pop&quot; | &quot;float&quot; | &quot;shine&quot; | &quot;snap&quot; |
+                  &quot;none&quot;
                 </td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  &quot;pop&quot;
-                </td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Animation preset
-                </td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">&quot;pop&quot;</td>
+                <td className="text-muted-foreground px-4 py-3">Animation preset</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">leftIcon</td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  ReactNode
-                </td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">-</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Icon on the left
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">leftIcon</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">ReactNode</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">-</td>
+                <td className="text-muted-foreground px-4 py-3">Icon on the left</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">rightIcon</td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  ReactNode
-                </td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">-</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Icon on the right
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">rightIcon</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">ReactNode</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">-</td>
+                <td className="text-muted-foreground px-4 py-3">Icon on the right</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">disabled</td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  boolean
-                </td>
-                <td className="py-3 px-4 font-mono text-muted-foreground">
-                  false
-                </td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Disable the button
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">disabled</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">boolean</td>
+                <td className="text-muted-foreground px-4 py-3 font-mono">false</td>
+                <td className="text-muted-foreground px-4 py-3">Disable the button</td>
               </tr>
             </tbody>
           </table>
@@ -328,7 +278,7 @@ export default function ButtonPage() {
 
       {/* Usage */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Usage</h2>
         <CodeBlock
           code={`import { Button } from "@/components/ui/button"
 

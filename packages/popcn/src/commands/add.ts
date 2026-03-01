@@ -13,10 +13,7 @@ interface AddOptions {
   path?: string
 }
 
-export async function addCommand(
-  components: string[],
-  options: AddOptions
-) {
+export async function addCommand(components: string[], options: AddOptions) {
   const cwd = process.cwd()
 
   console.log()
@@ -24,9 +21,7 @@ export async function addCommand(
   // Check if initialized
   if (!configExists(cwd)) {
     console.log(
-      chalk.red("  Project not initialized. Run ") +
-        chalk.cyan("popcn init") +
-        chalk.red(" first.")
+      chalk.red("  Project not initialized. Run ") + chalk.cyan("popcn init") + chalk.red(" first.")
     )
     return
   }
@@ -50,8 +45,7 @@ export async function addCommand(
 
       for (const component of registry.components) {
         console.log(
-          chalk.cyan(`  ${component.name}`) +
-            chalk.dim(` - ${component.description || ""}`)
+          chalk.cyan(`  ${component.name}`) + chalk.dim(` - ${component.description || ""}`)
         )
       }
 
@@ -136,9 +130,7 @@ export async function addCommand(
     console.log()
     console.log(chalk.dim("  Install dependencies:"))
     console.log()
-    console.log(
-      chalk.cyan(`  ${getInstallCommand(pm)} ${Array.from(allDependencies).join(" ")}`)
-    )
+    console.log(chalk.cyan(`  ${getInstallCommand(pm)} ${Array.from(allDependencies).join(" ")}`))
     console.log()
   }
 }
@@ -181,10 +173,7 @@ async function writeComponentFiles(
 
     // Replace @/ imports with configured alias
     if (config.aliases.utils !== "@/lib/utils") {
-      content = content.replace(
-        /@\/lib\/utils/g,
-        config.aliases.utils
-      )
+      content = content.replace(/@\/lib\/utils/g, config.aliases.utils)
     }
 
     // Write file

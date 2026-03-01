@@ -8,11 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "class-variance-authority",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
   "devDependencies": [],
   "registryDependencies": ["input", "button"]
 }

@@ -12,15 +12,15 @@ export function NotificationBadgeDemo() {
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="sm" className="relative">
             <BellIcon className="h-4 w-4" />
-            <NotificationBadge count={3} className="absolute -top-1 -right-1" />
+            <NotificationBadge count={3} className="absolute -right-1 -top-1" />
           </Button>
           <Button variant="ghost" size="sm" className="relative">
             <BellIcon className="h-4 w-4" />
-            <NotificationBadge count={99} className="absolute -top-1 -right-1" />
+            <NotificationBadge count={99} className="absolute -right-1 -top-1" />
           </Button>
           <Button variant="ghost" size="sm" className="relative">
             <BellIcon className="h-4 w-4" />
-            <NotificationBadge count={150} maxCount={99} className="absolute -top-1 -right-1" />
+            <NotificationBadge count={150} maxCount={99} className="absolute -right-1 -top-1" />
           </Button>
         </div>
       </div>
@@ -29,11 +29,11 @@ export function NotificationBadgeDemo() {
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="sm" className="relative">
             <BellIcon className="h-4 w-4" />
-            <NotificationBadge dot className="absolute -top-1 -right-1" />
+            <NotificationBadge dot className="absolute -right-1 -top-1" />
           </Button>
           <Button variant="ghost" size="sm" className="relative">
             Messages
-            <NotificationBadge dot variant="aurora" className="absolute -top-1 -right-1" />
+            <NotificationBadge dot variant="aurora" className="absolute -right-1 -top-1" />
           </Button>
         </div>
       </div>

@@ -3,7 +3,8 @@
 import * as React from "react"
 import { LoaderIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button, ButtonProps, buttonVariants } from "@/components/ui/button"
+import type { ButtonProps } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 
 interface LoadingButtonProps extends ButtonProps {
   loading?: boolean
@@ -37,9 +38,7 @@ const LoadingButton = React.forwardRef<HTMLButtonElement, LoadingButtonProps>(
       >
         {loading && (
           <span className="mr-2">
-            {loadingIcon || (
-              <LoaderIcon className="h-4 w-4 animate-spin" />
-            )}
+            {loadingIcon || <LoaderIcon className="h-4 w-4 animate-spin" />}
           </span>
         )}
         {loading && loadingText ? loadingText : children}

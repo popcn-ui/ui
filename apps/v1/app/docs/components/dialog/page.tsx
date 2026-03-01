@@ -23,19 +23,19 @@ export default function DialogPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Dialog</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Dialog</h1>
+        <p className="text-muted-foreground text-lg">
           Modal dialog with glass backdrop effect. Built on Radix UI Dialog.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add dialog" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <ComponentPreview
           title="Simple Dialog"
           code={`<Dialog>
@@ -77,7 +77,7 @@ export default function DialogPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Form</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Form</h2>
         <ComponentPreview
           title="Form Dialog"
           code={`<Dialog>
@@ -114,9 +114,7 @@ export default function DialogPage() {
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle>Edit profile</DialogTitle>
-                <DialogDescription>
-                  Make changes to your profile here.
-                </DialogDescription>
+                <DialogDescription>Make changes to your profile here.</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid gap-2">
@@ -129,7 +127,9 @@ export default function DialogPage() {
                 </div>
               </div>
               <DialogFooter>
-                <Button variant="aurora" onClick={() => setOpen(false)}>Save changes</Button>
+                <Button variant="aurora" onClick={() => setOpen(false)}>
+                  Save changes
+                </Button>
               </DialogFooter>
             </DialogContent>
           </Dialog>
@@ -137,7 +137,7 @@ export default function DialogPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

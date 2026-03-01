@@ -4,9 +4,6 @@ import * as path from "path"
 const ROOT = process.cwd()
 const REGISTRY_DIR = path.join(ROOT, "registry")
 const PUBLIC_R_DIR = path.join(ROOT, "public", "r")
-const COMPONENTS_DIR = path.join(ROOT, "components", "ui")
-const LIB_DIR = path.join(ROOT, "lib")
-const STYLES_DIR = path.join(ROOT, "styles")
 
 interface RegistryItem {
   name: string

@@ -8,12 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "embla-carousel-react",
-    "lucide-react",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["embla-carousel-react", "lucide-react", "clsx", "tailwind-merge"],
   "devDependencies": [],
   "registryDependencies": ["button"]
 }

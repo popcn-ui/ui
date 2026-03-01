@@ -18,19 +18,17 @@ export default function TablePage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Table</h1>
-        <p className="text-lg text-muted-foreground">
-          Table component with rows and cells.
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Table</h1>
+        <p className="text-muted-foreground text-lg">Table component with rows and cells.</p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add table" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <ComponentPreview
           title="Simple Table"
           code={`<Table>
@@ -80,7 +78,7 @@ export default function TablePage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Footer</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Footer</h2>
         <ComponentPreview
           title="Table with Footer"
           code={`<Table>
@@ -136,7 +134,7 @@ export default function TablePage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Components</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Components</h2>
         <PropsTable
           props={[
             {

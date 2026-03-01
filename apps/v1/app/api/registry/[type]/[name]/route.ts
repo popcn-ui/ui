@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from "next/server"
+import type { NextRequest } from "next/server"
+import { NextResponse } from "next/server"
 import * as fs from "fs"
 import * as path from "path"
 
@@ -20,10 +21,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
   const filePath = path.join(process.cwd(), "public", "r", type, `${name}.json`)
 
   if (!fs.existsSync(filePath)) {
-    return NextResponse.json(
-      { error: `Component "${name}" not found in ${type}` },
-      { status: 404 }
-    )
+    return NextResponse.json({ error: `Component "${name}" not found in ${type}` }, { status: 404 })
   }
 
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"))

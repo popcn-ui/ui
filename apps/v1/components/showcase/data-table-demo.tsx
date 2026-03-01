@@ -10,7 +10,7 @@ const data = [
   { id: 5, name: "Charlie Brown", email: "charlie@example.com", role: "User" },
 ]
 
-const columns: ColumnDef<typeof data[0]>[] = [
+const columns: ColumnDef<(typeof data)[0]>[] = [
   {
     accessorKey: "name",
     header: "Name",

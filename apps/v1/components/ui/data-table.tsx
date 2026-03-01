@@ -108,12 +108,12 @@ function DataTable<TData extends Record<string, any>>({
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+            className="border-border bg-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50"
           />
         </div>
       )}
 
-      <div className="rounded-md border border-border/60">
+      <div className="border-border/60 rounded-md border">
         <Table>
           <TableHeader>
             <TableRow>
@@ -121,7 +121,7 @@ function DataTable<TData extends Record<string, any>>({
                 <TableHead
                   key={index}
                   className={cn(
-                    column.enableSorting && "cursor-pointer select-none hover:bg-muted/50"
+                    column.enableSorting && "hover:bg-muted/50 cursor-pointer select-none"
                   )}
                   onClick={() =>
                     column.enableSorting && column.accessorKey
@@ -135,12 +135,11 @@ function DataTable<TData extends Record<string, any>>({
                     ) : (
                       column.header
                     )}
-                    {column.enableSorting &&
-                      sorting.column === String(column.accessorKey) && (
-                        <span className="text-xs text-muted-foreground">
-                          {sorting.direction === "asc" ? "↑" : "↓"}
-                        </span>
-                      )}
+                    {column.enableSorting && sorting.column === String(column.accessorKey) && (
+                      <span className="text-muted-foreground text-xs">
+                        {sorting.direction === "asc" ? "↑" : "↓"}
+                      </span>
+                    )}
                   </div>
                 </TableHead>
               ))}
@@ -151,7 +150,7 @@ function DataTable<TData extends Record<string, any>>({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center text-muted-foreground"
+                  className="text-muted-foreground h-24 text-center"
                 >
                   No results found.
                 </TableCell>
@@ -177,10 +176,9 @@ function DataTable<TData extends Record<string, any>>({
 
       {pagination && totalPages > 1 && (
         <div className="flex items-center justify-between">
-          <div className="text-sm text-muted-foreground">
+          <div className="text-muted-foreground text-sm">
             Showing {(currentPage - 1) * pageSize + 1} to{" "}
-            {Math.min(currentPage * pageSize, filteredData.length)} of{" "}
-            {filteredData.length} results
+            {Math.min(currentPage * pageSize, filteredData.length)} of {filteredData.length} results
           </div>
           <div className="flex items-center gap-2">
             <Button
@@ -201,16 +199,14 @@ function DataTable<TData extends Record<string, any>>({
             >
               <ChevronLeftIcon className="h-4 w-4" />
             </Button>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-muted-foreground text-sm">
               Page {currentPage} of {totalPages}
             </div>
             <Button
               variant="ghost"
               size="sm"
               motion="none"
-              onClick={() =>
-                setCurrentPage((prev) => Math.min(totalPages, prev + 1))
-              }
+              onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
               disabled={currentPage === totalPages}
             >
               <ChevronRightIcon className="h-4 w-4" />

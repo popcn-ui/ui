@@ -43,11 +43,7 @@ function Sidebar({
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetContent
             side={side}
-            className={cn(
-              "w-64 p-0",
-              variant === "inset" && "bg-muted/50",
-              className
-            )}
+            className={cn("w-64 p-0", variant === "inset" && "bg-muted/50", className)}
           >
             <div className="flex h-full flex-col">{children}</div>
           </SheetContent>
@@ -59,7 +55,7 @@ function Sidebar({
   return (
     <aside
       className={cn(
-        "flex h-full flex-col border-r border-border/60 bg-background",
+        "border-border/60 bg-background flex h-full flex-col border-r",
         side === "right" && "border-l border-r-0",
         variant === "inset" && "bg-muted/50",
         !open && collapsible === "icon" && "w-16",
@@ -73,14 +69,10 @@ function Sidebar({
   )
 }
 
-function SidebarHeader({
-  className,
-  children,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function SidebarHeader({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("flex h-16 items-center border-b border-border/60 px-4", className)}
+      className={cn("border-border/60 flex h-16 items-center border-b px-4", className)}
       {...props}
     >
       {children}
@@ -88,14 +80,18 @@ function SidebarHeader({
   )
 }
 
-function SidebarContent({
-  className,
-  children,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function SidebarContent({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn("flex-1 overflow-y-auto p-4", className)} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function SidebarFooter({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("flex-1 overflow-y-auto p-4", className)}
+      className={cn("border-border/60 flex h-16 items-center border-t px-4", className)}
       {...props}
     >
       {children}
@@ -103,26 +99,7 @@ function SidebarContent({
   )
 }
 
-function SidebarFooter({
-  className,
-  children,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn("flex h-16 items-center border-t border-border/60 px-4", className)}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-}
-
-function SidebarGroup({
-  className,
-  children,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function SidebarGroup({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={cn("space-y-2", className)} {...props}>
       {children}
@@ -137,10 +114,7 @@ function SidebarGroupLabel({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "px-2 py-1 text-xs font-semibold text-muted-foreground",
-        className
-      )}
+      className={cn("text-muted-foreground px-2 py-1 text-xs font-semibold", className)}
       {...props}
     >
       {children}
@@ -170,9 +144,7 @@ function SidebarMenuItem({
     <div
       className={cn(
         "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
-        active
-          ? "bg-primary/10 text-primary"
-          : "text-foreground hover:bg-muted/50",
+        active ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted/50",
         className
       )}
       {...props}
@@ -190,7 +162,7 @@ function SidebarMenuButton({
   return (
     <button
       className={cn(
-        "flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted/50",
+        "hover:bg-muted/50 flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
         className
       )}
       {...props}
