@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CodeBlock } from "@/components/docs/code-block"
 
-type Theme = "cosmic" | "sunset" | "neon"
+type Theme = "cosmic" | "sunset" | "neon" | "mono"
 
 export default function ThemingPage() {
   const [theme, setTheme] = useState<Theme>("cosmic")
@@ -14,22 +14,22 @@ export default function ThemingPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Theming</h1>
-        <p className="text-lg text-muted-foreground">
-          popcn/ui comes with three beautiful theme presets. Each theme defines
-          aurora gradient colors that flow through all components.
+        <h1 className="mb-4 text-4xl font-bold">Theming</h1>
+        <p className="text-muted-foreground text-lg">
+          popcn/ui comes with multiple theme presets. Each theme defines aurora gradient colors that
+          flow through all components.
         </p>
       </div>
 
       {/* Theme Switcher */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Theme Presets</h2>
-        <div className="flex gap-4 mb-6">
-          {(["cosmic", "sunset", "neon"] as Theme[]).map((t) => (
+        <h2 className="mb-4 text-2xl font-semibold">Theme Presets</h2>
+        <div className="mb-6 flex gap-4">
+          {(["cosmic", "sunset", "neon", "mono"] as Theme[]).map((t) => (
             <button
               key={t}
               onClick={() => setTheme(t)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${
+              className={`rounded-lg px-4 py-2 text-sm font-medium capitalize transition-colors ${
                 theme === t
                   ? "bg-primary text-primary-foreground"
                   : "bg-muted/30 text-muted-foreground hover:bg-muted/50"
@@ -42,7 +42,7 @@ export default function ThemingPage() {
 
         {/* Preview */}
         <div className={`theme-${theme} glass rounded-xl p-8`}>
-          <div className="flex flex-wrap gap-4 items-center mb-6">
+          <div className="mb-6 flex flex-wrap items-center gap-4">
             <Button variant="aurora">Aurora Button</Button>
             <Button variant="glass">Glass Button</Button>
             <Badge variant="aurora">Badge</Badge>
@@ -53,7 +53,7 @@ export default function ThemingPage() {
               <CardTitle>Card Title</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 This card uses the {theme} theme preset with aurora border effects.
               </p>
             </CardContent>
@@ -63,10 +63,9 @@ export default function ThemingPage() {
 
       {/* CSS Variables */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">CSS Variables</h2>
+        <h2 className="mb-4 text-2xl font-semibold">CSS Variables</h2>
         <p className="text-muted-foreground mb-4">
-          Themes are defined using CSS custom properties. Add a theme class to
-          switch colors.
+          Themes are defined using CSS custom properties. Add a theme class to switch colors.
         </p>
         <CodeBlock
           code={`/* Apply theme class to container */
@@ -83,7 +82,7 @@ export default function ThemingPage() {
 
       {/* Cosmic Theme */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Cosmic (Default)</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Cosmic (Default)</h2>
         <p className="text-muted-foreground mb-4">
           Indigo, Purple, and Sky blues create a cosmic aurora effect.
         </p>
@@ -100,7 +99,7 @@ export default function ThemingPage() {
 
       {/* Sunset Theme */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Sunset</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Sunset</h2>
         <p className="text-muted-foreground mb-4">
           Pink, Orange, and Yellow for a warm sunset gradient.
         </p>
@@ -117,7 +116,7 @@ export default function ThemingPage() {
 
       {/* Neon Theme */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Neon</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Neon</h2>
         <p className="text-muted-foreground mb-4">
           Cyan, Magenta, and Lime for a vibrant neon effect.
         </p>
@@ -132,9 +131,24 @@ export default function ThemingPage() {
         />
       </section>
 
+      {/* Mono Theme */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-2xl font-semibold">Mono</h2>
+        <p className="text-muted-foreground mb-4">Grayscale tones for a clean, minimal look.</p>
+        <CodeBlock
+          code={`.theme-mono {
+  --ap-primary: 161 161 170;      /* Zinc */
+  --ap-secondary: 113 113 122;    /* Gray */
+  --ap-aurora-1: 161 161 170;     /* Zinc */
+  --ap-aurora-2: 113 113 122;     /* Gray */
+  --ap-aurora-3: 82 82 91;        /* Dark Gray */
+}`}
+        />
+      </section>
+
       {/* Custom Theme */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Creating Custom Themes</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Creating Custom Themes</h2>
         <p className="text-muted-foreground mb-4">
           Create your own theme by defining the aurora color variables.
         </p>
