@@ -2,6 +2,7 @@ import { Command } from "commander"
 import { initCommand } from "./commands/init.js"
 import { addCommand } from "./commands/add.js"
 import { listCommand } from "./commands/list.js"
+import { mcpCommand } from "./commands/mcp.js"
 import packageJson from "../package.json"
 
 const program = new Command()
@@ -33,5 +34,7 @@ program
   .description("List all available components, styles, and themes")
   .option("--json", "Output as JSON", false)
   .action(listCommand)
+
+program.addCommand(mcpCommand)
 
 program.parse()

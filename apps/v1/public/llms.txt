@@ -1,0 +1,192 @@
+# popcn/ui
+
+popcn/ui is a gradient-driven, motion-rich React component library built on Radix UI primitives and Tailwind CSS. Components are distributed via a CLI tool that copies source code directly into your project — you own and customize every line.
+
+## Overview
+
+- **Introduction**: popcn/ui provides 72+ accessible UI components with built-in aurora gradients, glassmorphism, neumorphism, and motion presets. Every component supports `prefers-reduced-motion`.
+- **CLI**: The `popcn` CLI (`npx popcn init` / `npx popcn add`) fetches components from the registry and writes them into your `components/ui/` directory.
+- **Theming**: CSS custom properties (`--ap-*`) control colors, gradients, animation durations, and motion. Switch themes by swapping a small set of CSS variables.
+- **Motion**: Hover effects (`ap-hover-float`, `ap-hover-glow`, `ap-hover-scale`, `ap-hover-tilt`), entrance animations (`ap-enter-pop`, `ap-enter-slide`, `ap-enter-bounce`, `ap-enter-jelly`), exit animations (`ap-exit-fade`, `ap-exit-slide`), and per-component `motionIdle` / `motionClick` variants.
+
+## Installation
+
+```bash
+npx popcn init        # scaffolds globals.css, tailwind config, utils
+npx popcn add button  # adds a single component
+npx popcn add button card dialog  # adds multiple components
+npx popcn list        # shows all available components
+```
+
+### Requirements
+- React 18+ / Next.js 13+ (App Router recommended)
+- Tailwind CSS 3
+- Node.js 18+
+
+## Design System
+
+### Skins
+Skins define the overall visual language. Choose one during `popcn init`.
+
+- **Aurora** (default) — Gradient-driven design with aurora glow effects
+- **NeumoPop** — Soft neumorphism with pop accents
+- **GlassPop** — Apple-style liquid glass with frosted, liquid, and lite presets
+
+### Themes
+Themes control the color palette via CSS variables. Apply by adding a `data-theme` attribute or swapping CSS variables.
+
+- **Cosmic** (default) — Indigo / Purple / Sky
+- **Sunset** — Pink / Orange / Yellow
+- **Neon** — Cyan / Magenta / Lime
+- **Mono** — Grayscale minimal
+
+### CSS Custom Properties
+All tokens use the `--ap-` prefix:
+- Colors: `--ap-primary`, `--ap-secondary`, `--ap-aurora-1`, `--ap-aurora-2`, `--ap-aurora-3`
+- Gradient: `--ap-grad-angle`, `--ap-shine-angle`, `--ap-shine-width`
+- Animation: `--ap-dur-1` (100ms) through `--ap-dur-5` (800ms)
+- Easing: `--ap-ease-pop`, `--ap-ease-soft`, `--ap-ease-snap`, `--ap-ease-spring`
+- Motion: `--ap-motion` (1 or 0), `--ap-motion-scale`
+
+### Utility Classes
+- `.bg-aurora` / `.text-aurora` — Aurora gradient background / text
+- `.glass` — Glassmorphism effect
+- `.shine-effect` — Animated shimmer overlay
+- `.ap-grad-{t,tr,r,br,b,bl,l,tl}` — Gradient direction
+- `.ap-hover-{float,glow,scale,tilt}` — Hover effects
+- `.ap-enter-{pop,slide,bounce,jelly}` — Entrance animations
+- `.ap-exit-{fade,slide}` — Exit animations
+
+### Component Variant Pattern
+Components use `class-variance-authority` (CVA) for variants:
+```tsx
+const buttonVariants = cva([...baseClasses], {
+  variants: {
+    variant: { aurora: [...], glass: [...], ghost: [...] },
+    size: { sm: "...", md: "...", lg: "..." },
+    motionIdle: { none: "", float: "...", shine: "...", wave: "..." },
+    motionClick: { none: "", pop: "", snap: "", bounce: "", wiggle: "", jelly: "" },
+  },
+})
+```
+
+## Components
+
+### Layout
+- [Aspect Ratio](https://popcnui.com/docs/components/aspect-ratio) — Maintain consistent aspect ratios for media
+- [Card](https://popcnui.com/docs/components/card) — Card container with glass, aurora-border, and solid variants
+- [Resizable](https://popcnui.com/docs/components/resizable) — Resizable panel component
+- [Scroll Area](https://popcnui.com/docs/components/scroll-area) — Scrollable area component
+- [Separator](https://popcnui.com/docs/components/separator) — Visual separator with aurora gradient option
+- [Sidebar](https://popcnui.com/docs/components/sidebar) — Sidebar component with collapsible options
+- [Empty](https://popcnui.com/docs/components/empty) — Empty state layout with header and actions
+
+### Forms
+- [Button](https://popcnui.com/docs/components/button) — Aurora-styled button with gradient variants and motion presets
+- [Button Group](https://popcnui.com/docs/components/button-group) — Grouped buttons with shared borders and separators
+- [Calendar](https://popcnui.com/docs/components/calendar) — Calendar component with custom day styles
+- [Checkbox](https://popcnui.com/docs/components/checkbox) — Checkbox with aurora gradient and glass variants
+- [Color Picker](https://popcnui.com/docs/components/color-picker) — Color picker component with RGB and HSL sliders
+- [Combobox](https://popcnui.com/docs/components/combobox) — Combobox with searchable list and chips
+- [Date Picker](https://popcnui.com/docs/components/date-picker) — Date picker component with calendar popover
+- [Field](https://popcnui.com/docs/components/field) — Form field layout helpers
+- [File Upload](https://popcnui.com/docs/components/file-upload) — File upload component with drag and drop support
+- [Form](https://popcnui.com/docs/components/form) — React Hook Form helpers and slots
+- [Input](https://popcnui.com/docs/components/input) — Form input with aurora, glass, and ghost variants
+- [Input Group](https://popcnui.com/docs/components/input-group) — Input group with addons and buttons
+- [Input OTP](https://popcnui.com/docs/components/input-otp) — One-time password input with slots
+- [Label](https://popcnui.com/docs/components/label) — Form label component with aurora gradient text option
+- [Loading Button](https://popcnui.com/docs/components/loading-button) — Button component with loading state
+- [Multi Select](https://popcnui.com/docs/components/multi-select) — Multi-select component with checkboxes and badges
+- [Native Select](https://popcnui.com/docs/components/native-select) — Native select dropdown with custom styling
+- [Radio Group](https://popcnui.com/docs/components/radio-group) — Radio group component for single selection
+- [Rating](https://popcnui.com/docs/components/rating) — Rating component with star display
+- [Select](https://popcnui.com/docs/components/select) — Dropdown select with glass styling
+- [Slider](https://popcnui.com/docs/components/slider) — Slider component for range selection
+- [Split Button](https://popcnui.com/docs/components/split-button) — Split button component with dropdown menu
+- [Switch](https://popcnui.com/docs/components/switch) — Toggle switch with aurora gradient when active
+- [Textarea](https://popcnui.com/docs/components/textarea) — Textarea component for multi-line input
+
+### Data Display
+- [Accordion](https://popcnui.com/docs/components/accordion) — Collapsible content panels with smooth animations
+- [Avatar](https://popcnui.com/docs/components/avatar) — Avatar with size options and glow ring variants
+- [Badge](https://popcnui.com/docs/components/badge) — Status badge with aurora, glass, and outline variants
+- [Carousel](https://popcnui.com/docs/components/carousel) — Carousel with embla controls and navigation
+- [Chart](https://popcnui.com/docs/components/chart) — Chart container and tooltip helpers for Recharts
+- [Code Block](https://popcnui.com/docs/components/code-block) — Code block component with syntax highlighting and copy functionality
+- [Data Table](https://popcnui.com/docs/components/data-table) — Data table component with sorting, filtering, and pagination
+- [Kbd](https://popcnui.com/docs/components/kbd) — Keyboard key indicator component
+- [Notification Badge](https://popcnui.com/docs/components/notification-badge) — Notification badge component for displaying counts and dots
+- [Progress](https://popcnui.com/docs/components/progress) — Progress bar component
+- [Skeleton](https://popcnui.com/docs/components/skeleton) — Loading skeleton with aurora shimmer animation
+- [Spinner](https://popcnui.com/docs/components/spinner) — Loading spinner component
+- [Stepper](https://popcnui.com/docs/components/stepper) — Stepper component for multi-step processes
+- [Table](https://popcnui.com/docs/components/table) — Table component with rows and cells
+- [Tag](https://popcnui.com/docs/components/tag) — Tag component with removable option
+- [Timeline](https://popcnui.com/docs/components/timeline) — Timeline component for displaying chronological events
+- [Tree View](https://popcnui.com/docs/components/tree-view) — Tree view component for displaying hierarchical data
+- [Typography](https://popcnui.com/docs/components/typography) — Typography component for consistent text styling
+
+### Navigation
+- [Breadcrumb](https://popcnui.com/docs/components/breadcrumb) — Breadcrumb navigation with separators and overflow
+- [Command](https://popcnui.com/docs/components/command) — Command palette with search and groups
+- [Context Menu](https://popcnui.com/docs/components/context-menu) — Context menu with submenus and radio items
+- [Dropdown Menu](https://popcnui.com/docs/components/dropdown-menu) — Dropdown menu with glass panel styling
+- [Menubar](https://popcnui.com/docs/components/menubar) — Menubar component with submenus and radio items
+- [Navigation Menu](https://popcnui.com/docs/components/navigation-menu) — Navigation menu with dropdowns and links
+- [Pagination](https://popcnui.com/docs/components/pagination) — Pagination component with page navigation
+- [Tabs](https://popcnui.com/docs/components/tabs) — Tab navigation with aurora, default, and underline variants
+
+### Overlay
+- [Alert Dialog](https://popcnui.com/docs/components/alert-dialog) — Confirmation dialog with aurora-styled actions
+- [Dialog](https://popcnui.com/docs/components/dialog) — Modal dialog with glass backdrop and aurora glow
+- [Drawer](https://popcnui.com/docs/components/drawer) — Slide-in drawer with multiple directions
+- [Hover Card](https://popcnui.com/docs/components/hover-card) — Hover card with popover content
+- [Popover](https://popcnui.com/docs/components/popover) — Popover component with positioning
+- [Sheet](https://popcnui.com/docs/components/sheet) — Sheet component (side panel)
+- [Tooltip](https://popcnui.com/docs/components/tooltip) — Tooltip with glass styling
+
+### Feedback
+- [Alert](https://popcnui.com/docs/components/alert) — Inline alerts with default and destructive styles
+- [Sonner](https://popcnui.com/docs/components/sonner) — Toast notifications with aurora glow effects
+- [Toast](https://popcnui.com/docs/components/toast) — Toast notification API (re-exported from sonner)
+
+### Toggle
+- [Collapsible](https://popcnui.com/docs/components/collapsible) — Show and hide content with a trigger
+- [Toggle](https://popcnui.com/docs/components/toggle) — Toggle button with aurora styling variants
+- [Toggle Group](https://popcnui.com/docs/components/toggle-group) — Group of toggle buttons with shared styling
+
+### Utility
+- [Copy Button](https://popcnui.com/docs/components/copy-button) — Copy button component with clipboard functionality
+- [Item](https://popcnui.com/docs/components/item) — List item component with media, content, and actions
+
+## MCP Server
+
+popcn/ui includes an MCP (Model Context Protocol) server that lets AI coding assistants browse and add components directly.
+
+### Setup
+```bash
+npx popcn mcp init --client claude   # for Claude Code
+npx popcn mcp init --client cursor   # for Cursor
+npx popcn mcp init --client vscode   # for VS Code
+```
+
+### Manual Configuration
+Add to your `.mcp.json` (Claude Code) or equivalent:
+```json
+{
+  "mcpServers": {
+    "popcn": {
+      "command": "npx",
+      "args": ["popcn@latest", "mcp"]
+    }
+  }
+}
+```
+
+### Available Tools
+- `list_components` — List all available components with descriptions
+- `search_components` — Fuzzy search for components by name or description
+- `view_component` — View component details including full source code
+- `get_add_command` — Get the CLI command to add components to a project
+- `get_setup_guide` — Get the full setup guide for initializing popcn/ui
