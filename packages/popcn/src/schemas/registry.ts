@@ -31,10 +31,10 @@ export const registryStyleSchema = z.object({
   type: z.literal("style"),
   description: z.string().optional(),
   cssVars: z.object({
-    dark: z.record(z.string()),
-    light: z.record(z.string()),
+    dark: z.record(z.string(), z.string()),
+    light: z.record(z.string(), z.string()),
   }),
-  tailwindConfig: z.record(z.unknown()).optional(),
+  tailwindConfig: z.record(z.string(), z.unknown()).optional(),
 })
 
 export const registryThemeSchema = z.object({
@@ -42,7 +42,7 @@ export const registryThemeSchema = z.object({
   type: z.literal("theme"),
   label: z.string().optional(),
   description: z.string().optional(),
-  cssVars: z.record(z.string()),
+  cssVars: z.record(z.string(), z.string()),
 })
 
 export const registryIndexSchema = z.object({

@@ -46,7 +46,7 @@ export async function fetchRegistry(): Promise<RegistryIndex> {
 
     if (!result.success) {
       throw new RegistryError(
-        `Invalid registry format: ${result.error.errors[0]?.message}`,
+        `Invalid registry format: ${result.error.issues[0]?.message}`,
         "VALIDATION"
       )
     }
@@ -79,7 +79,7 @@ export async function fetchComponent(name: string): Promise<RegistryComponent> {
 
     if (!result.success) {
       throw new RegistryError(
-        `Invalid component format for "${name}": ${result.error.errors[0]?.message}`,
+        `Invalid component format for "${name}": ${result.error.issues[0]?.message}`,
         "VALIDATION"
       )
     }
@@ -112,7 +112,7 @@ export async function fetchStyle(name: string): Promise<RegistryStyle> {
 
     if (!result.success) {
       throw new RegistryError(
-        `Invalid style format for "${name}": ${result.error.errors[0]?.message}`,
+        `Invalid style format for "${name}": ${result.error.issues[0]?.message}`,
         "VALIDATION"
       )
     }
@@ -145,7 +145,7 @@ export async function fetchTheme(name: string): Promise<RegistryTheme> {
 
     if (!result.success) {
       throw new RegistryError(
-        `Invalid theme format for "${name}": ${result.error.errors[0]?.message}`,
+        `Invalid theme format for "${name}": ${result.error.issues[0]?.message}`,
         "VALIDATION"
       )
     }
