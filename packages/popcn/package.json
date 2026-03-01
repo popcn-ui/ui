@@ -37,7 +37,7 @@
     "fs-extra": "^11.2.0",
     "ora": "^8.1.1",
     "prompts": "^2.4.2",
-    "zod": "^3.24.1"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
