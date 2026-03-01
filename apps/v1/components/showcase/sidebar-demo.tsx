@@ -16,7 +16,7 @@ import { Home, Settings, User } from "lucide-react"
 
 export function SidebarDemo() {
   return (
-    <div className="flex h-[400px] w-full border border-border/60 rounded-lg overflow-hidden">
+    <div className="border-border/60 flex h-[400px] w-full overflow-hidden rounded-lg border">
       <Sidebar collapsible="icon" className="border-r">
         <SidebarHeader>
           <div className="flex items-center gap-2 px-2">
@@ -50,12 +50,12 @@ export function SidebarDemo() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <div className="px-2 text-sm text-muted-foreground">Footer</div>
+          <div className="text-muted-foreground px-2 text-sm">Footer</div>
         </SidebarFooter>
       </Sidebar>
       <div className="flex-1 p-4">
-        <h3 className="text-lg font-semibold mb-2">Main Content</h3>
-        <p className="text-sm text-muted-foreground">
+        <h3 className="mb-2 text-lg font-semibold">Main Content</h3>
+        <p className="text-muted-foreground text-sm">
           This is the main content area. The sidebar can be collapsed to show only icons.
         </p>
       </div>

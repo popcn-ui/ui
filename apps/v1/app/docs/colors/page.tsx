@@ -21,24 +21,24 @@ function ColorSwatch({ name, variable, description }: ColorSwatchProps) {
 
   return (
     <div
-      className="group glass rounded-lg p-4 cursor-pointer hover:border-primary/50 transition-colors"
+      className="glass hover:border-primary/50 group cursor-pointer rounded-lg p-4 transition-colors"
       onClick={copyVariable}
     >
       <div
-        className="h-16 rounded-lg mb-3 border border-border/30"
+        className="border-border/30 mb-3 h-16 rounded-lg border"
         style={{ backgroundColor: `rgb(var(${variable}))` }}
       />
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="font-medium text-sm">{name}</p>
-          <p className="text-xs text-muted-foreground font-mono">{variable}</p>
-          <p className="text-xs text-muted-foreground mt-1">{description}</p>
+          <p className="text-sm font-medium">{name}</p>
+          <p className="text-muted-foreground font-mono text-xs">{variable}</p>
+          <p className="text-muted-foreground mt-1 text-xs">{description}</p>
         </div>
-        <button className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-muted/50 rounded">
+        <button className="hover:bg-muted/50 rounded p-1 opacity-0 transition-opacity group-hover:opacity-100">
           {copied ? (
             <Check className="h-4 w-4 text-green-500" />
           ) : (
-            <Copy className="h-4 w-4 text-muted-foreground" />
+            <Copy className="text-muted-foreground h-4 w-4" />
           )}
         </button>
       </div>
@@ -49,10 +49,8 @@ function ColorSwatch({ name, variable, description }: ColorSwatchProps) {
 function AuroraGradientPreview() {
   return (
     <div className="glass rounded-xl p-6">
-      <div
-        className="h-24 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] via-[rgb(var(--ap-aurora-2))] to-[rgb(var(--ap-aurora-3))]"
-      />
-      <p className="text-sm text-muted-foreground mt-4">
+      <div className="h-24 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] via-[rgb(var(--ap-aurora-2))] to-[rgb(var(--ap-aurora-3))]" />
+      <p className="text-muted-foreground mt-4 text-sm">
         Aurora gradient flowing through aurora-1, aurora-2, and aurora-3 colors.
       </p>
     </div>
@@ -63,32 +61,26 @@ export default function ColorsPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Colors</h1>
-        <p className="text-lg text-muted-foreground">
-          popcn/ui uses CSS custom properties for all colors, enabling easy theming
-          and runtime color changes. Colors are defined in RGB format for Tailwind
-          alpha value compatibility.
+        <h1 className="mb-4 text-4xl font-bold">Colors</h1>
+        <p className="text-muted-foreground text-lg">
+          popcn/ui uses CSS custom properties for all colors, enabling easy theming and runtime
+          color changes. Colors are defined in RGB format for Tailwind alpha value compatibility.
         </p>
       </div>
 
       {/* Core Colors */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Core Colors</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Core Colors</h2>
         <p className="text-muted-foreground mb-6">
-          The foundation of the color system. These colors are used throughout all
-          components.
+          The foundation of the color system. These colors are used throughout all components.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <ColorSwatch
             name="Background"
             variable="--ap-background"
             description="Main background color"
           />
-          <ColorSwatch
-            name="Foreground"
-            variable="--ap-foreground"
-            description="Main text color"
-          />
+          <ColorSwatch name="Foreground" variable="--ap-foreground" description="Main text color" />
           <ColorSwatch
             name="Primary"
             variable="--ap-primary"
@@ -114,13 +106,13 @@ export default function ColorsPage() {
 
       {/* Aurora Gradient */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Aurora Gradient</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Aurora Gradient</h2>
         <p className="text-muted-foreground mb-6">
-          The signature aurora effect uses three gradient colors that create
-          flowing, animated backgrounds.
+          The signature aurora effect uses three gradient colors that create flowing, animated
+          backgrounds.
         </p>
         <AuroraGradientPreview />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
           <ColorSwatch
             name="Aurora 1"
             variable="--ap-aurora-1"
@@ -131,22 +123,17 @@ export default function ColorsPage() {
             variable="--ap-aurora-2"
             description="Gradient middle color"
           />
-          <ColorSwatch
-            name="Aurora 3"
-            variable="--ap-aurora-3"
-            description="Gradient end color"
-          />
+          <ColorSwatch name="Aurora 3" variable="--ap-aurora-3" description="Gradient end color" />
         </div>
       </section>
 
       {/* Utility Colors */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Utility Colors</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Utility Colors</h2>
         <p className="text-muted-foreground mb-6">
-          Support colors for borders, muted text, focus rings, and other UI
-          elements.
+          Support colors for borders, muted text, focus rings, and other UI elements.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <ColorSwatch
             name="Muted"
             variable="--ap-muted"
@@ -157,22 +144,14 @@ export default function ColorsPage() {
             variable="--ap-muted-foreground"
             description="Subdued text color"
           />
-          <ColorSwatch
-            name="Border"
-            variable="--ap-border"
-            description="Default border color"
-          />
-          <ColorSwatch
-            name="Ring"
-            variable="--ap-ring"
-            description="Focus ring color"
-          />
+          <ColorSwatch name="Border" variable="--ap-border" description="Default border color" />
+          <ColorSwatch name="Ring" variable="--ap-ring" description="Focus ring color" />
         </div>
       </section>
 
       {/* CSS Variable Usage */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Usage</h2>
         <p className="text-muted-foreground mb-4">
           Colors use RGB format to support Tailwind&apos;s opacity modifier syntax.
         </p>
@@ -202,7 +181,7 @@ export default function ColorsPage() {
 
       {/* Tailwind Configuration */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Tailwind Configuration</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Tailwind Configuration</h2>
         <p className="text-muted-foreground mb-4">
           popcn/ui extends Tailwind&apos;s color palette with semantic color classes.
         </p>
@@ -237,7 +216,7 @@ module.exports = {
 
       {/* Color Tokens Reference */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">All Color Tokens</h2>
+        <h2 className="mb-4 text-2xl font-semibold">All Color Tokens</h2>
         <p className="text-muted-foreground mb-4">
           Complete list of CSS variables used by popcn/ui.
         </p>

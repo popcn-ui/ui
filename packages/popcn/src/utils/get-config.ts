@@ -35,9 +35,10 @@ export function getConfig(cwd: string = process.cwd()): ComponentsConfig | null 
   }
 }
 
-export function getConfigWithErrors(
-  cwd: string = process.cwd()
-): { config: ComponentsConfig | null; errors: string[] } {
+export function getConfigWithErrors(cwd: string = process.cwd()): {
+  config: ComponentsConfig | null
+  errors: string[]
+} {
   const configPath = getConfigPath(cwd)
 
   if (!fs.existsSync(configPath)) {
@@ -62,10 +63,7 @@ export function getConfigWithErrors(
   }
 }
 
-export function writeConfig(
-  config: ComponentsConfig,
-  cwd: string = process.cwd()
-): void {
+export function writeConfig(config: ComponentsConfig, cwd: string = process.cwd()): void {
   const configPath = getConfigPath(cwd)
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2))
 }

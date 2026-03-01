@@ -14,17 +14,9 @@ export function MyComponent() {
 
 export function CodeBlockDemo() {
   return (
-    <div className="space-y-4 w-full">
-      <CodeBlock
-        code={exampleCode}
-        language="tsx"
-        filename="my-component.tsx"
-        showLineNumbers
-      />
-      <CodeBlock
-        code="npm install popcn-ui"
-        language="bash"
-      />
+    <div className="w-full space-y-4">
+      <CodeBlock code={exampleCode} language="tsx" filename="my-component.tsx" showLineNumbers />
+      <CodeBlock code="npm install popcn-ui" language="bash" />
     </div>
   )
 }

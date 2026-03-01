@@ -16,9 +16,7 @@ function CarouselDemo() {
       <CarouselContent>
         {slides.map((slide) => (
           <CarouselItem key={slide}>
-            <div className="glass rounded-xl p-8 text-center text-sm font-semibold">
-              {slide}
-            </div>
+            <div className="glass rounded-xl p-8 text-center text-sm font-semibold">{slide}</div>
           </CarouselItem>
         ))}
       </CarouselContent>

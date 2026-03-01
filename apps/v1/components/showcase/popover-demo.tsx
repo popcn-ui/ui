@@ -9,14 +9,14 @@ function PopoverDemo() {
     <div className="flex flex-col gap-4">
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="glass" size="sm">Open Popover</Button>
+          <Button variant="glass" size="sm">
+            Open Popover
+          </Button>
         </PopoverTrigger>
         <PopoverContent>
           <div className="space-y-2">
-            <h4 className="font-medium text-sm">Popover Title</h4>
-            <p className="text-sm text-muted-foreground">
-              This is the popover content.
-            </p>
+            <h4 className="text-sm font-medium">Popover Title</h4>
+            <p className="text-muted-foreground text-sm">This is the popover content.</p>
           </div>
         </PopoverContent>
       </Popover>

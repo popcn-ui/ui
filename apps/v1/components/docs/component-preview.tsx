@@ -11,21 +11,16 @@ interface ComponentPreviewProps {
   className?: string
 }
 
-export function ComponentPreview({
-  title,
-  children,
-  code,
-  className,
-}: ComponentPreviewProps) {
+export function ComponentPreview({ title, children, code, className }: ComponentPreviewProps) {
   const [showCode, setShowCode] = useState(false)
 
   return (
-    <div className={cn("border border-border/50 rounded-xl overflow-hidden", className)}>
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-muted/20">
+    <div className={cn("border-border/50 overflow-hidden rounded-xl border", className)}>
+      <div className="border-border/50 bg-muted/20 flex items-center justify-between border-b px-4 py-3">
         <h3 className="text-sm font-medium">{title}</h3>
         <button
           onClick={() => setShowCode(!showCode)}
-          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground hover:text-foreground text-xs transition-colors"
         >
           {showCode ? "Preview" : "Code"}
         </button>
@@ -35,7 +30,7 @@ export function ComponentPreview({
           <CodeBlock code={code} />
         </div>
       ) : (
-        <div className="p-8 flex items-center justify-center gap-4 bg-background/50">
+        <div className="bg-background/50 flex items-center justify-center gap-4 p-8">
           {children}
         </div>
       )}

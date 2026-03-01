@@ -91,32 +91,26 @@ const sidebarNav = [
   },
 ]
 
-export default function DocsLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative h-[calc(100vh-4rem)] overflow-hidden">
       {/* Aurora Background */}
       <div className="aurora-bg" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex gap-8 h-full">
+      <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-full gap-8">
           {/* Sidebar */}
-          <aside className="hidden lg:block w-64 shrink-0 py-8 h-full">
-            <nav className="sticky top-24 space-y-6 h-full overflow-y-auto pr-2">
+          <aside className="hidden h-full w-64 shrink-0 py-8 lg:block">
+            <nav className="sticky top-24 h-full space-y-6 overflow-y-auto pr-2">
               {sidebarNav.map((section) => (
                 <div key={section.title}>
-                  <h4 className="text-sm font-semibold text-foreground mb-2">
-                    {section.title}
-                  </h4>
+                  <h4 className="text-foreground mb-2 text-sm font-semibold">{section.title}</h4>
                   <ul className="space-y-1">
                     {section.items.map((item) => (
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors"
+                          className="text-muted-foreground hover:text-foreground hover:bg-muted/50 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors"
                         >
                           <item.icon className="h-4 w-4" />
                           {item.title}
@@ -130,9 +124,7 @@ export default function DocsLayout({
           </aside>
 
           {/* Main content */}
-          <main className="flex-1 py-8 min-w-0 h-full overflow-y-auto">
-            {children}
-          </main>
+          <main className="h-full min-w-0 flex-1 overflow-y-auto py-8">{children}</main>
         </div>
       </div>
     </div>

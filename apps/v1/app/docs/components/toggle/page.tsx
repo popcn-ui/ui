@@ -15,24 +15,19 @@ export default function TogglePage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Toggle</h1>
-        <p className="text-lg text-muted-foreground">
-          Toggle button with aurora styling variants.
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Toggle</h1>
+        <p className="text-muted-foreground text-lg">Toggle button with aurora styling variants.</p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add toggle" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
-          <ComponentPreview
-            title="Default"
-            code={`<Toggle>Toggle</Toggle>`}
-          >
+          <ComponentPreview title="Default" code={`<Toggle>Toggle</Toggle>`}>
             <Toggle>Toggle</Toggle>
           </ComponentPreview>
 
@@ -50,59 +45,38 @@ export default function TogglePage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Variants</h2>
         <div className="space-y-6">
-          <ComponentPreview
-            title="Default"
-            code={`<Toggle variant="default">Default</Toggle>`}
-          >
+          <ComponentPreview title="Default" code={`<Toggle variant="default">Default</Toggle>`}>
             <Toggle variant="default">Default</Toggle>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Outline"
-            code={`<Toggle variant="outline">Outline</Toggle>`}
-          >
+          <ComponentPreview title="Outline" code={`<Toggle variant="outline">Outline</Toggle>`}>
             <Toggle variant="outline">Outline</Toggle>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Aurora"
-            code={`<Toggle variant="aurora">Aurora</Toggle>`}
-          >
+          <ComponentPreview title="Aurora" code={`<Toggle variant="aurora">Aurora</Toggle>`}>
             <Toggle variant="aurora">Aurora</Toggle>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Glass"
-            code={`<Toggle variant="glass">Glass</Toggle>`}
-          >
+          <ComponentPreview title="Glass" code={`<Toggle variant="glass">Glass</Toggle>`}>
             <Toggle variant="glass">Glass</Toggle>
           </ComponentPreview>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Sizes</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Sizes</h2>
         <div className="space-y-6">
-          <ComponentPreview
-            title="Small"
-            code={`<Toggle size="sm">Small</Toggle>`}
-          >
+          <ComponentPreview title="Small" code={`<Toggle size="sm">Small</Toggle>`}>
             <Toggle size="sm">Small</Toggle>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Default"
-            code={`<Toggle size="default">Default</Toggle>`}
-          >
+          <ComponentPreview title="Default" code={`<Toggle size="default">Default</Toggle>`}>
             <Toggle size="default">Default</Toggle>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Large"
-            code={`<Toggle size="lg">Large</Toggle>`}
-          >
+          <ComponentPreview title="Large" code={`<Toggle size="lg">Large</Toggle>`}>
             <Toggle size="lg">Large</Toggle>
           </ComponentPreview>
 
@@ -120,7 +94,7 @@ export default function TogglePage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Controlled</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Controlled</h2>
         <ComponentPreview
           title="Controlled Toggle"
           code={`const [bold, setBold] = useState(false)
@@ -139,7 +113,7 @@ export default function TogglePage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Multiple Toggles</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Multiple Toggles</h2>
         <ComponentPreview
           title="Text Formatting"
           code={`const [bold, setBold] = useState(false)
@@ -173,7 +147,7 @@ const [underline, setUnderline] = useState(false)
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

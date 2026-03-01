@@ -78,9 +78,7 @@ export type RegistryStyle = z.infer<typeof registryStyleSchema>
 export type RegistryTheme = z.infer<typeof registryThemeSchema>
 export type RegistryIndex = z.infer<typeof registryIndexSchema>
 
-export function validateRegistryComponent(
-  data: unknown
-): RegistryComponent | null {
+export function validateRegistryComponent(data: unknown): RegistryComponent | null {
   const result = registryComponentSchema.safeParse(data)
   return result.success ? result.data : null
 }

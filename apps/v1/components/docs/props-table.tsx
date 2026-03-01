@@ -16,26 +16,20 @@ export function PropsTable({ props }: PropsTableProps) {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-border/50">
-            <th className="text-left py-3 px-4 font-semibold">Prop</th>
-            <th className="text-left py-3 px-4 font-semibold">Type</th>
-            <th className="text-left py-3 px-4 font-semibold">Default</th>
-            <th className="text-left py-3 px-4 font-semibold">Description</th>
+          <tr className="border-border/50 border-b">
+            <th className="px-4 py-3 text-left font-semibold">Prop</th>
+            <th className="px-4 py-3 text-left font-semibold">Type</th>
+            <th className="px-4 py-3 text-left font-semibold">Default</th>
+            <th className="px-4 py-3 text-left font-semibold">Description</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-border/50">
+        <tbody className="divide-border/50 divide-y">
           {props.map((prop) => (
             <tr key={prop.name}>
-              <td className="py-3 px-4 font-mono text-primary">{prop.name}</td>
-              <td className="py-3 px-4 font-mono text-muted-foreground">
-                {prop.type}
-              </td>
-              <td className="py-3 px-4 font-mono text-muted-foreground">
-                {prop.default || "-"}
-              </td>
-              <td className="py-3 px-4 text-muted-foreground">
-                {prop.description}
-              </td>
+              <td className="text-primary px-4 py-3 font-mono">{prop.name}</td>
+              <td className="text-muted-foreground px-4 py-3 font-mono">{prop.type}</td>
+              <td className="text-muted-foreground px-4 py-3 font-mono">{prop.default || "-"}</td>
+              <td className="text-muted-foreground px-4 py-3">{prop.description}</td>
             </tr>
           ))}
         </tbody>

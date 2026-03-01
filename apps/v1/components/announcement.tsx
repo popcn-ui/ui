@@ -13,13 +13,7 @@ interface AnnouncementProps {
   showArrow?: boolean
 }
 
-function Announcement({
-  className,
-  children,
-  href,
-  icon,
-  showArrow = true,
-}: AnnouncementProps) {
+function Announcement({ className, children, href, icon, showArrow = true }: AnnouncementProps) {
   const content = (
     <>
       {icon && <span className="shrink-0">{icon}</span>}

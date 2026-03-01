@@ -8,7 +8,7 @@ function HoverCardDemo() {
       <HoverCardTrigger className="underline"> @aurora </HoverCardTrigger>
       <HoverCardContent>
         <p className="font-medium">AuroraPop</p>
-        <p className="text-sm text-muted-foreground">Gradient-driven UI toolkit.</p>
+        <p className="text-muted-foreground text-sm">Gradient-driven UI toolkit.</p>
       </HoverCardContent>
     </HoverCard>
   )

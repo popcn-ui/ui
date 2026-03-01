@@ -13,7 +13,7 @@ import { Sparkles, Zap } from "lucide-react"
 
 function CommandDemo() {
   return (
-    <Command className="rounded-lg border border-border/60">
+    <Command className="border-border/60 rounded-lg border">
       <CommandInput placeholder="Search actions..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

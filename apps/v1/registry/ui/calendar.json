@@ -8,12 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "react-day-picker",
-    "lucide-react",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["react-day-picker", "lucide-react", "clsx", "tailwind-merge"],
   "devDependencies": [],
   "registryDependencies": ["button"]
 }

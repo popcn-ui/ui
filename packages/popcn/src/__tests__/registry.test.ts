@@ -118,9 +118,7 @@ describe("utils/registry", () => {
     const validComponent = {
       name: "button",
       type: "ui",
-      files: [
-        { path: "components/ui/button.tsx", type: "ui", content: "export {}" },
-      ],
+      files: [{ path: "components/ui/button.tsx", type: "ui", content: "export {}" }],
       dependencies: ["class-variance-authority"],
     }
 
@@ -129,9 +127,7 @@ describe("utils/registry", () => {
       const result = await fetchComponent("button")
       expect(result.name).toBe("button")
       expect(result.files).toHaveLength(1)
-      expect(mockFetch).toHaveBeenCalledWith(
-        expect.stringContaining("/ui/button")
-      )
+      expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining("/ui/button"))
     })
 
     it("should throw NOT_FOUND for missing component", async () => {
@@ -164,9 +160,7 @@ describe("utils/registry", () => {
       mockFetch.mockResolvedValueOnce(jsonResponse(validStyle))
       const result = await fetchStyle("aurorapop")
       expect(result.name).toBe("aurorapop")
-      expect(mockFetch).toHaveBeenCalledWith(
-        expect.stringContaining("/styles/aurorapop")
-      )
+      expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining("/styles/aurorapop"))
     })
 
     it("should throw NOT_FOUND for 404", async () => {
@@ -191,9 +185,7 @@ describe("utils/registry", () => {
       mockFetch.mockResolvedValueOnce(jsonResponse(validTheme))
       const result = await fetchTheme("cosmic")
       expect(result.name).toBe("cosmic")
-      expect(mockFetch).toHaveBeenCalledWith(
-        expect.stringContaining("/themes/cosmic")
-      )
+      expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining("/themes/cosmic"))
     })
 
     it("should throw NOT_FOUND for 404", async () => {
