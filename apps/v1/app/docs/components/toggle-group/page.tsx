@@ -14,19 +14,19 @@ export default function ToggleGroupPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Toggle Group</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Toggle Group</h1>
+        <p className="text-muted-foreground text-lg">
           Group of toggle buttons with shared styling.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add toggle-group" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Single Selection"
@@ -85,7 +85,7 @@ export default function ToggleGroupPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Variants</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Default"
@@ -135,7 +135,7 @@ export default function ToggleGroupPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Icons</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Icons</h2>
         <ComponentPreview
           title="Alignment"
           code={`<ToggleGroup type="single" value={alignment} onValueChange={setAlignment}>
@@ -165,7 +165,7 @@ export default function ToggleGroupPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

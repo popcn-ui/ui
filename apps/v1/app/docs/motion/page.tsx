@@ -19,15 +19,15 @@ function MotionDemo({ title, description, motion, explanation, code }: MotionDem
     <Card variant="glass" className="overflow-hidden">
       <CardHeader>
         <CardTitle className="text-lg">{title}</CardTitle>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="text-muted-foreground text-sm">{description}</p>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="flex items-center justify-center p-8 bg-muted/20 rounded-lg">
+        <div className="bg-muted/20 flex items-center justify-center rounded-lg p-8">
           <Button variant="aurora" motion={motion} size="lg">
             {title} Effect
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground">{explanation}</p>
+        <p className="text-muted-foreground text-sm">{explanation}</p>
         <CodeBlock code={code} />
       </CardContent>
     </Card>
@@ -37,7 +37,7 @@ function MotionDemo({ title, description, motion, explanation, code }: MotionDem
 function AnimationClassDemo({
   title,
   className,
-  description
+  description,
 }: {
   title: string
   className: string
@@ -46,24 +46,19 @@ function AnimationClassDemo({
   const [key, setKey] = useState(0)
 
   return (
-    <div className="p-4 bg-muted/20 rounded-lg space-y-3">
+    <div className="bg-muted/20 space-y-3 rounded-lg p-4">
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium">{title}</span>
-        <code className="text-xs bg-muted/50 px-2 py-1 rounded">.{className}</code>
+        <code className="bg-muted/50 rounded px-2 py-1 text-xs">.{className}</code>
       </div>
       <div className="flex items-center justify-center py-6">
         <div
           key={key}
-          className={`w-16 h-16 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] via-[rgb(var(--ap-aurora-2))] to-[rgb(var(--ap-aurora-3))] ${className}`}
+          className={`h-16 w-16 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] via-[rgb(var(--ap-aurora-2))] to-[rgb(var(--ap-aurora-3))] ${className}`}
         />
       </div>
-      <p className="text-xs text-muted-foreground">{description}</p>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => setKey(k => k + 1)}
-        className="w-full"
-      >
+      <p className="text-muted-foreground text-xs">{description}</p>
+      <Button variant="ghost" size="sm" onClick={() => setKey((k) => k + 1)} className="w-full">
         Replay
       </Button>
     </div>
@@ -74,47 +69,63 @@ export default function MotionPage() {
   const [motionEnabled, setMotionEnabled] = useState(true)
 
   return (
-    <div className={`max-w-4xl ${!motionEnabled ? 'ap-motion-reduce' : ''}`}>
+    <div className={`max-w-4xl ${!motionEnabled ? "ap-motion-reduce" : ""}`}>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Motion</h1>
-        <p className="text-lg text-muted-foreground">
-          popcn/ui includes a comprehensive motion system designed for GenZ aesthetics.
-          Bouncy, playful animations that feel responsive and delightful without being distracting.
+        <h1 className="mb-4 text-4xl font-bold">Motion</h1>
+        <p className="text-muted-foreground text-lg">
+          popcn/ui includes a comprehensive motion system designed for GenZ aesthetics. Bouncy,
+          playful animations that feel responsive and delightful without being distracting.
         </p>
       </div>
 
       {/* Motion Toggle */}
-      <section className="mb-12 p-4 bg-muted/20 rounded-lg">
+      <section className="bg-muted/20 mb-12 rounded-lg p-4">
         <div className="flex items-center gap-3">
           <Checkbox
             checked={motionEnabled}
             onCheckedChange={(checked) => setMotionEnabled(checked === true)}
           />
           <label className="text-sm">
-            Enable animations (uses <code className="bg-muted/50 px-1 rounded">--ap-motion</code> token)
+            Enable animations (uses <code className="bg-muted/50 rounded px-1">--ap-motion</code>{" "}
+            token)
           </label>
         </div>
       </section>
 
       {/* Token Reference */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Animation Tokens</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Animation Tokens</h2>
         <p className="text-muted-foreground mb-6">
           Customize timing and easing through CSS custom properties.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <div className="mb-6 grid gap-6 md:grid-cols-2">
           <Card variant="glass">
             <CardHeader>
               <CardTitle className="text-base">Duration Tokens</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm font-mono">
-                <div className="flex justify-between"><span>--ap-dur-1</span><span className="text-muted-foreground">100ms</span></div>
-                <div className="flex justify-between"><span>--ap-dur-2</span><span className="text-muted-foreground">200ms</span></div>
-                <div className="flex justify-between"><span>--ap-dur-3</span><span className="text-muted-foreground">300ms</span></div>
-                <div className="flex justify-between"><span>--ap-dur-4</span><span className="text-muted-foreground">500ms</span></div>
-                <div className="flex justify-between"><span>--ap-dur-5</span><span className="text-muted-foreground">800ms</span></div>
+              <div className="space-y-2 font-mono text-sm">
+                <div className="flex justify-between">
+                  <span>--ap-dur-1</span>
+                  <span className="text-muted-foreground">100ms</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-dur-2</span>
+                  <span className="text-muted-foreground">200ms</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-dur-3</span>
+                  <span className="text-muted-foreground">300ms</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-dur-4</span>
+                  <span className="text-muted-foreground">500ms</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-dur-5</span>
+                  <span className="text-muted-foreground">800ms</span>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -124,11 +135,23 @@ export default function MotionPage() {
               <CardTitle className="text-base">Easing Tokens</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm font-mono">
-                <div className="flex justify-between"><span>--ap-ease-pop</span><span className="text-muted-foreground">Bouncy</span></div>
-                <div className="flex justify-between"><span>--ap-ease-soft</span><span className="text-muted-foreground">Soft</span></div>
-                <div className="flex justify-between"><span>--ap-ease-snap</span><span className="text-muted-foreground">Sharp</span></div>
-                <div className="flex justify-between"><span>--ap-ease-spring</span><span className="text-muted-foreground">Elastic</span></div>
+              <div className="space-y-2 font-mono text-sm">
+                <div className="flex justify-between">
+                  <span>--ap-ease-pop</span>
+                  <span className="text-muted-foreground">Bouncy</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-ease-soft</span>
+                  <span className="text-muted-foreground">Soft</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-ease-snap</span>
+                  <span className="text-muted-foreground">Sharp</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>--ap-ease-spring</span>
+                  <span className="text-muted-foreground">Elastic</span>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -157,17 +180,23 @@ export default function MotionPage() {
       </section>
 
       {/* Idle vs Click */}
-      <section className="mb-12 p-4 bg-muted/20 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-2">定常モーションとクリック時モーション</h2>
+      <section className="bg-muted/20 mb-12 rounded-lg p-4">
+        <h2 className="mb-2 text-2xl font-semibold">定常モーションとクリック時モーション</h2>
         <p className="text-muted-foreground mb-4">
           <strong>motionIdle</strong>（定常）は float / shine / wave のように常時再生、
-          <strong>motionClick</strong>（クリック時）は pop / snap / bounce / wiggle / jelly のようにクリックで発火します。
-          両方指定して組み合わせられます。
+          <strong>motionClick</strong>（クリック時）は pop / snap / bounce / wiggle / jelly
+          のようにクリックで発火します。 両方指定して組み合わせられます。
         </p>
-        <div className="flex flex-wrap gap-3 mb-4">
-          <Button variant="aurora" motionIdle="shine" motionClick="pop" size="sm">shine + pop</Button>
-          <Button variant="aurora" motionIdle="wave" motionClick="bounce" size="sm">wave + bounce</Button>
-          <Button variant="aurora" motionIdle="float" motionClick="jelly" size="sm">float + jelly</Button>
+        <div className="mb-4 flex flex-wrap gap-3">
+          <Button variant="aurora" motionIdle="shine" motionClick="pop" size="sm">
+            shine + pop
+          </Button>
+          <Button variant="aurora" motionIdle="wave" motionClick="bounce" size="sm">
+            wave + bounce
+          </Button>
+          <Button variant="aurora" motionIdle="float" motionClick="jelly" size="sm">
+            float + jelly
+          </Button>
         </div>
         <CodeBlock
           code={`<Button motionIdle="shine" motionClick="pop">shine + pop</Button>
@@ -177,14 +206,19 @@ export default function MotionPage() {
 
       {/* Motion Presets Overview */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Motion Presets</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Motion Presets</h2>
         <p className="text-muted-foreground mb-6">
-          <code className="text-sm bg-muted/50 px-1.5 py-0.5 rounded">motion</code> で従来どおり一括指定も可能です。
-          定常とクリック時を分けたい場合は <code className="text-sm bg-muted/50 px-1.5 py-0.5 rounded">motionIdle</code> / <code className="text-sm bg-muted/50 px-1.5 py-0.5 rounded">motionClick</code> を使ってください。
+          <code className="bg-muted/50 rounded px-1.5 py-0.5 text-sm">motion</code>{" "}
+          で従来どおり一括指定も可能です。 定常とクリック時を分けたい場合は{" "}
+          <code className="bg-muted/50 rounded px-1.5 py-0.5 text-sm">motionIdle</code> /{" "}
+          <code className="bg-muted/50 rounded px-1.5 py-0.5 text-sm">motionClick</code>{" "}
+          を使ってください。
         </p>
 
-        <div className="flex flex-wrap gap-4 mb-6">
-          {(["pop", "bounce", "wiggle", "jelly", "float", "shine", "wave", "snap", "none"] as const).map((m) => (
+        <div className="mb-6 flex flex-wrap gap-4">
+          {(
+            ["pop", "bounce", "wiggle", "jelly", "float", "shine", "wave", "snap", "none"] as const
+          ).map((m) => (
             <Button key={m} variant="aurora" motion={m}>
               {m}
             </Button>
@@ -206,7 +240,7 @@ export default function MotionPage() {
 
       {/* Individual Motion Demos */}
       <section className="mb-12 space-y-6">
-        <h2 className="text-2xl font-semibold mb-4">Motion Details</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Motion Details</h2>
 
         <MotionDemo
           title="Pop"
@@ -275,85 +309,85 @@ export default function MotionPage() {
 
       {/* Utility Classes */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Utility Classes</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Utility Classes</h2>
         <p className="text-muted-foreground mb-6">
           Pre-built utility classes for common animation patterns.
         </p>
 
-        <h3 className="text-lg font-medium mb-4">Hover Effects</h3>
-        <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="p-4 bg-muted/20 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
+        <h3 className="mb-4 text-lg font-medium">Hover Effects</h3>
+        <div className="mb-8 grid gap-4 md:grid-cols-2">
+          <div className="bg-muted/20 rounded-lg p-4">
+            <div className="mb-3 flex items-center justify-between">
               <span className="text-sm font-medium">Float</span>
-              <code className="text-xs bg-muted/50 px-2 py-1 rounded">.ap-hover-float</code>
+              <code className="bg-muted/50 rounded px-2 py-1 text-xs">.ap-hover-float</code>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-20 h-20 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))] ap-hover-float cursor-pointer" />
+              <div className="ap-hover-float h-20 w-20 cursor-pointer rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]" />
             </div>
-            <p className="text-xs text-muted-foreground">Hover to see the float effect</p>
+            <p className="text-muted-foreground text-xs">Hover to see the float effect</p>
           </div>
 
-          <div className="p-4 bg-muted/20 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-muted/20 rounded-lg p-4">
+            <div className="mb-3 flex items-center justify-between">
               <span className="text-sm font-medium">Scale</span>
-              <code className="text-xs bg-muted/50 px-2 py-1 rounded">.ap-hover-scale</code>
+              <code className="bg-muted/50 rounded px-2 py-1 text-xs">.ap-hover-scale</code>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-20 h-20 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))] ap-hover-scale cursor-pointer" />
+              <div className="ap-hover-scale h-20 w-20 cursor-pointer rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]" />
             </div>
-            <p className="text-xs text-muted-foreground">Hover to see the scale effect</p>
+            <p className="text-muted-foreground text-xs">Hover to see the scale effect</p>
           </div>
 
-          <div className="p-4 bg-muted/20 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-muted/20 rounded-lg p-4">
+            <div className="mb-3 flex items-center justify-between">
               <span className="text-sm font-medium">Glow</span>
-              <code className="text-xs bg-muted/50 px-2 py-1 rounded">.ap-hover-glow</code>
+              <code className="bg-muted/50 rounded px-2 py-1 text-xs">.ap-hover-glow</code>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-20 h-20 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))] ap-hover-glow cursor-pointer" />
+              <div className="ap-hover-glow h-20 w-20 cursor-pointer rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]" />
             </div>
-            <p className="text-xs text-muted-foreground">Hover to see the glow effect</p>
+            <p className="text-muted-foreground text-xs">Hover to see the glow effect</p>
           </div>
 
-          <div className="p-4 bg-muted/20 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-muted/20 rounded-lg p-4">
+            <div className="mb-3 flex items-center justify-between">
               <span className="text-sm font-medium">Tilt</span>
-              <code className="text-xs bg-muted/50 px-2 py-1 rounded">.ap-hover-tilt</code>
+              <code className="bg-muted/50 rounded px-2 py-1 text-xs">.ap-hover-tilt</code>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-20 h-20 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))] ap-hover-tilt cursor-pointer" />
+              <div className="ap-hover-tilt h-20 w-20 cursor-pointer rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]" />
             </div>
-            <p className="text-xs text-muted-foreground">Hover to see the tilt effect</p>
+            <p className="text-muted-foreground text-xs">Hover to see the tilt effect</p>
           </div>
         </div>
 
-        <h3 className="text-lg font-medium mb-4">Active Effects</h3>
-        <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="p-4 bg-muted/20 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
+        <h3 className="mb-4 text-lg font-medium">Active Effects</h3>
+        <div className="mb-8 grid gap-4 md:grid-cols-2">
+          <div className="bg-muted/20 rounded-lg p-4">
+            <div className="mb-3 flex items-center justify-between">
               <span className="text-sm font-medium">Squish</span>
-              <code className="text-xs bg-muted/50 px-2 py-1 rounded">.ap-active-squish</code>
+              <code className="bg-muted/50 rounded px-2 py-1 text-xs">.ap-active-squish</code>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-20 h-20 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))] ap-active-squish cursor-pointer" />
+              <div className="ap-active-squish h-20 w-20 cursor-pointer rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]" />
             </div>
-            <p className="text-xs text-muted-foreground">Click and hold to see the squish effect</p>
+            <p className="text-muted-foreground text-xs">Click and hold to see the squish effect</p>
           </div>
 
-          <div className="p-4 bg-muted/20 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-muted/20 rounded-lg p-4">
+            <div className="mb-3 flex items-center justify-between">
               <span className="text-sm font-medium">Press</span>
-              <code className="text-xs bg-muted/50 px-2 py-1 rounded">.ap-active-press</code>
+              <code className="bg-muted/50 rounded px-2 py-1 text-xs">.ap-active-press</code>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-20 h-20 rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))] ap-active-press cursor-pointer" />
+              <div className="ap-active-press h-20 w-20 cursor-pointer rounded-lg bg-gradient-to-r from-[rgb(var(--ap-aurora-1))] to-[rgb(var(--ap-aurora-2))]" />
             </div>
-            <p className="text-xs text-muted-foreground">Click and hold to see the press effect</p>
+            <p className="text-muted-foreground text-xs">Click and hold to see the press effect</p>
           </div>
         </div>
 
-        <h3 className="text-lg font-medium mb-4">Enter/Exit Animations</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <h3 className="mb-4 text-lg font-medium">Enter/Exit Animations</h3>
+        <div className="mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <AnimationClassDemo
             title="Pop In"
             className="ap-enter-pop"
@@ -412,27 +446,27 @@ export default function MotionPage() {
 
       {/* Card Motion Variants */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Card Motion Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Card Motion Variants</h2>
         <p className="text-muted-foreground mb-6">
           Cards support motion variants for interactive hover effects.
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <Card variant="glass" motion="float" className="p-6 cursor-pointer">
-            <p className="font-medium mb-1">Float</p>
-            <p className="text-sm text-muted-foreground">motion=&quot;float&quot;</p>
+        <div className="mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Card variant="glass" motion="float" className="cursor-pointer p-6">
+            <p className="mb-1 font-medium">Float</p>
+            <p className="text-muted-foreground text-sm">motion=&quot;float&quot;</p>
           </Card>
-          <Card variant="glass" motion="scale" className="p-6 cursor-pointer">
-            <p className="font-medium mb-1">Scale</p>
-            <p className="text-sm text-muted-foreground">motion=&quot;scale&quot;</p>
+          <Card variant="glass" motion="scale" className="cursor-pointer p-6">
+            <p className="mb-1 font-medium">Scale</p>
+            <p className="text-muted-foreground text-sm">motion=&quot;scale&quot;</p>
           </Card>
-          <Card variant="glass" motion="tilt" className="p-6 cursor-pointer">
-            <p className="font-medium mb-1">Tilt</p>
-            <p className="text-sm text-muted-foreground">motion=&quot;tilt&quot;</p>
+          <Card variant="glass" motion="tilt" className="cursor-pointer p-6">
+            <p className="mb-1 font-medium">Tilt</p>
+            <p className="text-muted-foreground text-sm">motion=&quot;tilt&quot;</p>
           </Card>
-          <Card variant="glass" motion="glow" className="p-6 cursor-pointer">
-            <p className="font-medium mb-1">Glow</p>
-            <p className="text-sm text-muted-foreground">motion=&quot;glow&quot;</p>
+          <Card variant="glass" motion="glow" className="cursor-pointer p-6">
+            <p className="mb-1 font-medium">Glow</p>
+            <p className="text-muted-foreground text-sm">motion=&quot;glow&quot;</p>
           </Card>
         </div>
 
@@ -446,7 +480,7 @@ export default function MotionPage() {
 
       {/* Tailwind Configuration */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Tailwind Configuration</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Tailwind Configuration</h2>
         <p className="text-muted-foreground mb-4">
           Extend your Tailwind config to include the animation utilities.
         </p>
@@ -504,41 +538,46 @@ export default {
 
       {/* Accessibility */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Accessibility</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Accessibility</h2>
         <p className="text-muted-foreground mb-4">
-          popcn/ui respects user motion preferences and provides multiple ways to control animations.
+          popcn/ui respects user motion preferences and provides multiple ways to control
+          animations.
         </p>
 
-        <div className="space-y-4 mb-6">
+        <div className="mb-6 space-y-4">
           <Card variant="glass" className="p-4">
-            <h3 className="font-medium mb-2">1. System Preference</h3>
-            <p className="text-sm text-muted-foreground">
-              Automatically respects <code className="bg-muted/50 px-1 rounded">prefers-reduced-motion</code>.
-              When enabled, <code className="bg-muted/50 px-1 rounded">--ap-motion</code> is set to 0.
+            <h3 className="mb-2 font-medium">1. System Preference</h3>
+            <p className="text-muted-foreground text-sm">
+              Automatically respects{" "}
+              <code className="bg-muted/50 rounded px-1">prefers-reduced-motion</code>. When
+              enabled, <code className="bg-muted/50 rounded px-1">--ap-motion</code> is set to 0.
             </p>
           </Card>
 
           <Card variant="glass" className="p-4">
-            <h3 className="font-medium mb-2">2. CSS Variable Control</h3>
-            <p className="text-sm text-muted-foreground">
-              Set <code className="bg-muted/50 px-1 rounded">--ap-motion: 0</code> to disable animations programmatically.
-              Use <code className="bg-muted/50 px-1 rounded">--ap-motion-scale</code> to adjust intensity (0.5 = subtle, 1 = normal).
+            <h3 className="mb-2 font-medium">2. CSS Variable Control</h3>
+            <p className="text-muted-foreground text-sm">
+              Set <code className="bg-muted/50 rounded px-1">--ap-motion: 0</code> to disable
+              animations programmatically. Use{" "}
+              <code className="bg-muted/50 rounded px-1">--ap-motion-scale</code> to adjust
+              intensity (0.5 = subtle, 1 = normal).
             </p>
           </Card>
 
           <Card variant="glass" className="p-4">
-            <h3 className="font-medium mb-2">3. Utility Class</h3>
-            <p className="text-sm text-muted-foreground">
-              Add <code className="bg-muted/50 px-1 rounded">.ap-motion-reduce</code> to any element to disable animations for that subtree.
-              Alternatively, use <code className="bg-muted/50 px-1 rounded">.ap-no-motion</code> on the root.
+            <h3 className="mb-2 font-medium">3. Utility Class</h3>
+            <p className="text-muted-foreground text-sm">
+              Add <code className="bg-muted/50 rounded px-1">.ap-motion-reduce</code> to any element
+              to disable animations for that subtree. Alternatively, use{" "}
+              <code className="bg-muted/50 rounded px-1">.ap-no-motion</code> on the root.
             </p>
           </Card>
 
           <Card variant="glass" className="p-4">
-            <h3 className="font-medium mb-2">4. Functionality Preserved</h3>
-            <p className="text-sm text-muted-foreground">
-              All interactive elements remain fully functional without animations.
-              Visual feedback through color changes and focus states is maintained.
+            <h3 className="mb-2 font-medium">4. Functionality Preserved</h3>
+            <p className="text-muted-foreground text-sm">
+              All interactive elements remain fully functional without animations. Visual feedback
+              through color changes and focus states is maintained.
             </p>
           </Card>
         </div>
@@ -574,30 +613,31 @@ export default {
 
       {/* Best Practices */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Best Practices</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Best Practices</h2>
         <div className="space-y-3">
           <Card variant="glass" className="p-4">
             <p className="text-sm">
-              <span className="font-medium">Use meaningful motion:</span> Animation should provide feedback, not just decoration.
-              Pop for clicks, wiggle for errors, bounce for success.
+              <span className="font-medium">Use meaningful motion:</span> Animation should provide
+              feedback, not just decoration. Pop for clicks, wiggle for errors, bounce for success.
             </p>
           </Card>
           <Card variant="glass" className="p-4">
             <p className="text-sm">
-              <span className="font-medium">Keep it subtle:</span> GenZ aesthetics favor quick, bouncy animations.
-              Use <code className="bg-muted/50 px-1 rounded">--ap-dur-2</code> (200ms) for most interactions.
+              <span className="font-medium">Keep it subtle:</span> GenZ aesthetics favor quick,
+              bouncy animations. Use <code className="bg-muted/50 rounded px-1">--ap-dur-2</code>{" "}
+              (200ms) for most interactions.
             </p>
           </Card>
           <Card variant="glass" className="p-4">
             <p className="text-sm">
-              <span className="font-medium">Combine wisely:</span> Hover effects + click animations work great together.
-              Avoid combining multiple continuous animations.
+              <span className="font-medium">Combine wisely:</span> Hover effects + click animations
+              work great together. Avoid combining multiple continuous animations.
             </p>
           </Card>
           <Card variant="glass" className="p-4">
             <p className="text-sm">
-              <span className="font-medium">Test with reduced motion:</span> Always verify your UI works with animations disabled.
-              Use the toggle at the top of this page to test.
+              <span className="font-medium">Test with reduced motion:</span> Always verify your UI
+              works with animations disabled. Use the toggle at the top of this page to test.
             </p>
           </Card>
         </div>

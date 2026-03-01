@@ -8,19 +8,19 @@ export default function AspectRatioPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Aspect Ratio</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Aspect Ratio</h1>
+        <p className="text-muted-foreground text-lg">
           Maintain consistent ratios for media layouts.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add aspect-ratio" />
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Example</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Example</h2>
         <ComponentPreview
           title="16:9 Media"
           code={`<AspectRatio ratio={16 / 9}>

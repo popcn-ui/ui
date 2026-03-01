@@ -8,9 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "@radix-ui/react-collapsible"
-  ],
+  "dependencies": ["@radix-ui/react-collapsible"],
   "devDependencies": [],
   "registryDependencies": []
 }

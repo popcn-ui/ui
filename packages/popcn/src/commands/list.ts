@@ -20,10 +20,7 @@ function groupRegistry(registry: RegistryIndex): GroupedRegistry {
   }
 }
 
-function printGroupedItems(
-  title: string,
-  items: Array<{ name: string; description?: string }>
-) {
+function printGroupedItems(title: string, items: Array<{ name: string; description?: string }>) {
   if (items.length === 0) return
 
   console.log()
@@ -31,9 +28,7 @@ function printGroupedItems(
   console.log(chalk.dim("  " + "─".repeat(40)))
 
   for (const item of items) {
-    const description = item.description
-      ? chalk.dim(` - ${item.description}`)
-      : ""
+    const description = item.description ? chalk.dim(` - ${item.description}`) : ""
     console.log(`  ${chalk.white(item.name)}${description}`)
   }
 }
@@ -64,10 +59,7 @@ export async function listCommand(options: ListOptions) {
     printGroupedItems("Styles", grouped.styles)
     printGroupedItems("Themes", grouped.themes)
 
-    const totalCount =
-      grouped.components.length +
-      grouped.styles.length +
-      grouped.themes.length
+    const totalCount = grouped.components.length + grouped.styles.length + grouped.themes.length
 
     console.log()
     console.log(chalk.dim(`  ${totalCount} items available`))

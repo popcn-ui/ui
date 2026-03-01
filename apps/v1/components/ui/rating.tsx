@@ -5,33 +5,28 @@ import { StarIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 
-const ratingVariants = cva(
-  [
-    "inline-flex items-center gap-1",
-    "transition-colors",
-  ],
-  {
-    variants: {
-      size: {
-        sm: "text-sm",
-        md: "text-base",
-        lg: "text-lg",
-        xl: "text-xl",
-      },
-      variant: {
-        default: "",
-        aurora: "",
-      },
+const ratingVariants = cva(["inline-flex items-center gap-1", "transition-colors"], {
+  variants: {
+    size: {
+      sm: "text-sm",
+      md: "text-base",
+      lg: "text-lg",
+      xl: "text-xl",
     },
-    defaultVariants: {
-      size: "md",
-      variant: "default",
+    variant: {
+      default: "",
+      aurora: "",
     },
-  }
-)
+  },
+  defaultVariants: {
+    size: "md",
+    variant: "default",
+  },
+})
 
 interface RatingProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">,
+  extends
+    Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">,
     VariantProps<typeof ratingVariants> {
   value?: number
   max?: number
@@ -64,7 +59,8 @@ function Rating({
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
   const [hoveredHalf, setHoveredHalf] = React.useState<boolean>(false)
 
-  const displayValue = hoveredIndex !== null ? hoveredIndex + (hoveredHalf && allowHalf ? 0.5 : 1) : value
+  const displayValue =
+    hoveredIndex !== null ? hoveredIndex + (hoveredHalf && allowHalf ? 0.5 : 1) : value
 
   const handleClick = (index: number, isHalf: boolean = false) => {
     if (readOnly || !onChange) return
@@ -104,15 +100,12 @@ function Rating({
   }
 
   return (
-    <div
-      className={cn(ratingVariants({ size, variant }), className)}
-      {...props}
-    >
+    <div className={cn(ratingVariants({ size, variant }), className)} {...props}>
       {Array.from({ length: max }).map((_, index) => {
         const fill = getStarFill(index)
         const isHalf = fill === "half"
         const isFilled = fill === "fill"
-        
+
         return (
           <div
             key={index}
@@ -130,10 +123,8 @@ function Rating({
               <StarIcon
                 className={cn(
                   "h-full w-full",
-                  isFilled
-                    ? getFilledClass(index)
-                    : "text-muted-foreground",
-                  !readOnly && "cursor-pointer hover:scale-110 transition-transform"
+                  isFilled ? getFilledClass(index) : "text-muted-foreground",
+                  !readOnly && "cursor-pointer transition-transform hover:scale-110"
                 )}
               />
             </div>
@@ -141,9 +132,9 @@ function Rating({
             {allowHalf && (
               <div
                 className="absolute inset-0"
-                style={{ 
+                style={{
                   width: "50%",
-                  overflow: "hidden"
+                  overflow: "hidden",
                 }}
                 onMouseEnter={() => handleMouseEnter(index, true)}
                 onMouseLeave={handleMouseLeave}
@@ -155,9 +146,7 @@ function Rating({
                 <StarIcon
                   className={cn(
                     "h-full w-full",
-                    isHalf || isFilled
-                      ? getFilledClass(index)
-                      : "text-muted-foreground"
+                    isHalf || isFilled ? getFilledClass(index) : "text-muted-foreground"
                   )}
                   style={{ width: "200%" }}
                 />
@@ -167,7 +156,7 @@ function Rating({
         )
       })}
       {showValue && (
-        <span className="ml-2 text-sm text-muted-foreground">
+        <span className="text-muted-foreground ml-2 text-sm">
           {displayValue.toFixed(allowHalf ? 1 : 0)} / {max}
         </span>
       )}

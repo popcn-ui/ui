@@ -16,14 +16,14 @@ function SheetDemo() {
     <div className="flex flex-col gap-4">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="glass" size="sm">Open Sheet</Button>
+          <Button variant="glass" size="sm">
+            Open Sheet
+          </Button>
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Sheet Title</SheetTitle>
-            <SheetDescription>
-              Sheet description goes here.
-            </SheetDescription>
+            <SheetDescription>Sheet description goes here.</SheetDescription>
           </SheetHeader>
         </SheetContent>
       </Sheet>

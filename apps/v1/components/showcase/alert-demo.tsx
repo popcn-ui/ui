@@ -5,7 +5,7 @@ import { AlertTriangle, Sparkles } from "lucide-react"
 
 function AlertDemo() {
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex w-full flex-col gap-3">
       <Alert>
         <Sparkles />
         <AlertTitle>Aurora Active</AlertTitle>

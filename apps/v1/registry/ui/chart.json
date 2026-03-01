@@ -8,11 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "recharts",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["recharts", "clsx", "tailwind-merge"],
   "devDependencies": [],
   "registryDependencies": []
 }

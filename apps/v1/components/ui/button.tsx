@@ -35,12 +35,7 @@ const buttonVariants = cva(
           "hover:border-primary/50",
           "hover:shadow-[0_0_16px_rgba(var(--ap-primary),0.2)]",
         ],
-        ghost: [
-          "bg-transparent",
-          "text-foreground",
-          "hover:bg-muted/50",
-          "hover:text-primary",
-        ],
+        ghost: ["bg-transparent", "text-foreground", "hover:bg-muted/50", "hover:text-primary"],
       },
       size: {
         sm: "h-8 px-3 text-sm",
@@ -86,8 +81,7 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   /** @deprecated motionIdle と motionClick に分離しました。指定時は両方にマッピングします。 */
   motion?: "pop" | "float" | "shine" | "wave" | "snap" | "bounce" | "wiggle" | "jelly" | "none"
   asChild?: boolean
@@ -118,7 +112,10 @@ function resolveMotion(
   motion?: ButtonProps["motion"],
   motionIdle?: "none" | "float" | "shine" | "wave" | null,
   motionClick?: "none" | "pop" | "snap" | "bounce" | "wiggle" | "jelly" | null
-): { motionIdle: "none" | "float" | "shine" | "wave"; motionClick: "none" | "pop" | "snap" | "bounce" | "wiggle" | "jelly" } {
+): {
+  motionIdle: "none" | "float" | "shine" | "wave"
+  motionClick: "none" | "pop" | "snap" | "bounce" | "wiggle" | "jelly"
+} {
   if (motion != null) {
     if (motion === "none") return { motionIdle: "none", motionClick: "none" }
     if (isIdleMotion(motion)) return { motionIdle: motion, motionClick: "none" }

@@ -6,10 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const avatarVariants = cva(
-  [
-    "relative flex shrink-0 overflow-hidden rounded-full",
-    "transition-all duration-200",
-  ],
+  ["relative flex shrink-0 overflow-hidden rounded-full", "transition-all duration-200"],
   {
     variants: {
       size: {
@@ -21,15 +18,8 @@ const avatarVariants = cva(
       ring: {
         none: "",
         default: "ring-2 ring-border",
-        aurora: [
-          "ring-2",
-          "ring-offset-2 ring-offset-background",
-          "ring-primary",
-        ],
-        glow: [
-          "ring-2 ring-primary",
-          "shadow-[0_0_12px_rgba(var(--ap-primary),0.4)]",
-        ],
+        aurora: ["ring-2", "ring-offset-2 ring-offset-background", "ring-primary"],
+        glow: ["ring-2 ring-primary", "shadow-[0_0_12px_rgba(var(--ap-primary),0.4)]"],
       },
     },
     defaultVariants: {
@@ -40,19 +30,19 @@ const avatarVariants = cva(
 )
 
 export interface AvatarProps
-  extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,
+  extends
+    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,
     VariantProps<typeof avatarVariants> {}
 
-const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  AvatarProps
->(({ className, size, ring, ...props }, ref) => (
-  <AvatarPrimitive.Root
-    ref={ref}
-    className={cn(avatarVariants({ size, ring }), className)}
-    {...props}
-  />
-))
+const Avatar = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarProps>(
+  ({ className, size, ring, ...props }, ref) => (
+    <AvatarPrimitive.Root
+      ref={ref}
+      className={cn(avatarVariants({ size, ring }), className)}
+      {...props}
+    />
+  )
+)
 
 Avatar.displayName = AvatarPrimitive.Root.displayName
 
