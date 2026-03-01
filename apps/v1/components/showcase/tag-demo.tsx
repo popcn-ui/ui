@@ -3,12 +3,7 @@
 import { useState } from "react"
 import { Tag } from "@/components/ui/tag"
 
-const initialTags = [
-  "React",
-  "TypeScript",
-  "Next.js",
-  "Tailwind CSS",
-]
+const initialTags = ["React", "TypeScript", "Next.js", "Tailwind CSS"]
 
 export function TagDemo() {
   const [tags, setTags] = useState(initialTags)
@@ -23,11 +18,7 @@ export function TagDemo() {
         <label className="text-sm font-medium">Default Tags</label>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <Tag
-              key={tag}
-              removable
-              onRemove={() => removeTag(tag)}
-            >
+            <Tag key={tag} removable onRemove={() => removeTag(tag)}>
               {tag}
             </Tag>
           ))}

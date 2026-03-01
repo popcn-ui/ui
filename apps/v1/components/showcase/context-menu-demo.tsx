@@ -13,9 +13,7 @@ import {
 function ContextMenuDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="glass rounded-lg p-4 text-sm">
-        Right click
-      </ContextMenuTrigger>
+      <ContextMenuTrigger className="glass rounded-lg p-4 text-sm">Right click</ContextMenuTrigger>
       <ContextMenuContent>
         <ContextMenuLabel>Actions</ContextMenuLabel>
         <ContextMenuItem>Duplicate</ContextMenuItem>

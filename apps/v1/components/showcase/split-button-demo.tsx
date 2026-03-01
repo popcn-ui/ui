@@ -5,7 +5,7 @@ import { SplitButton } from "@/components/ui/split-button"
 export function SplitButtonDemo() {
   return (
     <div className="space-y-4">
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex flex-wrap gap-2">
         <SplitButton
           onClick={() => alert("Primary action")}
           dropdownItems={[

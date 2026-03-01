@@ -1,11 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "@/components/ui/button-group"
+import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "@/components/ui/button-group"
 import { Sparkles } from "lucide-react"
 
 function ButtonGroupDemo() {

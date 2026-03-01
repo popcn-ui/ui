@@ -18,9 +18,7 @@ export function TimelineDemo() {
           <TimelineDot completed />
           <TimelineContent>
             <TimelineTitle>Project Started</TimelineTitle>
-            <TimelineDescription>
-              Initial planning and setup completed
-            </TimelineDescription>
+            <TimelineDescription>Initial planning and setup completed</TimelineDescription>
             <TimelineTime>2024-01-01</TimelineTime>
           </TimelineContent>
         </TimelineItem>
@@ -28,9 +26,7 @@ export function TimelineDemo() {
           <TimelineDot completed />
           <TimelineContent>
             <TimelineTitle>Development Phase</TimelineTitle>
-            <TimelineDescription>
-              Core features implemented
-            </TimelineDescription>
+            <TimelineDescription>Core features implemented</TimelineDescription>
             <TimelineTime>2024-02-15</TimelineTime>
           </TimelineContent>
         </TimelineItem>
@@ -38,9 +34,7 @@ export function TimelineDemo() {
           <TimelineDot active />
           <TimelineContent>
             <TimelineTitle>Testing & QA</TimelineTitle>
-            <TimelineDescription>
-              Currently in testing phase
-            </TimelineDescription>
+            <TimelineDescription>Currently in testing phase</TimelineDescription>
             <TimelineTime>2024-03-20</TimelineTime>
           </TimelineContent>
         </TimelineItem>
@@ -48,9 +42,7 @@ export function TimelineDemo() {
           <TimelineDot />
           <TimelineContent>
             <TimelineTitle>Launch</TimelineTitle>
-            <TimelineDescription>
-              Planned release date
-            </TimelineDescription>
+            <TimelineDescription>Planned release date</TimelineDescription>
             <TimelineTime>2024-04-01</TimelineTime>
           </TimelineContent>
         </TimelineItem>

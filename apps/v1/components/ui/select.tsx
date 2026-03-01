@@ -18,9 +18,9 @@ const SelectTrigger = React.forwardRef<
     className={cn(
       "flex h-10 w-full items-center justify-between rounded-lg px-3 py-2 text-sm",
       "bg-background/60 backdrop-blur-md",
-      "border border-border/50",
+      "border-border/50 border",
       "ring-offset-background placeholder:text-muted-foreground",
-      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+      "focus:ring-ring focus:outline-none focus:ring-2 focus:ring-offset-2",
       "focus:border-primary/50",
       "disabled:cursor-not-allowed disabled:opacity-50",
       "transition-all duration-200",
@@ -78,8 +78,8 @@ const SelectContent = React.forwardRef<
       className={cn(
         "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-lg",
         "bg-background/90 backdrop-blur-xl",
-        "border border-border/50",
-        "shadow-xl shadow-[0_0_24px_rgba(var(--ap-primary),0.1)]",
+        "border-border/50 border",
+        "shadow-[0_0_24px_rgba(var(--ap-primary),0.1)] shadow-xl",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
@@ -138,7 +138,7 @@ const SelectItem = React.forwardRef<
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4 text-primary" />
+        <Check className="text-primary h-4 w-4" />
       </SelectPrimitive.ItemIndicator>
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -153,7 +153,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-border/50", className)}
+    className={cn("bg-border/50 -mx-1 my-1 h-px", className)}
     {...props}
   />
 ))

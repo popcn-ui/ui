@@ -17,20 +17,11 @@ const timelineVariants = cva("relative", {
 })
 
 interface TimelineProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof timelineVariants> {}
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof timelineVariants> {}
 
-function Timeline({
-  className,
-  orientation,
-  children,
-  ...props
-}: TimelineProps) {
+function Timeline({ className, orientation, children, ...props }: TimelineProps) {
   return (
-    <div
-      className={cn(timelineVariants({ orientation }), className)}
-      {...props}
-    >
+    <div className={cn(timelineVariants({ orientation }), className)} {...props}>
       {children}
     </div>
   )
@@ -86,59 +77,26 @@ function TimelineDot({
       )}
       {...props}
     >
-      {completed && (
-        <div className="h-2 w-2 rounded-full bg-primary-foreground" />
-      )}
-      {active && !completed && (
-        <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-      )}
+      {completed && <div className="bg-primary-foreground h-2 w-2 rounded-full" />}
+      {active && !completed && <div className="bg-primary h-2 w-2 animate-pulse rounded-full" />}
     </div>
   )
 }
 
-function TimelineContent({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={cn("flex-1 pb-8", className)} {...props} />
-  )
+function TimelineContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return <div className={cn("flex-1 pb-8", className)} {...props} />
 }
 
-function TimelineTitle({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement>) {
-  return (
-    <h3
-      className={cn("text-sm font-semibold text-foreground mb-1", className)}
-      {...props}
-    />
-  )
+function TimelineTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
+  return <h3 className={cn("text-foreground mb-1 text-sm font-semibold", className)} {...props} />
 }
 
-function TimelineDescription({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLParagraphElement>) {
-  return (
-    <p
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
+function TimelineDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
+  return <p className={cn("text-muted-foreground text-sm", className)} {...props} />
 }
 
-function TimelineTime({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLTimeElement>) {
-  return (
-    <time
-      className={cn("text-xs text-muted-foreground", className)}
-      {...props}
-    />
-  )
+function TimelineTime({ className, ...props }: React.HTMLAttributes<HTMLTimeElement>) {
+  return <time className={cn("text-muted-foreground text-xs", className)} {...props} />
 }
 
 export {

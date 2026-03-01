@@ -171,7 +171,7 @@ function ColorPicker({
           disabled={disabled}
         >
           <div
-            className="h-4 w-4 rounded border border-border/60"
+            className="border-border/60 h-4 w-4 rounded border"
             style={{ backgroundColor: color }}
           />
           <span className="font-mono text-sm">{formatColor()}</span>
@@ -181,7 +181,7 @@ function ColorPicker({
         <div className="space-y-4">
           {/* Color Preview */}
           <div
-            className="h-32 w-full rounded-lg border border-border/60"
+            className="border-border/60 h-32 w-full rounded-lg border"
             style={{ backgroundColor: color }}
           />
 

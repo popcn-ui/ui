@@ -15,7 +15,7 @@ export function LoadingButtonDemo() {
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex flex-wrap gap-2">
         <LoadingButton loading={loading} onClick={handleClick}>
           Submit
         </LoadingButton>
@@ -27,12 +27,7 @@ export function LoadingButtonDemo() {
         >
           Save Changes
         </LoadingButton>
-        <LoadingButton
-          loading={loading}
-          onClick={handleClick}
-          variant="ghost"
-          size="sm"
-        >
+        <LoadingButton loading={loading} onClick={handleClick} variant="ghost" size="sm">
           Small Button
         </LoadingButton>
       </div>

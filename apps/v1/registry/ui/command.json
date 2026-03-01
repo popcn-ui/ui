@@ -8,12 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "cmdk",
-    "lucide-react",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["cmdk", "lucide-react", "clsx", "tailwind-merge"],
   "devDependencies": [],
   "registryDependencies": ["dialog"]
 }

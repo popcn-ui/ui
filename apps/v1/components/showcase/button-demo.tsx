@@ -27,7 +27,12 @@ function ButtonDemo() {
         <Button variant="aurora" motion="float" size="sm" leftIcon={<Star className="h-4 w-4" />}>
           Float
         </Button>
-        <Button variant="aurora" motion="shine" size="sm" leftIcon={<Sparkles className="h-4 w-4" />}>
+        <Button
+          variant="aurora"
+          motion="shine"
+          size="sm"
+          leftIcon={<Sparkles className="h-4 w-4" />}
+        >
           Shine
         </Button>
       </div>

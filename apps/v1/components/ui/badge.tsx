@@ -12,33 +12,12 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        aurora: [
-          "bg-aurora",
-          "text-primary-foreground",
-          "shadow-sm",
-        ],
-        glass: [
-          "bg-background/60 backdrop-blur-md",
-          "border border-border/50",
-          "text-foreground",
-        ],
-        outline: [
-          "border border-primary/50",
-          "text-primary",
-          "bg-transparent",
-        ],
-        secondary: [
-          "bg-secondary",
-          "text-secondary-foreground",
-        ],
-        destructive: [
-          "bg-red-500/90",
-          "text-white",
-        ],
-        success: [
-          "bg-green-500/90",
-          "text-white",
-        ],
+        aurora: ["bg-aurora", "text-primary-foreground", "shadow-sm"],
+        glass: ["bg-background/60 backdrop-blur-md", "border border-border/50", "text-foreground"],
+        outline: ["border border-primary/50", "text-primary", "bg-transparent"],
+        secondary: ["bg-secondary", "text-secondary-foreground"],
+        destructive: ["bg-red-500/90", "text-white"],
+        success: ["bg-green-500/90", "text-white"],
       },
       glow: {
         true: "shadow-[0_0_8px_rgba(var(--ap-primary),0.4)]",
@@ -53,18 +32,11 @@ const badgeVariants = cva(
 )
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {}
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, variant, glow, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn(badgeVariants({ variant, glow }), className)}
-        {...props}
-      />
-    )
+    return <div ref={ref} className={cn(badgeVariants({ variant, glow }), className)} {...props} />
   }
 )
 
