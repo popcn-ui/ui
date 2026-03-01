@@ -28,17 +28,17 @@ function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <header className="bg-background/80 border-border/50 sticky top-0 z-50 w-full border-b backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <Sparkles className="h-6 w-6 text-primary" />
+          <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
+            <Sparkles className="text-primary h-6 w-6" />
             <span className="text-lg font-semibold">popcn/ui</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => {
               const isActive = pathname?.startsWith(item.href.split("/").slice(0, 3).join("/"))
               return (
@@ -46,7 +46,7 @@ function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "px-3 py-2 text-sm rounded-md transition-colors",
+                    "rounded-md px-3 py-2 text-sm transition-colors",
                     isActive
                       ? "text-foreground font-medium"
                       : "text-muted-foreground hover:text-foreground"
@@ -61,47 +61,45 @@ function SiteHeader() {
           {/* Right side */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/popcn/ui"
+              href="https://github.com/popcn-ui/ui"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="hidden sm:inline-flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground hidden items-center justify-center transition-colors sm:inline-flex"
             >
               <Github className="h-4 w-4" />
             </a>
             <div className="hidden sm:block">
               <SkinSelector />
             </div>
-            <div className="hidden sm:flex items-center gap-2">
-              <Sun className="h-4 w-4 text-muted-foreground" />
+            <div className="hidden items-center gap-2 sm:flex">
+              <Sun className="text-muted-foreground h-4 w-4" />
               {mounted ? (
                 <Switch
                   variant="aurora"
                   size="sm"
                   checked={isDark}
-                  onCheckedChange={(checked) =>
-                    setTheme(checked ? "dark" : "light")
-                  }
+                  onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
                   aria-label="Toggle dark mode"
                 />
               ) : (
-                <span className="inline-flex h-5 w-9 rounded-full border border-border/60 bg-muted/40" />
+                <span className="border-border/60 bg-muted/40 inline-flex h-5 w-9 rounded-full border" />
               )}
-              <Moon className="h-4 w-4 text-muted-foreground" />
+              <Moon className="text-muted-foreground h-4 w-4" />
             </div>
             <Button
               variant="aurora"
               size="sm"
               motion="pop"
               className="hidden sm:flex"
-              onClick={() => window.location.href = "/docs/installation"}
+              onClick={() => (window.location.href = "/docs/installation")}
             >
               Get Started
             </Button>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground p-2 transition-colors md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -112,7 +110,7 @@ function SiteHeader() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border/50">
+          <nav className="border-border/50 border-t py-4 md:hidden">
             <div className="flex flex-col gap-2">
               {navItems.map((item) => {
                 const isActive = pathname?.startsWith(item.href.split("/").slice(0, 3).join("/"))
@@ -122,9 +120,9 @@ function SiteHeader() {
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "px-3 py-2 text-sm rounded-md transition-colors",
+                      "rounded-md px-3 py-2 text-sm transition-colors",
                       isActive
-                        ? "text-foreground font-medium bg-muted/50"
+                        ? "text-foreground bg-muted/50 font-medium"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
                     )}
                   >
@@ -132,11 +130,11 @@ function SiteHeader() {
                   </Link>
                 )
               })}
-              <div className="flex items-center justify-between px-3 py-2 text-sm text-muted-foreground">
+              <div className="text-muted-foreground flex items-center justify-between px-3 py-2 text-sm">
                 <span>Skin</span>
                 <SkinSelector />
               </div>
-              <div className="flex items-center justify-between px-3 py-2 text-sm text-muted-foreground">
+              <div className="text-muted-foreground flex items-center justify-between px-3 py-2 text-sm">
                 <span>Theme</span>
                 <div className="flex items-center gap-2">
                   <Sun className="h-4 w-4" />
@@ -145,23 +143,21 @@ function SiteHeader() {
                       variant="aurora"
                       size="sm"
                       checked={isDark}
-                      onCheckedChange={(checked) =>
-                        setTheme(checked ? "dark" : "light")
-                      }
+                      onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
                       aria-label="Toggle dark mode"
                     />
                   ) : (
-                    <span className="inline-flex h-5 w-9 rounded-full border border-border/60 bg-muted/40" />
+                    <span className="border-border/60 bg-muted/40 inline-flex h-5 w-9 rounded-full border" />
                   )}
                   <Moon className="h-4 w-4" />
                 </div>
               </div>
               <a
-                href="https://github.com/popcn/ui"
+                href="https://github.com/popcn-ui/ui"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="inline-flex items-center px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground inline-flex items-center px-3 py-2 transition-colors"
               >
                 <Github className="h-4 w-4" />
               </a>

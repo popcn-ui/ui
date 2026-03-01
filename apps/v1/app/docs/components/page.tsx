@@ -1,9 +1,10 @@
 import Link from "next/link"
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Components",
-  description: "Beautifully designed components with aurora-inspired aesthetics. Copy and paste into your apps.",
+  description:
+    "Beautifully designed components with aurora-inspired aesthetics. Copy and paste into your apps.",
 }
 
 const components = [
@@ -87,10 +88,10 @@ export default function ComponentsPage() {
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Components</h1>
-          <p className="text-lg text-muted-foreground">
-            Beautifully designed components with aurora-inspired aesthetics.
-            Copy and paste into your apps.
+          <h1 className="mb-4 text-4xl font-bold tracking-tight">Components</h1>
+          <p className="text-muted-foreground text-lg">
+            Beautifully designed components with aurora-inspired aesthetics. Copy and paste into
+            your apps.
           </p>
         </div>
 
@@ -100,27 +101,22 @@ export default function ComponentsPage() {
             <Link
               key={component.href}
               href={component.href}
-              className="group inline-flex items-center gap-2 text-lg font-medium underline-offset-4 hover:underline md:text-base text-foreground"
+              className="text-foreground group inline-flex items-center gap-2 text-lg font-medium underline-offset-4 hover:underline md:text-base"
             >
-              <span className="group-hover:text-primary transition-colors">
-                {component.name}
-              </span>
+              <span className="group-hover:text-primary transition-colors">{component.name}</span>
               {component.isNew && (
-                <span
-                  className="flex h-2 w-2 rounded-full bg-primary"
-                  title="New"
-                />
+                <span className="bg-primary flex h-2 w-2 rounded-full" title="New" />
               )}
             </Link>
           ))}
         </div>
 
         {/* Footer note */}
-        <div className="mt-16 pt-8 border-t border-border/50">
-          <p className="text-sm text-muted-foreground">
+        <div className="border-border/50 mt-16 border-t pt-8">
+          <p className="text-muted-foreground text-sm">
             More components coming soon. Check back for updates or{" "}
             <a
-              href="https://github.com/popcn/ui"
+              href="https://github.com/popcn-ui/ui"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"

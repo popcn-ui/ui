@@ -32,5 +32,5 @@ export function getConfigErrors(data: unknown): string[] {
   if (result.success) {
     return []
   }
-  return result.error.issues.map((err) => `${err.path.join(".")}: ${err.message}`)
+  return result.error.errors.map((err) => `${err.path.join(".")}: ${err.message}`)
 }
