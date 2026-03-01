@@ -4,100 +4,94 @@ export default function CLIPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">CLI Reference</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">CLI Reference</h1>
+        <p className="text-muted-foreground text-lg">
           The popcn CLI helps you initialize projects and add components.
         </p>
       </div>
 
       {/* Init Command */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">popcn init</h2>
+        <h2 className="mb-4 text-2xl font-semibold">popcn init</h2>
         <p className="text-muted-foreground mb-4">
-          Initialize popcn/ui in your project. This sets up the configuration
-          file, CSS tokens, and utility functions.
+          Initialize popcn/ui in your project. This sets up the configuration file, CSS tokens, and
+          utility functions.
         </p>
         <CodeBlock code="npx popcn init" />
 
-        <h3 className="text-lg font-semibold mt-6 mb-3">Options</h3>
+        <h3 className="mb-3 mt-6 text-lg font-semibold">Options</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-border/50">
-                <th className="text-left py-3 px-4 font-semibold">Option</th>
-                <th className="text-left py-3 px-4 font-semibold">Description</th>
+              <tr className="border-border/50 border-b">
+                <th className="px-4 py-3 text-left font-semibold">Option</th>
+                <th className="px-4 py-3 text-left font-semibold">Description</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border/50">
+            <tbody className="divide-border/50 divide-y">
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">-y, --yes</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Skip confirmation prompts
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">-y, --yes</td>
+                <td className="text-muted-foreground px-4 py-3">Skip confirmation prompts</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">-d, --defaults</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Use default configuration
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">-d, --defaults</td>
+                <td className="text-muted-foreground px-4 py-3">Use default configuration</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">-f, --force</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Force overwrite existing files
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">-f, --force</td>
+                <td className="text-muted-foreground px-4 py-3">Force overwrite existing files</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3 className="text-lg font-semibold mt-6 mb-3">What it does</h3>
-        <ul className="list-disc list-inside text-muted-foreground space-y-2">
-          <li>Creates <code className="text-primary bg-primary/10 px-1 rounded">components.json</code> configuration</li>
+        <h3 className="mb-3 mt-6 text-lg font-semibold">What it does</h3>
+        <ul className="text-muted-foreground list-inside list-disc space-y-2">
+          <li>
+            Creates <code className="text-primary bg-primary/10 rounded px-1">components.json</code>{" "}
+            configuration
+          </li>
           <li>Adds AuroraPop CSS tokens to your global stylesheet</li>
-          <li>Creates <code className="text-primary bg-primary/10 px-1 rounded">lib/utils.ts</code> with the cn() helper</li>
+          <li>
+            Creates <code className="text-primary bg-primary/10 rounded px-1">lib/utils.ts</code>{" "}
+            with the cn() helper
+          </li>
           <li>Sets up component and utility paths</li>
         </ul>
       </section>
 
       {/* Add Command */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">popcn add</h2>
+        <h2 className="mb-4 text-2xl font-semibold">popcn add</h2>
         <p className="text-muted-foreground mb-4">
           Add components to your project from the registry.
         </p>
         <CodeBlock code="npx popcn add button" />
 
-        <h3 className="text-lg font-semibold mt-6 mb-3">Adding multiple components</h3>
+        <h3 className="mb-3 mt-6 text-lg font-semibold">Adding multiple components</h3>
         <CodeBlock code="npx popcn add button card input badge" />
 
-        <h3 className="text-lg font-semibold mt-6 mb-3">Options</h3>
+        <h3 className="mb-3 mt-6 text-lg font-semibold">Options</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-border/50">
-                <th className="text-left py-3 px-4 font-semibold">Option</th>
-                <th className="text-left py-3 px-4 font-semibold">Description</th>
+              <tr className="border-border/50 border-b">
+                <th className="px-4 py-3 text-left font-semibold">Option</th>
+                <th className="px-4 py-3 text-left font-semibold">Description</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border/50">
+            <tbody className="divide-border/50 divide-y">
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">-y, --yes</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Skip confirmation prompts
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">-y, --yes</td>
+                <td className="text-muted-foreground px-4 py-3">Skip confirmation prompts</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">-o, --overwrite</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Overwrite existing files
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">-o, --overwrite</td>
+                <td className="text-muted-foreground px-4 py-3">Overwrite existing files</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono text-primary">-p, --path</td>
-                <td className="py-3 px-4 text-muted-foreground">
-                  Custom path for components
-                </td>
+                <td className="text-primary px-4 py-3 font-mono">-p, --path</td>
+                <td className="text-muted-foreground px-4 py-3">Custom path for components</td>
               </tr>
             </tbody>
           </table>
@@ -106,7 +100,7 @@ export default function CLIPage() {
 
       {/* components.json */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">components.json</h2>
+        <h2 className="mb-4 text-2xl font-semibold">components.json</h2>
         <p className="text-muted-foreground mb-4">
           The configuration file that tells the CLI where to put things.
         </p>
@@ -130,7 +124,7 @@ export default function CLIPage() {
 
       {/* Environment Variables */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Environment Variables</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Environment Variables</h2>
         <p className="text-muted-foreground mb-4">
           Override the default registry URL for development or private registries.
         </p>

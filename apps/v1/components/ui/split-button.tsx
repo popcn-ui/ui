@@ -3,7 +3,8 @@
 import * as React from "react"
 import { ChevronDownIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button, ButtonProps } from "@/components/ui/button"
+import type { ButtonProps } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,11 +34,7 @@ function SplitButton({
 }: SplitButtonProps) {
   return (
     <div className="inline-flex">
-      <Button
-        onClick={onClick}
-        className={cn("rounded-r-none border-r-0", className)}
-        {...props}
-      >
+      <Button onClick={onClick} className={cn("rounded-r-none border-r-0", className)} {...props}>
         {children}
       </Button>
       {dropdownItems.length > 0 && (
@@ -46,10 +43,7 @@ function SplitButton({
             <Button
               variant={props.variant}
               size={props.size}
-              className={cn(
-                "rounded-l-none border-l border-l-border/60 px-2",
-                className
-              )}
+              className={cn("border-l-border/60 rounded-l-none border-l px-2", className)}
               {...props}
             >
               <ChevronDownIcon className="h-4 w-4" />
@@ -60,10 +54,7 @@ function SplitButton({
             {dropdownItems.map((item, index) => (
               <React.Fragment key={index}>
                 {item.separator && index > 0 && <DropdownMenuSeparator />}
-                <DropdownMenuItem
-                  onClick={item.onClick}
-                  disabled={item.disabled}
-                >
+                <DropdownMenuItem onClick={item.onClick} disabled={item.disabled}>
                   {item.label}
                 </DropdownMenuItem>
               </React.Fragment>

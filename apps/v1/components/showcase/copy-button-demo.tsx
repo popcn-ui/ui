@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 
 export function CopyButtonDemo() {
   return (
-    <div className="space-y-4 w-full max-w-md">
+    <div className="w-full max-w-md space-y-4">
       <div className="space-y-2">
         <label className="text-sm font-medium">Copy Text</label>
         <div className="flex gap-2">
@@ -15,11 +15,7 @@ export function CopyButtonDemo() {
       </div>
       <div className="space-y-2">
         <label className="text-sm font-medium">Copy with Custom Label</label>
-        <CopyButton
-          value="https://popcn.dev"
-          copyLabel="Copy URL"
-          copiedLabel="URL Copied!"
-        />
+        <CopyButton value="https://popcn.dev" copyLabel="Copy URL" copiedLabel="URL Copied!" />
       </div>
     </div>
   )

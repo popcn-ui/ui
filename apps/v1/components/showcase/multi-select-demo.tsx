@@ -25,9 +25,7 @@ export function MultiSelectDemo() {
         maxCount={3}
       />
       {value.length > 0 && (
-        <div className="text-sm text-muted-foreground">
-          Selected: {value.join(", ")}
-        </div>
+        <div className="text-muted-foreground text-sm">Selected: {value.join(", ")}</div>
       )}
     </div>
   )

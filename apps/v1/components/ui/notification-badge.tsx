@@ -34,8 +34,7 @@ const notificationBadgeVariants = cva(
 )
 
 interface NotificationBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof notificationBadgeVariants> {
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof notificationBadgeVariants> {
   count?: number
   maxCount?: number
   showZero?: boolean
@@ -64,21 +63,10 @@ function NotificationBadge({
   }
 
   return (
-    <span
-      className={cn(notificationBadgeVariants({ variant, size }), className)}
-      {...props}
-    >
-      {dot ? (
-        <span className="h-2 w-2 rounded-full bg-current" />
-      ) : (
-        displayCount
-      )}
+    <span className={cn(notificationBadgeVariants({ variant, size }), className)} {...props}>
+      {dot ? <span className="h-2 w-2 rounded-full bg-current" /> : displayCount}
     </span>
   )
 }
 
-export {
-  NotificationBadge,
-  notificationBadgeVariants,
-  type NotificationBadgeProps,
-}
+export { NotificationBadge, notificationBadgeVariants, type NotificationBadgeProps }

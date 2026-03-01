@@ -49,7 +49,12 @@
       "type": "ui",
       "description": "Form label component with aurora gradient text option",
       "files": ["components/ui/label.tsx"],
-      "dependencies": ["@radix-ui/react-label", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-label",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -73,7 +78,12 @@
       "type": "ui",
       "description": "Avatar with size options and glow ring variants",
       "files": ["components/ui/avatar.tsx"],
-      "dependencies": ["@radix-ui/react-avatar", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-avatar",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -97,7 +107,12 @@
       "type": "ui",
       "description": "Tab navigation with aurora, default, and underline variants",
       "files": ["components/ui/tabs.tsx"],
-      "dependencies": ["@radix-ui/react-tabs", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-tabs",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -113,7 +128,13 @@
       "type": "ui",
       "description": "Checkbox with aurora gradient and glass variants",
       "files": ["components/ui/checkbox.tsx"],
-      "dependencies": ["@radix-ui/react-checkbox", "lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -145,7 +166,12 @@
       "type": "ui",
       "description": "Toggle switch with aurora gradient when active",
       "files": ["components/ui/switch.tsx"],
-      "dependencies": ["@radix-ui/react-switch", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-switch",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -153,7 +179,12 @@
       "type": "ui",
       "description": "Visual separator with aurora gradient option",
       "files": ["components/ui/separator.tsx"],
-      "dependencies": ["@radix-ui/react-separator", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-separator",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -201,7 +232,12 @@
       "type": "ui",
       "description": "Grouped buttons with shared borders and separators",
       "files": ["components/ui/button-group.tsx"],
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": ["separator"]
     },
     {
@@ -289,7 +325,13 @@
       "type": "ui",
       "description": "React Hook Form helpers and slots",
       "files": ["components/ui/form.tsx"],
-      "dependencies": ["react-hook-form", "@radix-ui/react-slot", "@radix-ui/react-label", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "react-hook-form",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-label",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": ["label"]
     },
     {
@@ -329,7 +371,12 @@
       "type": "ui",
       "description": "Toggle button with aurora styling variants",
       "files": ["components/ui/toggle.tsx"],
-      "dependencies": ["@radix-ui/react-toggle", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-toggle",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {
@@ -345,7 +392,12 @@
       "type": "ui",
       "description": "List item component with media, content, and actions",
       "files": ["components/ui/item.tsx"],
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": ["separator"]
     },
     {
@@ -377,7 +429,13 @@
       "type": "ui",
       "description": "Navigation menu with dropdowns and links",
       "files": ["components/ui/navigation-menu.tsx"],
-      "dependencies": ["@radix-ui/react-navigation-menu", "lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@radix-ui/react-navigation-menu",
+        "lucide-react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": []
     },
     {

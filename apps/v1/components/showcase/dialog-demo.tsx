@@ -30,30 +30,16 @@ function DialogDemo() {
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
-            <label
-              htmlFor="name"
-              className="text-sm font-medium leading-none"
-            >
+            <label htmlFor="name" className="text-sm font-medium leading-none">
               Name
             </label>
-            <Input
-              id="name"
-              defaultValue="Aurora User"
-              variant="glass"
-            />
+            <Input id="name" defaultValue="Aurora User" variant="glass" />
           </div>
           <div className="grid gap-2">
-            <label
-              htmlFor="username"
-              className="text-sm font-medium leading-none"
-            >
+            <label htmlFor="username" className="text-sm font-medium leading-none">
               Username
             </label>
-            <Input
-              id="username"
-              defaultValue="@aurora"
-              variant="glass"
-            />
+            <Input id="username" defaultValue="@aurora" variant="glass" />
           </div>
         </div>
         <DialogFooter>
