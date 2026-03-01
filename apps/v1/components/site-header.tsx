@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
-import { Sparkles, Menu, X, Sun, Moon, Github } from "lucide-react"
+import { Menu, X, Sun, Moon, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import { SkinSelector } from "@/components/skin-selector"
@@ -33,7 +34,13 @@ function SiteHeader() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-            <Sparkles className="text-primary h-6 w-6" />
+            <Image
+              src="/favicon.svg"
+              alt="popcn/ui logo"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
             <span className="text-lg font-semibold">popcn/ui</span>
           </Link>
 
