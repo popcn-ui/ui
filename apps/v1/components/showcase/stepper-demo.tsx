@@ -25,11 +25,7 @@ export function StepperDemo() {
           description="Configure preferences"
           completed={currentStep > 2}
         />
-        <StepperStep
-          label="Review"
-          description="Review and submit"
-          completed={currentStep > 3}
-        />
+        <StepperStep label="Review" description="Review and submit" completed={currentStep > 3} />
       </Stepper>
 
       <div className="flex gap-2">

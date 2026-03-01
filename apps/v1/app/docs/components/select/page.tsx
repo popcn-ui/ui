@@ -18,19 +18,19 @@ export default function SelectPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Select</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Select</h1>
+        <p className="text-muted-foreground text-lg">
           Dropdown select with glass panel and aurora gradient effects.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add select" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <ComponentPreview
           title="Simple Select"
           code={`<Select>
@@ -58,7 +58,7 @@ export default function SelectPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Label</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Label</h2>
         <ComponentPreview
           title="Form Field"
           code={`<div className="grid gap-2">
@@ -92,7 +92,7 @@ export default function SelectPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Groups</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Groups</h2>
         <ComponentPreview
           title="Grouped Options"
           code={`<Select>
@@ -136,7 +136,7 @@ export default function SelectPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

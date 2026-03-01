@@ -8,7 +8,13 @@
       "type": "component"
     }
   ],
-  "dependencies": ["@radix-ui/react-checkbox", "lucide-react", "class-variance-authority", "clsx", "tailwind-merge"],
+  "dependencies": [
+    "@radix-ui/react-checkbox",
+    "lucide-react",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
   "devDependencies": [],
   "registryDependencies": []
 }

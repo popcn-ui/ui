@@ -1,6 +1,13 @@
 "use client"
 
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CodeBlock } from "@/components/docs/code-block"
 import { ComponentPreview } from "@/components/docs/component-preview"
@@ -10,19 +17,19 @@ export default function CardPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Card</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Card</h1>
+        <p className="text-muted-foreground text-lg">
           Card container with glass, aurora-border, and solid variants.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add card" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Variants</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Glass (default)"
@@ -82,7 +89,7 @@ export default function CardPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Footer</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Footer</h2>
         <ComponentPreview
           title="Full Card"
           code={`<Card>
@@ -107,14 +114,16 @@ export default function CardPage() {
               <p>Main content of the card.</p>
             </CardContent>
             <CardFooter>
-              <Button variant="aurora" size="sm">Action</Button>
+              <Button variant="aurora" size="sm">
+                Action
+              </Button>
             </CardFooter>
           </Card>
         </ComponentPreview>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

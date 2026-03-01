@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress"
 
 function ProgressDemo() {
   return (
-    <div className="flex flex-col gap-4 w-full max-w-sm">
+    <div className="flex w-full max-w-sm flex-col gap-4">
       <Progress value={33} variant="aurora" />
       <Progress value={50} variant="aurora" />
       <Progress value={75} variant="aurora" />

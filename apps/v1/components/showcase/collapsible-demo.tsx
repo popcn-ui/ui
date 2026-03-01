@@ -1,11 +1,7 @@
 "use client"
 
 import * as React from "react"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Button } from "@/components/ui/button"
 
 function CollapsibleDemo() {
@@ -18,7 +14,7 @@ function CollapsibleDemo() {
           {open ? "Hide details" : "Show details"}
         </Button>
       </CollapsibleTrigger>
-      <CollapsibleContent className="mt-3 text-sm text-muted-foreground">
+      <CollapsibleContent className="text-muted-foreground mt-3 text-sm">
         Aurora gradients stay smooth across themes.
       </CollapsibleContent>
     </Collapsible>

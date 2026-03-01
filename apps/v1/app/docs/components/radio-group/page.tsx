@@ -13,19 +13,17 @@ export default function RadioGroupPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Radio Group</h1>
-        <p className="text-lg text-muted-foreground">
-          Radio group component for single selection.
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Radio Group</h1>
+        <p className="text-muted-foreground text-lg">Radio group component for single selection.</p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add radio-group" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Default"
@@ -55,7 +53,7 @@ export default function RadioGroupPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Controlled</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Controlled</h2>
         <ComponentPreview
           title="Controlled Radio Group"
           code={`const [value, setValue] = useState("option-one")
@@ -85,7 +83,7 @@ export default function RadioGroupPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

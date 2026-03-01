@@ -60,7 +60,7 @@ function SkinSelector() {
 
   if (!mounted) {
     return (
-      <div className="inline-flex h-8 items-center rounded-full border border-border/60 bg-muted/40 p-0.5">
+      <div className="border-border/60 bg-muted/40 inline-flex h-8 items-center rounded-full border p-0.5">
         {skins.map((s) => (
           <span key={s.value} className="h-7 w-[4.25rem] rounded-full" />
         ))}
@@ -71,7 +71,7 @@ function SkinSelector() {
   return (
     <div
       ref={containerRef}
-      className="inline-flex h-8 items-center rounded-full border border-border/60 bg-muted/40 p-0.5 touch-pan-y select-none"
+      className="border-border/60 bg-muted/40 inline-flex h-8 touch-pan-y select-none items-center rounded-full border p-0.5"
       role="radiogroup"
       aria-label="Skin style"
       onPointerDown={onPointerDown}
@@ -86,7 +86,7 @@ function SkinSelector() {
           onClick={() => handleSkinChange(s.value)}
           className={cn(
             "relative h-7 rounded-full px-3 text-xs font-medium transition-all duration-200",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
+            "focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1",
             skin === s.value
               ? "bg-primary text-primary-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
@@ -104,16 +104,15 @@ function SkinSelector() {
 
 function SkinSwatch({ value }: { value: Skin }) {
   if (value === "aurora") {
-    return <span className="inline-block h-2.5 w-2.5 rounded-full bg-aurora" />
+    return <span className="bg-aurora inline-block h-2.5 w-2.5 rounded-full" />
   }
   if (value === "neumopop") {
     return (
       <span
-        className="inline-block h-2.5 w-2.5 rounded-full border border-border/60"
+        className="border-border/60 inline-block h-2.5 w-2.5 rounded-full border"
         style={{
           background: "rgb(var(--ap-muted))",
-          boxShadow:
-            "1px 1px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(255,255,255,0.05)",
+          boxShadow: "1px 1px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(255,255,255,0.05)",
         }}
       />
     )
@@ -126,8 +125,7 @@ function SkinSwatch({ value }: { value: Skin }) {
         background: "rgba(var(--ap-primary), 0.35)",
         backdropFilter: "blur(4px)",
         WebkitBackdropFilter: "blur(4px)",
-        boxShadow:
-          "inset 0 0.5px 0 0 rgba(255,255,255,0.25), 0 1px 3px rgba(0,0,0,0.15)",
+        boxShadow: "inset 0 0.5px 0 0 rgba(255,255,255,0.25), 0 1px 3px rgba(0,0,0,0.15)",
         border: "0.5px solid rgba(255,255,255,0.18)",
       }}
     />

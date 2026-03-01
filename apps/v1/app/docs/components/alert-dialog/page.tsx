@@ -19,19 +19,17 @@ export default function AlertDialogPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Alert Dialog</h1>
-        <p className="text-lg text-muted-foreground">
-          Confirmation dialogs for critical actions.
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Alert Dialog</h1>
+        <p className="text-muted-foreground text-lg">Confirmation dialogs for critical actions.</p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add alert-dialog" />
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Example</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Example</h2>
         <ComponentPreview
           title="Confirmation"
           code={`<AlertDialog>
@@ -59,9 +57,7 @@ export default function AlertDialogPage() {
             <AlertDialogContent>
               <AlertDialogHeader>
                 <AlertDialogTitle>Delete project?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  This action cannot be undone.
-                </AlertDialogDescription>
+                <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel>Cancel</AlertDialogCancel>

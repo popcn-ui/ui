@@ -12,14 +12,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {
-  User,
-  Settings,
-  LogOut,
-  MoreHorizontal,
-  Palette,
-  Sparkles,
-} from "lucide-react"
+import { User, Settings, LogOut, MoreHorizontal, Palette, Sparkles } from "lucide-react"
 
 function DropdownDemo() {
   return (

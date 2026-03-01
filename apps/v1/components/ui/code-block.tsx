@@ -37,19 +37,17 @@ function CodeBlock({
   const lines = code.split("\n")
 
   return (
-    <div className="relative group">
+    <div className="group relative">
       {filename && (
-        <div className="flex items-center justify-between px-4 py-2 text-xs font-medium border-b border-border/60 bg-muted/30 rounded-t-lg">
+        <div className="border-border/60 bg-muted/30 flex items-center justify-between rounded-t-lg border-b px-4 py-2 text-xs font-medium">
           <span className="text-muted-foreground">{filename}</span>
-          {language && (
-            <span className="text-muted-foreground uppercase">{language}</span>
-          )}
+          {language && <span className="text-muted-foreground uppercase">{language}</span>}
         </div>
       )}
       <div className="relative">
         <pre
           className={cn(
-            "overflow-x-auto rounded-lg bg-muted/50 p-4 text-sm font-mono",
+            "bg-muted/50 overflow-x-auto rounded-lg p-4 font-mono text-sm",
             filename && "rounded-t-none",
             className
           )}
@@ -58,7 +56,7 @@ function CodeBlock({
           <code>
             {showLineNumbers ? (
               <div className="flex gap-4">
-                <div className="select-none text-muted-foreground/50 text-right">
+                <div className="text-muted-foreground/50 select-none text-right">
                   {lines.map((_, i) => (
                     <div key={i}>{i + 1}</div>
                   ))}
@@ -78,14 +76,10 @@ function CodeBlock({
           <Button
             variant="ghost"
             size="sm"
-            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-2 top-2 opacity-0 transition-opacity group-hover:opacity-100"
             onClick={handleCopy}
           >
-            {copied ? (
-              <CheckIcon className="h-4 w-4" />
-            ) : (
-              <CopyIcon className="h-4 w-4" />
-            )}
+            {copied ? <CheckIcon className="h-4 w-4" /> : <CopyIcon className="h-4 w-4" />}
           </Button>
         )}
       </div>

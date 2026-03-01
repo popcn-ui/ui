@@ -38,11 +38,7 @@ interface ThemeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   onThemeChange?: (theme: Theme) => void
 }
 
-function ThemeSelector({
-  className,
-  onThemeChange,
-  ...props
-}: ThemeSelectorProps) {
+function ThemeSelector({ className, onThemeChange, ...props }: ThemeSelectorProps) {
   const [activeTheme, setActiveTheme] = React.useState<Theme>("cosmic")
 
   const handleThemeChange = (theme: Theme) => {
@@ -61,7 +57,7 @@ function ThemeSelector({
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-1 rounded-full border border-border/50 bg-muted/30 backdrop-blur-sm p-1",
+        "border-border/50 bg-muted/30 inline-flex items-center gap-1 rounded-full border p-1 backdrop-blur-sm",
         className
       )}
       {...props}

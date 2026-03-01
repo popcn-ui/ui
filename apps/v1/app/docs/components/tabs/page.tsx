@@ -9,19 +9,19 @@ export default function TabsPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Tabs</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Tabs</h1>
+        <p className="text-muted-foreground text-lg">
           Tabbed interface with aurora underline and glass pill variants.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add tabs" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <ComponentPreview
           title="Default Tabs"
           code={`<Tabs defaultValue="account">
@@ -43,21 +43,17 @@ export default function TabsPage() {
               <TabsTrigger value="password">Password</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-              <p className="text-sm text-muted-foreground p-4">
-                Account settings content here.
-              </p>
+              <p className="text-muted-foreground p-4 text-sm">Account settings content here.</p>
             </TabsContent>
             <TabsContent value="password">
-              <p className="text-sm text-muted-foreground p-4">
-                Password settings content here.
-              </p>
+              <p className="text-muted-foreground p-4 text-sm">Password settings content here.</p>
             </TabsContent>
           </Tabs>
         </ComponentPreview>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Variants</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Aurora Underline"
@@ -71,18 +67,24 @@ export default function TabsPage() {
           >
             <Tabs defaultValue="tab1" className="w-full max-w-md">
               <TabsList variant="underline">
-                <TabsTrigger value="tab1" variant="underline">Overview</TabsTrigger>
-                <TabsTrigger value="tab2" variant="underline">Analytics</TabsTrigger>
-                <TabsTrigger value="tab3" variant="underline">Reports</TabsTrigger>
+                <TabsTrigger value="tab1" variant="underline">
+                  Overview
+                </TabsTrigger>
+                <TabsTrigger value="tab2" variant="underline">
+                  Analytics
+                </TabsTrigger>
+                <TabsTrigger value="tab3" variant="underline">
+                  Reports
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="tab1">
-                <p className="text-sm text-muted-foreground p-4">Overview content</p>
+                <p className="text-muted-foreground p-4 text-sm">Overview content</p>
               </TabsContent>
               <TabsContent value="tab2">
-                <p className="text-sm text-muted-foreground p-4">Analytics content</p>
+                <p className="text-muted-foreground p-4 text-sm">Analytics content</p>
               </TabsContent>
               <TabsContent value="tab3">
-                <p className="text-sm text-muted-foreground p-4">Reports content</p>
+                <p className="text-muted-foreground p-4 text-sm">Reports content</p>
               </TabsContent>
             </Tabs>
           </ComponentPreview>
@@ -104,13 +106,13 @@ export default function TabsPage() {
                 <TabsTrigger value="tab3">Live</TabsTrigger>
               </TabsList>
               <TabsContent value="tab1">
-                <p className="text-sm text-muted-foreground p-4">Music content</p>
+                <p className="text-muted-foreground p-4 text-sm">Music content</p>
               </TabsContent>
               <TabsContent value="tab2">
-                <p className="text-sm text-muted-foreground p-4">Podcasts content</p>
+                <p className="text-muted-foreground p-4 text-sm">Podcasts content</p>
               </TabsContent>
               <TabsContent value="tab3">
-                <p className="text-sm text-muted-foreground p-4">Live content</p>
+                <p className="text-muted-foreground p-4 text-sm">Live content</p>
               </TabsContent>
             </Tabs>
           </ComponentPreview>
@@ -118,7 +120,7 @@ export default function TabsPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

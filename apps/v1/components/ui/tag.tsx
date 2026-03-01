@@ -14,23 +14,10 @@ const tagVariants = cva(
   {
     variants: {
       variant: {
-        default: [
-          "bg-muted text-muted-foreground",
-          "hover:bg-muted/80",
-        ],
-        aurora: [
-          "bg-aurora/20 text-primary",
-          "border border-primary/30",
-          "hover:bg-aurora/30",
-        ],
-        outline: [
-          "border border-border/60 bg-transparent",
-          "hover:bg-muted/50",
-        ],
-        secondary: [
-          "bg-secondary text-secondary-foreground",
-          "hover:bg-secondary/80",
-        ],
+        default: ["bg-muted text-muted-foreground", "hover:bg-muted/80"],
+        aurora: ["bg-aurora/20 text-primary", "border border-primary/30", "hover:bg-aurora/30"],
+        outline: ["border border-border/60 bg-transparent", "hover:bg-muted/50"],
+        secondary: ["bg-secondary text-secondary-foreground", "hover:bg-secondary/80"],
       },
       size: {
         sm: "px-2 py-0.5 text-xs",
@@ -45,32 +32,15 @@ const tagVariants = cva(
   }
 )
 
-interface TagProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof tagVariants> {
+interface TagProps extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof tagVariants> {
   onRemove?: () => void
   removable?: boolean
 }
 
 const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
-  (
-    {
-      className,
-      variant,
-      size,
-      onRemove,
-      removable = false,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, variant, size, onRemove, removable = false, children, ...props }, ref) => {
     return (
-      <span
-        ref={ref}
-        className={cn(tagVariants({ variant, size }), className)}
-        {...props}
-      >
+      <span ref={ref} className={cn(tagVariants({ variant, size }), className)} {...props}>
         {children}
         {removable && onRemove && (
           <button
@@ -79,7 +49,7 @@ const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
               e.stopPropagation()
               onRemove()
             }}
-            className="ml-1 rounded-full hover:bg-muted/80 p-0.5 transition-colors"
+            className="hover:bg-muted/80 ml-1 rounded-full p-0.5 transition-colors"
             aria-label="Remove tag"
           >
             <XIcon className="h-3 w-3" />

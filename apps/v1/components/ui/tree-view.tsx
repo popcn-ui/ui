@@ -14,8 +14,10 @@ interface TreeNode {
   data?: Record<string, any>
 }
 
-interface TreeViewProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect" | "onToggle"> {
+interface TreeViewProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "onSelect" | "onToggle"
+> {
   data: TreeNode[]
   defaultExpanded?: string[]
   defaultSelected?: string
@@ -34,12 +36,8 @@ function TreeView({
   className,
   ...props
 }: TreeViewProps) {
-  const [expanded, setExpanded] = React.useState<Set<string>>(
-    new Set(defaultExpanded)
-  )
-  const [selected, setSelected] = React.useState<string | undefined>(
-    defaultSelected
-  )
+  const [expanded, setExpanded] = React.useState<Set<string>>(new Set(defaultExpanded))
+  const [selected, setSelected] = React.useState<string | undefined>(defaultSelected)
 
   const handleToggle = (nodeId: string) => {
     const newExpanded = new Set(expanded)
@@ -71,17 +69,13 @@ function TreeView({
 
     if (hasChildren) {
       return (
-        <Collapsible
-          key={node.id}
-          open={isExpanded}
-          onOpenChange={() => handleToggle(node.id)}
-        >
+        <Collapsible key={node.id} open={isExpanded} onOpenChange={() => handleToggle(node.id)}>
           <div
             className={cn(
-              "flex items-center gap-2 px-2 py-1.5 rounded-md text-sm transition-colors",
+              "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
               "hover:bg-muted/50",
               isSelected && "bg-primary/10 text-primary",
-              node.disabled && "opacity-50 cursor-not-allowed",
+              node.disabled && "cursor-not-allowed opacity-50",
               !node.disabled && "cursor-pointer"
             )}
             style={{ paddingLeft: `${level * 1.5 + 0.5}rem` }}
@@ -97,16 +91,11 @@ function TreeView({
                 }}
               >
                 <ChevronRightIcon
-                  className={cn(
-                    "h-4 w-4 transition-transform",
-                    isExpanded && "rotate-90"
-                  )}
+                  className={cn("h-4 w-4 transition-transform", isExpanded && "rotate-90")}
                 />
               </button>
             </CollapsibleTrigger>
-            {node.icon || (
-              <FolderIcon className="h-4 w-4 text-muted-foreground" />
-            )}
+            {node.icon || <FolderIcon className="text-muted-foreground h-4 w-4" />}
             <span className="flex-1">{node.label}</span>
           </div>
           <CollapsibleContent className="mt-1">
@@ -120,19 +109,17 @@ function TreeView({
       <div
         key={node.id}
         className={cn(
-          "flex items-center gap-2 px-2 py-1.5 rounded-md text-sm transition-colors",
+          "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
           "hover:bg-muted/50",
           isSelected && "bg-primary/10 text-primary",
-          node.disabled && "opacity-50 cursor-not-allowed",
+          node.disabled && "cursor-not-allowed opacity-50",
           !node.disabled && "cursor-pointer"
         )}
         style={{ paddingLeft: `${level * 1.5 + 0.5}rem` }}
         onClick={() => !node.disabled && handleSelect(node.id)}
       >
         <div className="w-4 shrink-0" />
-        {node.icon || (
-          <FileIcon className="h-4 w-4 text-muted-foreground" />
-        )}
+        {node.icon || <FileIcon className="text-muted-foreground h-4 w-4" />}
         <span className="flex-1">{node.label}</span>
       </div>
     )
@@ -141,7 +128,7 @@ function TreeView({
   return (
     <div
       className={cn(
-        "rounded-lg border border-border/60 bg-background/60 backdrop-blur-md p-2",
+        "border-border/60 bg-background/60 rounded-lg border p-2 backdrop-blur-md",
         className
       )}
       {...props}
