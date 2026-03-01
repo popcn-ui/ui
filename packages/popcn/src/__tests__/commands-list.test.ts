@@ -49,9 +49,7 @@ describe("commands/list - groupRegistry", () => {
   it("should preserve component descriptions", () => {
     const registry: RegistryIndex = {
       version: "1.0.0",
-      components: [
-        { name: "button", type: "ui", description: "Interactive button" },
-      ],
+      components: [{ name: "button", type: "ui", description: "Interactive button" }],
       styles: [],
       themes: [],
     }

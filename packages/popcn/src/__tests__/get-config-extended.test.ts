@@ -2,11 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import * as fs from "fs"
 import * as path from "path"
 import * as os from "os"
-import {
-  getConfigPath,
-  getConfigWithErrors,
-  resolveAlias,
-} from "../utils/get-config.js"
+import { getConfigPath, getConfigWithErrors, resolveAlias } from "../utils/get-config.js"
 
 describe("get-config - extended", () => {
   let tempDir: string
@@ -34,10 +30,7 @@ describe("get-config - extended", () => {
     })
 
     it("should return errors for invalid JSON", () => {
-      fs.writeFileSync(
-        path.join(tempDir, "components.json"),
-        "{ broken json"
-      )
+      fs.writeFileSync(path.join(tempDir, "components.json"), "{ broken json")
       const result = getConfigWithErrors(tempDir)
       expect(result.config).toBeNull()
       expect(result.errors.length).toBeGreaterThan(0)

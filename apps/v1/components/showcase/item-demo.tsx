@@ -15,7 +15,7 @@ import { User, Mail } from "lucide-react"
 
 function ItemDemo() {
   return (
-    <div className="flex flex-col gap-4 w-full max-w-sm">
+    <div className="flex w-full max-w-sm flex-col gap-4">
       <ItemGroup>
         <Item>
           <ItemMedia variant="icon">
@@ -26,7 +26,9 @@ function ItemDemo() {
             <ItemDescription>john@example.com</ItemDescription>
           </ItemContent>
           <ItemActions>
-            <Button size="sm" variant="ghost">Edit</Button>
+            <Button size="sm" variant="ghost">
+              Edit
+            </Button>
           </ItemActions>
         </Item>
         <Item>

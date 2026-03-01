@@ -12,18 +12,13 @@
   --ap-shadow-dark: rgba(0, 0, 0, 0.4);
 
   /* Elevation presets (raised surface) */
-  --ap-elev-1: 4px 4px 8px var(--ap-shadow-dark),
-               -4px -4px 8px var(--ap-shadow-light);
-  --ap-elev-2: 6px 6px 12px var(--ap-shadow-dark),
-               -6px -6px 12px var(--ap-shadow-light);
-  --ap-elev-3: 10px 10px 20px var(--ap-shadow-dark),
-               -10px -10px 20px var(--ap-shadow-light);
+  --ap-elev-1: 4px 4px 8px var(--ap-shadow-dark), -4px -4px 8px var(--ap-shadow-light);
+  --ap-elev-2: 6px 6px 12px var(--ap-shadow-dark), -6px -6px 12px var(--ap-shadow-light);
+  --ap-elev-3: 10px 10px 20px var(--ap-shadow-dark), -10px -10px 20px var(--ap-shadow-light);
 
   /* Inset presets (pressed surface) */
-  --ap-inset-1: inset 2px 2px 5px var(--ap-shadow-dark),
-                inset -2px -2px 5px var(--ap-shadow-light);
-  --ap-inset-2: inset 4px 4px 8px var(--ap-shadow-dark),
-                inset -4px -4px 8px var(--ap-shadow-light);
+  --ap-inset-1: inset 2px 2px 5px var(--ap-shadow-dark), inset -2px -2px 5px var(--ap-shadow-light);
+  --ap-inset-2: inset 4px 4px 8px var(--ap-shadow-dark), inset -4px -4px 8px var(--ap-shadow-light);
 
   /* Toned-down glow for neumo */
   --ap-glow-strength: 0.3;
@@ -76,11 +71,7 @@
 
 /* .shine-effect::before → top-left highlight */
 [data-skin="neumopop"] .shine-effect::before {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 50%
-  );
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
 }
 
 /* .glow-hover → elevate on hover */
@@ -151,7 +142,9 @@
 [data-skin="neumopop"] textarea:focus,
 [data-skin="neumopop"] select:focus {
   border-color: rgb(var(--ap-primary));
-  box-shadow: var(--ap-inset-1), 0 0 0 2px rgba(var(--ap-primary), 0.2);
+  box-shadow:
+    var(--ap-inset-1),
+    0 0 0 2px rgba(var(--ap-primary), 0.2);
 }
 
 /* Card: raised surface, hover elevates further */

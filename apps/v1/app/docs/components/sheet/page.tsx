@@ -18,19 +18,17 @@ export default function SheetPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Sheet</h1>
-        <p className="text-lg text-muted-foreground">
-          Sheet component (side panel).
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Sheet</h1>
+        <p className="text-muted-foreground text-lg">Sheet component (side panel).</p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add sheet" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <div className="space-y-6">
           <ComponentPreview
             title="Right Side"
@@ -55,9 +53,7 @@ export default function SheetPage() {
               <SheetContent>
                 <SheetHeader>
                   <SheetTitle>Sheet Title</SheetTitle>
-                  <SheetDescription>
-                    Sheet description goes here.
-                  </SheetDescription>
+                  <SheetDescription>Sheet description goes here.</SheetDescription>
                 </SheetHeader>
               </SheetContent>
             </Sheet>
@@ -91,7 +87,7 @@ export default function SheetPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

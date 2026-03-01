@@ -8,12 +8,7 @@
       "type": "component"
     }
   ],
-  "dependencies": [
-    "@radix-ui/react-slot",
-    "lucide-react",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["@radix-ui/react-slot", "lucide-react", "clsx", "tailwind-merge"],
   "devDependencies": [],
   "registryDependencies": []
 }

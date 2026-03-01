@@ -26,20 +26,18 @@ export default function InstallationPage() {
   return (
     <div className="max-w-3xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Installation</h1>
-        <p className="text-lg text-muted-foreground">
-          Get started with popcn/ui in your project.
-        </p>
+        <h1 className="mb-4 text-4xl font-bold">Installation</h1>
+        <p className="text-muted-foreground text-lg">Get started with popcn/ui in your project.</p>
       </div>
 
       {/* Framework Tabs */}
       <div className="mb-8">
-        <div className="flex gap-2 mb-4">
+        <div className="mb-4 flex gap-2">
           {(["next", "vite", "astro"] as Framework[]).map((fw) => (
             <button
               key={fw}
               onClick={() => setFramework(fw)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                 framework === fw
                   ? "bg-primary text-primary-foreground"
                   : "bg-muted/30 text-muted-foreground hover:bg-muted/50"
@@ -55,22 +53,24 @@ export default function InstallationPage() {
       <div className="space-y-12">
         {/* Step 1 */}
         <section>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
               1
             </div>
             <h2 className="text-xl font-semibold">Create a new project</h2>
           </div>
           <p className="text-muted-foreground mb-4">
-            Start by creating a new {framework === "next" ? "Next.js" : framework === "vite" ? "Vite + React" : "Astro"} project with TypeScript and Tailwind CSS.
+            Start by creating a new{" "}
+            {framework === "next" ? "Next.js" : framework === "vite" ? "Vite + React" : "Astro"}{" "}
+            project with TypeScript and Tailwind CSS.
           </p>
           <CodeBlock code={frameworkCommands[framework].create} />
         </section>
 
         {/* Step 2 */}
         <section>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
               2
             </div>
             <h2 className="text-xl font-semibold">Initialize popcn/ui</h2>
@@ -79,20 +79,25 @@ export default function InstallationPage() {
             Run the init command to set up your project with AuroraPop design tokens.
           </p>
           <CodeBlock code="npx popcn init" />
-          <p className="text-sm text-muted-foreground mt-4">
-            This will:
-          </p>
-          <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1">
-            <li>Create a <code className="text-primary bg-primary/10 px-1 rounded">components.json</code> configuration file</li>
+          <p className="text-muted-foreground mt-4 text-sm">This will:</p>
+          <ul className="text-muted-foreground mt-2 list-inside list-disc space-y-1 text-sm">
+            <li>
+              Create a{" "}
+              <code className="text-primary bg-primary/10 rounded px-1">components.json</code>{" "}
+              configuration file
+            </li>
             <li>Set up AuroraPop CSS tokens in your global stylesheet</li>
-            <li>Create the <code className="text-primary bg-primary/10 px-1 rounded">cn()</code> utility function</li>
+            <li>
+              Create the <code className="text-primary bg-primary/10 rounded px-1">cn()</code>{" "}
+              utility function
+            </li>
           </ul>
         </section>
 
         {/* Step 3 */}
         <section>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
               3
             </div>
             <h2 className="text-xl font-semibold">Install dependencies</h2>
@@ -105,22 +110,20 @@ export default function InstallationPage() {
 
         {/* Step 4 */}
         <section>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
               4
             </div>
             <h2 className="text-xl font-semibold">Add components</h2>
           </div>
-          <p className="text-muted-foreground mb-4">
-            Start adding components to your project.
-          </p>
+          <p className="text-muted-foreground mb-4">Start adding components to your project.</p>
           <CodeBlock code="npx popcn add button" />
         </section>
 
         {/* Step 5 */}
         <section>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
               5
             </div>
             <h2 className="text-xl font-semibold">Use the component</h2>
@@ -144,23 +147,23 @@ export default function Page() {
       </div>
 
       {/* Manual Installation */}
-      <section className="mt-16 pt-8 border-t border-border/50">
-        <h2 className="text-2xl font-bold mb-4">Manual Installation</h2>
+      <section className="border-border/50 mt-16 border-t pt-8">
+        <h2 className="mb-4 text-2xl font-bold">Manual Installation</h2>
         <p className="text-muted-foreground mb-6">
           If you prefer to set things up manually, follow these steps:
         </p>
 
         <div className="space-y-8">
           <div>
-            <h3 className="text-lg font-semibold mb-3">1. Add Tailwind CSS</h3>
-            <p className="text-sm text-muted-foreground mb-3">
+            <h3 className="mb-3 text-lg font-semibold">1. Add Tailwind CSS</h3>
+            <p className="text-muted-foreground mb-3 text-sm">
               Make sure Tailwind CSS is installed and configured in your project.
             </p>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">2. Add CSS Variables</h3>
-            <p className="text-sm text-muted-foreground mb-3">
+            <h3 className="mb-3 text-lg font-semibold">2. Add CSS Variables</h3>
+            <p className="text-muted-foreground mb-3 text-sm">
               Add the AuroraPop CSS variables to your global stylesheet.
             </p>
             <CodeBlock
@@ -184,8 +187,8 @@ export default function Page() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">3. Configure Tailwind</h3>
-            <p className="text-sm text-muted-foreground mb-3">
+            <h3 className="mb-3 text-lg font-semibold">3. Configure Tailwind</h3>
+            <p className="text-muted-foreground mb-3 text-sm">
               Extend your Tailwind config with the AuroraPop theme.
             </p>
             <CodeBlock
@@ -209,8 +212,8 @@ export default {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">4. Add the cn utility</h3>
-            <p className="text-sm text-muted-foreground mb-3">
+            <h3 className="mb-3 text-lg font-semibold">4. Add the cn utility</h3>
+            <p className="text-muted-foreground mb-3 text-sm">
               Create a utility function for merging class names.
             </p>
             <CodeBlock

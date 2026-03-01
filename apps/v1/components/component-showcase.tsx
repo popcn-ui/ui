@@ -80,15 +80,13 @@ interface ShowcaseItemProps {
 
 function ShowcaseItem({ title, children, className }: ShowcaseItemProps) {
   return (
-    <div className={cn("glass rounded-xl p-6 ", className)}>
+    <div className={cn("glass rounded-xl p-6", className)}>
       {title && (
-        <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
+        <h3 className="text-muted-foreground mb-4 text-xs font-medium uppercase tracking-wider">
           {title}
         </h3>
       )}
-      <div className="flex items-center justify-center">
-        {children}
-      </div>
+      <div className="flex items-center justify-center">{children}</div>
     </div>
   )
 }
@@ -239,34 +237,30 @@ interface ComponentShowcaseProps extends React.HTMLAttributes<HTMLDivElement> {}
 function ComponentShowcase({ className, ...props }: ComponentShowcaseProps) {
   return (
     <div className={cn("space-y-8", className)} {...props}>
-      <div className="text-center space-y-2">
+      <div className="space-y-2 text-center">
         <h2 className="text-2xl font-bold tracking-tight">Components</h2>
-        <p className="text-muted-foreground">
-          66 components. Browse by category.
-        </p>
+        <p className="text-muted-foreground">66 components. Browse by category.</p>
       </div>
 
       <Tabs defaultValue="featured">
         <div className="relative">
-          <div className="overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <TabsList variant="aurora" className="w-max mx-auto flex">
+          <div className="overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <TabsList variant="aurora" className="mx-auto flex w-max">
               {TABS.map((tab) => (
                 <TabsTrigger key={tab.value} value={tab.value} variant="aurora">
                   {tab.label}
-                  <span className="ml-1.5 text-xs opacity-60">
-                    {tab.items.length}
-                  </span>
+                  <span className="ml-1.5 text-xs opacity-60">{tab.items.length}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
           </div>
           {/* Fade hint for mobile scroll */}
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none sm:hidden" />
+          <div className="from-background pointer-events-none absolute bottom-0 right-0 top-0 w-8 bg-gradient-to-l to-transparent sm:hidden" />
         </div>
 
         {TABS.map((tab) => (
           <TabsContent key={tab.value} value={tab.value}>
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {tab.items.map((item) => (
                 <ShowcaseItem key={item.title} title={item.title} className={item.className}>
                   {item.component}

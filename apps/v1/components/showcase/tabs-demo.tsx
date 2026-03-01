@@ -22,7 +22,9 @@ function TabsDemo() {
         <TabsContent value="aurora" className="mt-4">
           <div className="flex flex-wrap gap-2">
             <Badge variant="aurora">Primary</Badge>
-            <Badge variant="aurora" glow>Glow</Badge>
+            <Badge variant="aurora" glow>
+              Glow
+            </Badge>
           </div>
         </TabsContent>
         <TabsContent value="glass" className="mt-4">

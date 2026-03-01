@@ -48,32 +48,34 @@ const checkboxVariants = cva(
 )
 
 export interface CheckboxProps
-  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
+  extends
+    React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
     VariantProps<typeof checkboxVariants> {}
 
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  CheckboxProps
->(({ className, variant, size, ...props }, ref) => (
-  <CheckboxPrimitive.Root
-    ref={ref}
-    className={cn(
-      checkboxVariants({ variant, size }),
-      // Add subtle scale animation on state change
-      "data-[state=checked]:animate-ap-bounce",
-      className
-    )}
-    {...props}
-  >
-    <CheckboxPrimitive.Indicator className={cn(
-      "flex items-center justify-center text-current",
-      // Pop in animation for the checkmark
-      "animate-ap-scale-in"
-    )}>
-      <Check className={cn(size === "sm" ? "h-3 w-3" : size === "lg" ? "h-5 w-5" : "h-4 w-4")} />
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
-))
+const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, CheckboxProps>(
+  ({ className, variant, size, ...props }, ref) => (
+    <CheckboxPrimitive.Root
+      ref={ref}
+      className={cn(
+        checkboxVariants({ variant, size }),
+        // Add subtle scale animation on state change
+        "data-[state=checked]:animate-ap-bounce",
+        className
+      )}
+      {...props}
+    >
+      <CheckboxPrimitive.Indicator
+        className={cn(
+          "flex items-center justify-center text-current",
+          // Pop in animation for the checkmark
+          "animate-ap-scale-in"
+        )}
+      >
+        <Check className={cn(size === "sm" ? "h-3 w-3" : size === "lg" ? "h-5 w-5" : "h-4 w-4")} />
+      </CheckboxPrimitive.Indicator>
+    </CheckboxPrimitive.Root>
+  )
+)
 
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
 

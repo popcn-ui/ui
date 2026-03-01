@@ -17,8 +17,7 @@
   --ap-glass-brightness: 1.08;
   --ap-glass-contrast: 1.05;
   --ap-glass-border-alpha: 0.22;
-  --ap-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.18),
-                   inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  --ap-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(0, 0, 0, 0.18);
   --ap-glass-highlight-alpha: 0.18;
   --ap-glass-shadow-alpha: 0.22;
 
@@ -38,8 +37,9 @@
   /* Composed surfaces */
   --ap-surface: rgba(var(--ap-glass-bg), var(--ap-glass-alpha));
   --ap-surface-border: rgba(var(--ap-border), var(--ap-glass-border-alpha));
-  --ap-surface-shadow: 0 10px 40px rgba(0, 0, 0, var(--ap-glass-shadow-alpha)),
-                        0 2px 8px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.6));
+  --ap-surface-shadow:
+    0 10px 40px rgba(0, 0, 0, var(--ap-glass-shadow-alpha)),
+    0 2px 8px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.6));
 }
 
 /* =====================================================
@@ -58,8 +58,7 @@
   --ap-glass-brightness: 1.02;
   --ap-glass-contrast: 1.02;
   --ap-glass-border-alpha: 0.35;
-  --ap-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.65),
-                   inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+  --ap-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 0 rgba(0, 0, 0, 0.06);
   --ap-glass-highlight-alpha: 0.22;
   --ap-glass-shadow-alpha: 0.08;
   --ap-liquid-shine-alpha: 0.24;
@@ -126,19 +125,13 @@
       rgba(255, 255, 255, var(--ap-glass-highlight-alpha)) 0%,
       rgba(255, 255, 255, 0) 45%
     ),
-    linear-gradient(
-      315deg,
-      rgba(0, 0, 0, 0.22) 0%,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    var(--ap-surface);
+    linear-gradient(315deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 50%), var(--ap-surface);
   backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   border: 1px solid var(--ap-surface-border);
-  box-shadow: var(--ap-glass-edge),
-              var(--ap-surface-shadow);
+  box-shadow: var(--ap-glass-edge), var(--ap-surface-shadow);
 }
 
 [data-skin="glasspop"] .glass::before {
@@ -174,8 +167,7 @@
   -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   border: 1px solid rgba(255, 255, 255, calc(var(--ap-glass-border-alpha) + 0.08));
-  box-shadow: var(--ap-glass-edge),
-              var(--ap-surface-shadow);
+  box-shadow: var(--ap-glass-edge), var(--ap-surface-shadow);
 }
 
 [data-skin="glasspop"] .bg-aurora::before {
@@ -216,14 +208,16 @@
 
 /* .glow-hover → diffused glass glow */
 [data-skin="glasspop"] .glow-hover {
-  transition: box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease),
-              background var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
+  transition:
+    box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease),
+    background var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
 }
 
 [data-skin="glasspop"] .glow-hover:hover {
-  box-shadow: var(--ap-glass-edge),
-              0 8px 32px rgba(var(--ap-primary), calc(0.15 * var(--ap-glow-strength))),
-              0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  box-shadow:
+    var(--ap-glass-edge),
+    0 8px 32px rgba(var(--ap-primary), calc(0.15 * var(--ap-glow-strength))),
+    0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
 }
 
 /* .switch-aurora[checked] → glass primary */
@@ -242,8 +236,9 @@
   -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   color: rgb(var(--ap-foreground));
-  box-shadow: var(--ap-glass-edge),
-              0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  box-shadow:
+    var(--ap-glass-edge),
+    0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
   border-bottom: 2px solid rgba(var(--ap-primary), 0.6);
 }
 
@@ -276,21 +271,10 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-      ellipse 80% 60% at 20% 30%,
-      rgba(var(--ap-aurora-1), 0.35),
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 70% 50% at 80% 50%,
-      rgba(var(--ap-aurora-2), 0.3),
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 60% 70% at 40% 80%,
-      rgba(var(--ap-aurora-3), 0.25),
-      transparent 55%
-    );
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(var(--ap-aurora-1), 0.35), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 80% 50%, rgba(var(--ap-aurora-2), 0.3), transparent 55%),
+    radial-gradient(ellipse 60% 70% at 40% 80%, rgba(var(--ap-aurora-3), 0.25), transparent 55%);
   animation: aurora-shift 20s ease infinite;
   background-size: 200% 200%;
 }
@@ -299,21 +283,10 @@
 .light[data-skin="glasspop"] .aurora-bg::before,
 [data-theme="light"][data-skin="glasspop"] .aurora-bg::before,
 [data-theme="light"] [data-skin="glasspop"] .aurora-bg::before {
-  background: radial-gradient(
-      ellipse 80% 60% at 20% 30%,
-      rgba(var(--ap-aurora-1), 0.25),
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 70% 50% at 80% 50%,
-      rgba(var(--ap-aurora-2), 0.2),
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 60% 70% at 40% 80%,
-      rgba(var(--ap-aurora-3), 0.18),
-      transparent 55%
-    );
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(var(--ap-aurora-1), 0.25), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 80% 50%, rgba(var(--ap-aurora-2), 0.2), transparent 55%),
+    radial-gradient(ellipse 60% 70% at 40% 80%, rgba(var(--ap-aurora-3), 0.18), transparent 55%);
   background-size: 200% 200%;
 }
 
@@ -343,17 +316,15 @@
       rgba(255, 255, 255, 0) 45%
     ),
     var(--ap-surface);
-  backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.9))
-    saturate(var(--ap-glass-saturation))
-    brightness(var(--ap-glass-brightness))
-    contrast(var(--ap-glass-contrast));
+  backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.9)) saturate(var(--ap-glass-saturation))
+    brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   -webkit-backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.9))
-    saturate(var(--ap-glass-saturation))
-    brightness(var(--ap-glass-brightness))
+    saturate(var(--ap-glass-saturation)) brightness(var(--ap-glass-brightness))
     contrast(var(--ap-glass-contrast));
   border-color: rgba(255, 255, 255, calc(var(--ap-glass-border-alpha) + 0.08));
-  box-shadow: var(--ap-glass-edge),
-              0 24px 80px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    var(--ap-glass-edge),
+    0 24px 80px rgba(0, 0, 0, 0.35);
 }
 
 /* --- Card: glass panel --- */
@@ -366,21 +337,16 @@
       rgba(255, 255, 255, var(--ap-glass-highlight-alpha)) 0%,
       rgba(255, 255, 255, 0) 45%
     ),
-    linear-gradient(
-      315deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0) 55%
-    ),
-    var(--ap-surface);
+    linear-gradient(315deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 55%), var(--ap-surface);
   backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   -webkit-backdrop-filter: blur(var(--ap-glass-blur)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness)) contrast(var(--ap-glass-contrast));
   border-color: var(--ap-surface-border);
-  box-shadow: var(--ap-glass-edge),
-              var(--ap-surface-shadow);
-  transition: box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease),
-              transform var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
+  box-shadow: var(--ap-glass-edge), var(--ap-surface-shadow);
+  transition:
+    box-shadow var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease),
+    transform var(--ap-dur-3, 300ms) var(--ap-ease-soft, ease);
 }
 
 [data-skin="glasspop"] .rounded-lg[class*="border"]:not(.ap-dialog-content)::before,
@@ -405,32 +371,36 @@
 
 [data-skin="glasspop"] .rounded-lg[class*="border"]:not(.ap-dialog-content):hover,
 [data-skin="glasspop"] .rounded-xl[class*="border"]:not(.ap-dialog-content):hover {
-  box-shadow: var(--ap-glass-edge),
-              0 8px 32px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 1.5)),
-              0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  box-shadow:
+    var(--ap-glass-edge),
+    0 8px 32px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 1.5)),
+    0 2px 8px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
 }
 
 /* --- Button: glass control + press behavior --- */
 [data-skin="glasspop"] button.bg-aurora,
 [data-skin="glasspop"] [role="button"].bg-aurora {
-  transition: box-shadow var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease),
-              background var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease),
-              transform var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease);
+  transition:
+    box-shadow var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease),
+    background var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease),
+    transform var(--ap-dur-1, 100ms) var(--ap-ease-snap, ease);
 }
 
 [data-skin="glasspop"] button.bg-aurora:hover,
 [data-skin="glasspop"] [role="button"].bg-aurora:hover {
   background: rgba(var(--ap-primary), 0.8);
-  box-shadow: var(--ap-glass-edge),
-              0 4px 16px rgba(var(--ap-primary), 0.2),
-              0 1px 4px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  box-shadow:
+    var(--ap-glass-edge),
+    0 4px 16px rgba(var(--ap-primary), 0.2),
+    0 1px 4px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
 }
 
 [data-skin="glasspop"] button.bg-aurora:active,
 [data-skin="glasspop"] [role="button"].bg-aurora:active {
   background: rgba(var(--ap-primary), 0.85);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15),
-              0 1px 2px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, var(--ap-glass-shadow-alpha));
   transform: scale(0.98);
 }
 
@@ -447,20 +417,22 @@
     rgba(var(--ap-glass-bg), calc(var(--ap-glass-alpha) * 0.55));
   backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.55)) saturate(var(--ap-glass-saturation))
     brightness(var(--ap-glass-brightness));
-  -webkit-backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.55)) saturate(var(--ap-glass-saturation))
-    brightness(var(--ap-glass-brightness));
+  -webkit-backdrop-filter: blur(calc(var(--ap-glass-blur) * 0.55))
+    saturate(var(--ap-glass-saturation)) brightness(var(--ap-glass-brightness));
   border-color: var(--ap-surface-border);
-  box-shadow: var(--ap-glass-edge),
-              inset 0 1px 3px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.4));
+  box-shadow:
+    var(--ap-glass-edge),
+    inset 0 1px 3px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.4));
 }
 
 [data-skin="glasspop"] input:focus,
 [data-skin="glasspop"] textarea:focus,
 [data-skin="glasspop"] select:focus {
   border-color: rgba(var(--ap-primary), 0.6);
-  box-shadow: var(--ap-glass-edge),
-              0 0 0 3px rgba(var(--ap-primary), 0.15),
-              inset 0 1px 3px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.3));
+  box-shadow:
+    var(--ap-glass-edge),
+    0 0 0 3px rgba(var(--ap-primary), 0.15),
+    inset 0 1px 3px rgba(0, 0, 0, calc(var(--ap-glass-shadow-alpha) * 0.3));
 }
 
 /* =====================================================

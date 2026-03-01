@@ -27,19 +27,19 @@ export default function DropdownPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Dropdown Menu</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="mb-4 text-4xl font-bold">Dropdown Menu</h1>
+        <p className="text-muted-foreground text-lg">
           Dropdown menu with glass panel effect. Built on Radix UI.
         </p>
       </div>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Installation</h2>
         <CodeBlock code="npx popcn add dropdown-menu" />
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Basic Usage</h2>
         <ComponentPreview
           title="Simple Dropdown"
           code={`<DropdownMenu>
@@ -75,7 +75,7 @@ export default function DropdownPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Checkboxes</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Checkboxes</h2>
         <ComponentPreview
           title="Checkbox Items"
           code={`const [showStatus, setShowStatus] = useState(true)
@@ -103,10 +103,7 @@ export default function DropdownPage() {
             <DropdownMenuContent>
               <DropdownMenuLabel>Appearance</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem
-                checked={showStatus}
-                onCheckedChange={setShowStatus}
-              >
+              <DropdownMenuCheckboxItem checked={showStatus} onCheckedChange={setShowStatus}>
                 Show Status Bar
               </DropdownMenuCheckboxItem>
             </DropdownMenuContent>
@@ -115,7 +112,7 @@ export default function DropdownPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Radio Items</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Radio Items</h2>
         <ComponentPreview
           title="Radio Group"
           code={`const [position, setPosition] = useState("bottom")
@@ -153,7 +150,7 @@ export default function DropdownPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">With Submenu</h2>
+        <h2 className="mb-4 text-2xl font-semibold">With Submenu</h2>
         <ComponentPreview
           title="Nested Menu"
           code={`<DropdownMenu>
@@ -195,7 +192,7 @@ export default function DropdownPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
         <PropsTable
           props={[
             {

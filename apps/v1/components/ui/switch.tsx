@@ -15,10 +15,7 @@ const switchVariants = cva(
   {
     variants: {
       variant: {
-        default: [
-          "data-[state=unchecked]:bg-muted",
-          "data-[state=checked]:bg-primary",
-        ],
+        default: ["data-[state=unchecked]:bg-muted", "data-[state=checked]:bg-primary"],
         aurora: [
           "data-[state=unchecked]:bg-muted",
           "data-[state=checked]:bg-gradient-to-r",
@@ -65,25 +62,25 @@ const switchThumbVariants = cva(
 )
 
 export interface SwitchProps
-  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>,
+  extends
+    React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>,
     VariantProps<typeof switchVariants> {}
 
-const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitives.Root>,
-  SwitchProps
->(({ className, variant, size, ...props }, ref) => (
-  <SwitchPrimitives.Root
-    className={cn(
-      switchVariants({ variant, size }),
-      variant === "aurora" && "switch-aurora",
-      className
-    )}
-    {...props}
-    ref={ref}
-  >
-    <SwitchPrimitives.Thumb className={cn(switchThumbVariants({ size }))} />
-  </SwitchPrimitives.Root>
-))
+const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitives.Root>, SwitchProps>(
+  ({ className, variant, size, ...props }, ref) => (
+    <SwitchPrimitives.Root
+      className={cn(
+        switchVariants({ variant, size }),
+        variant === "aurora" && "switch-aurora",
+        className
+      )}
+      {...props}
+      ref={ref}
+    >
+      <SwitchPrimitives.Thumb className={cn(switchThumbVariants({ size }))} />
+    </SwitchPrimitives.Root>
+  )
+)
 
 Switch.displayName = SwitchPrimitives.Root.displayName
 

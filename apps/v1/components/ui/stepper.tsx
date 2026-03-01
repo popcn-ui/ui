@@ -18,8 +18,7 @@ const stepperVariants = cva("flex", {
 })
 
 interface StepperProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof stepperVariants> {
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stepperVariants> {
   currentStep?: number
   onStepChange?: (step: number) => void
 }
@@ -33,10 +32,7 @@ function Stepper({
   ...props
 }: StepperProps) {
   return (
-    <div
-      className={cn(stepperVariants({ orientation }), className)}
-      {...props}
-    >
+    <div className={cn(stepperVariants({ orientation }), className)} {...props}>
       {React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, {
@@ -104,8 +100,8 @@ function StepperStep({
               : isActive
                 ? "border-primary bg-background text-primary"
                 : "border-border/60 bg-background text-muted-foreground",
-            !disabled && "cursor-pointer hover:border-primary/80",
-            disabled && "opacity-50 cursor-not-allowed"
+            !disabled && "hover:border-primary/80 cursor-pointer",
+            disabled && "cursor-not-allowed opacity-50"
           )}
         >
           {isCompleted ? (
@@ -117,9 +113,7 @@ function StepperStep({
         {!isLast && (
           <div
             className={cn(
-              orientation === "horizontal"
-                ? "hidden h-0.5 w-12 sm:block"
-                : "h-12 w-0.5",
+              orientation === "horizontal" ? "hidden h-0.5 w-12 sm:block" : "h-12 w-0.5",
               "mx-2",
               isCompleted ? "bg-primary" : "bg-border/60"
             )}
@@ -143,9 +137,7 @@ function StepperStep({
               {label}
             </span>
           )}
-          {description && (
-            <span className="text-xs text-muted-foreground">{description}</span>
-          )}
+          {description && <span className="text-muted-foreground text-xs">{description}</span>}
         </div>
       )}
       {children}
@@ -153,10 +145,4 @@ function StepperStep({
   )
 }
 
-export {
-  Stepper,
-  StepperStep,
-  stepperVariants,
-  type StepperProps,
-  type StepperStepProps,
-}
+export { Stepper, StepperStep, stepperVariants, type StepperProps, type StepperStepProps }
